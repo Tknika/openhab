@@ -1,0 +1,26 @@
+import org.openhab.core.library.types.*
+
+val Number luminosidad_min = 100
+val Number luminosidad_max = 110
+var Number variacion = 10
+
+rule "Control regulacion luces de nafarroa103"
+when 
+    Item nafarroa103_luminosidad_techo_2 received update
+then
+    if (nafarroa103_reserva_estado.state == 2) {
+        var Number luminosidad_actual = nafarroa103_luminosidad_techo_2.state as DecimalType
+        var Number intensidad_actual = nafarroa103_dimmer_luces_1.state as DecimalType
+        if (luminosidad_actual < luminosidad_min) {
+            var intensidad_nueva = intensidad_actual + variacion
+            if (intensidad_nueva > 99) intensidad_nueva = 99
+            if (intensidad_actual != intensidad_nueva)
+                sendCommand(gr_nafarroa103_dimmers, intensidad_nueva)
+        } else if (luminosidad_actual > luminosidad_max) {
+            var intensidad_nueva = intensidad_actual - variacion
+            if (intensidad_nueva < 0) intensidad_nueva = 0
+            if (intensidad_actual != intensidad_nueva)
+                sendCommand(gr_nafarroa103_dimmers, intensidad_nueva)
+        }
+    }
+end

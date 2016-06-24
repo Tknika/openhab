@@ -1,0 +1,59 @@
+Group	gr_urdaburu108_temperaturas	"Urdaburu108 Temperaturas"	(gr_temperaturas)	
+Group	gr_urdaburu108_humedades	"Urdaburu108 Humedades"	(gr_humedades)	
+Group	gr_urdaburu108_radiadores	"Urdaburu108 Radiadores"	(gr_radiadores)	
+Group	gr_urdaburu108_energias	"Urdaburu108 Energías"	(gr_energias)	
+Group:Number:AVG()	gr_urdaburu108_consignas_radiadores	"Urdaburu108 Consignas"
+Group:Switch:OR(ON,OFF)	gr_urdaburu108_interruptores	"Urdaburu108 Interruptores"	(gr_interruptores)	
+Group:Switch:OR(ON,OFF) gr_urdaburu108_interruptores_luces       "Urdaburu108 Interruptores Luces"        (gr_urdaburu108_interruptores)
+Group:Switch:OR(ON,OFF) gr_urdaburu108_interruptores_enchufes    "Urdaburu108 Interruptores Enchufes"     (gr_urdaburu108_interruptores)
+Group:Number:MIN()	gr_urdaburu108_baterias	"Urdaburu108 Baterias [%d %%]"	<battery>	(gr_baterias)	
+Group:Number:SUM()	gr_urdaburu108_potencias	"Potencia total [%.2f W]"	<energy>	(gr_potencias)	
+Group:Number:SUM()	gr_urdaburu108_potencias_luces	"Potencia luces [%.2f W]"	<energy>	(gr_urdaburu108_potencias)	
+Group:Number:SUM()	gr_urdaburu108_potencias_enchufes	"Potencia enchufes [%.2f W]"	<energy>	(gr_urdaburu108_potencias)	
+Group:Contact:OR(OPEN,CLOSED)	gr_urdaburu108_presencia	"Urdaburu108 Presencia [%s]"	<present>
+Group:Contact:OR(OPEN,CLOSED)	gr_urdaburu108_puertas	"Urdaburu108 Puertas [(%d)]"	<door>
+Switch  urdaburu108_reserva_activa       "Urdaburu108 reserva activa"		<calendar>
+DateTime  urdaburu108_reserva_inicio       "Urdaburu108 reserva inicio [%s]"	<clock>
+DateTime  urdaburu108_reserva_fin          "Urdaburu108 reserva fin [%s]"	<clock>
+Number	urdaburu108_consigna_referencia	"Urdaburu108 consigna referencia"
+Switch	urdaburu108_interruptor_general	"Interruptor General"	(gr_interruptores_generales)	
+Switch	urdaburu108_interruptor_general_nocalefaccion	"IG Urdaburu (Sin Calefaccion)"	<switch>	(gr_interruptores_generales)	
+Switch	urdaburu108_interruptor_calefaccion	"Interruptor calefaccion"	<heating>	(gr_interruptores_generales)	
+Switch	urdaburu108_interruptor_enchufe_1	"Enchufes 1"	(gr_urdaburu108,gr_urdaburu108_interruptores_enchufes)		{ zwave3="19" }
+Switch	urdaburu108_interruptor_enchufe_2	"Enchufes 2"	(gr_urdaburu108,gr_urdaburu108_interruptores_enchufes)		{ zwave3="21" }
+Switch	urdaburu108_interruptor_enchufe_3	"Enchufes 3"	(gr_urdaburu108,gr_urdaburu108_interruptores_enchufes)		{ zwave3="22" }
+Switch	urdaburu108_interruptor_luces_1	"Luces 1"	(gr_urdaburu108,gr_urdaburu108_interruptores_luces)		{ zwave3="37:command=switch_binary,respond_to_basic=true" }
+Switch	urdaburu108_interruptor_luces_2	"Luces 2"	(gr_urdaburu108,gr_urdaburu108_interruptores_luces)		{ zwave3="38:command=switch_binary,respond_to_basic=true" }
+Switch	urdaburu108_interruptor_luces_3	"Luces 3"	(gr_urdaburu108,gr_urdaburu108_interruptores_luces)		{ zwave3="39:command=switch_binary,respond_to_basic=true" }
+Number	urdaburu108_potencia_luces_1	"Potencia luces 1 [%.2f W]"	(gr_urdaburu108,gr_urdaburu108_potencias_luces)		{ zwave3="37:command=meter,meter_scale=E_W" }
+Number	urdaburu108_potencia_luces_2	"Potencia luces 2 [%.2f W]"	(gr_urdaburu108,gr_urdaburu108_potencias_luces)		{ zwave3="38:command=meter,meter_scale=E_W" }
+Number	urdaburu108_potencia_luces_3	"Potencia luces 3 [%.2f W]"	(gr_urdaburu108,gr_urdaburu108_potencias_luces)		{ zwave3="39:command=meter,meter_scale=E_W" }
+Number	urdaburu108_potencia_enchufe_1	"Potencia enchufe 1 [%.2f W]"	(gr_urdaburu108_potencias_enchufes,gr_urdaburu108)		{ zwave3="23:1:command=METER,meter_scale=E_W" }
+Number	urdaburu108_potencia_enchufe_2	"Potencia enchufe 2 [%.2f W]"	(gr_urdaburu108_potencias_enchufes,gr_urdaburu108)		{ zwave3="23:2:command=METER,meter_scale=E_W" }
+Number	urdaburu108_potencia_enchufe_3	"Potencia enchufe 3 [%.2f W]"	(gr_urdaburu108_potencias_enchufes,gr_urdaburu108)		{ zwave3="23:3:command=METER,meter_scale=E_W" }
+Number	urdaburu108_energia_enchufe_1	"Energia enchufe 1 [%.3f kWh]"	(gr_urdaburu108,gr_urdaburu108_energias)		{ zwave3="23:1:command=METER,meter_scale=E_KWh" }
+Number	urdaburu108_energia_enchufe_2	"Energia enchufe 2 [%.3f kWh]"	(gr_urdaburu108,gr_urdaburu108_energias)		{ zwave3="23:2:command=METER,meter_scale=E_KWh" }
+Number	urdaburu108_energia_enchufe_3	"Energia enchufe 3 [%.3f kWh]"	(gr_urdaburu108,gr_urdaburu108_energias)		{ zwave3="23:3:command=METER,meter_scale=E_KWh" }
+Number	urdaburu108_tension_enchufe_1	"Voltaje enchufe 1 [%.2f V]"	(gr_urdaburu108)		{ zwave3="23:1:command=METER,meter_scale=E_V" }
+Number	urdaburu108_tension_enchufe_2	"Voltaje enchufe 2 [%.2f V]"	(gr_urdaburu108)		{ zwave3="23:2:command=METER,meter_scale=E_V" }
+Number	urdaburu108_tension_enchufe_3	"Voltaje enchufe 3 [%.2f V]"	(gr_urdaburu108)		{ zwave3="23:3:command=METER,meter_scale=E_V" }
+Number	urdaburu108_intensidad_enchufe_1	"Intensidad enchufe 1 [%.2f A]"	(gr_urdaburu108)		{ zwave3="23:1:command=METER,meter_scale=E_A" }
+Number	urdaburu108_intensidad_enchufe_2	"Intensidad enchufe 2 [%.2f A]"	(gr_urdaburu108)		{ zwave3="23:2:command=METER,meter_scale=E_A" }
+Number	urdaburu108_intensidad_enchufe_3	"Intensidad enchufe 3 [%.2f A]"	(gr_urdaburu108)		{ zwave3="23:3:command=METER,meter_scale=E_A" }
+Number	urdaburu108_temperatura_pared_1	"Temperatura Urdaburu108 [%.1f C]"	<temperature>	(gr_urdaburu108,gr_urdaburu108_temperaturas)		{ zwave3="4:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	urdaburu108_humedad_pared_1	"Humedad Urdaburu108 [%d %%]"	<climate>	(gr_urdaburu108,gr_urdaburu108_humedades)		{ zwave3="4:command=sensor_multilevel,sensor_type=5" }
+Contact	urdaburu108_presencia_techo_1	"Presencia Urdaburu108 [%d]"	<present>	(gr_urdaburu108,gr_urdaburu108_presencia)		{ zwave3="13:command=sensor_binary,respond_to_basic=true" }
+Contact	urdaburu108_presencia_puerta_1	"Presencia puerta 1 [%d]"	<present>	(gr_urdaburu108,gr_urdaburu108_presencia)		{ zwave3="51:command=sensor_binary,sensor_type=12" }
+Contact	urdaburu108_presencia_puerta_2	"Presencia puerta 2 [%d]"	<present>	(gr_urdaburu108,gr_urdaburu108_presencia)		{ zwave3="52:command=sensor_binary,sensor_type=12" }
+Contact	urdaburu108_apertura_puerta_1	"Apertura puerta 1 [%s]"	<door>	(gr_urdaburu108,gr_urdaburu108_puertas)		{ zwave3="51:command=sensor_binary,sensor_type=10" }
+Contact	urdaburu108_apertura_puerta_2	"Apertura puerta 2 [%s]"	<door>	(gr_urdaburu108,gr_urdaburu108_puertas)		{ zwave3="52:command=sensor_binary,sensor_type=10" }
+Number	urdaburu108_luminosidad_techo_1	"Luminosidad Urdaburu108 [%d lux]"	<sun>	(gr_urdaburu108)		{ zwave3="13:command=sensor_multilevel,sensor_type=3" }
+Number	urdaburu108_temperatura_techo_1	"Temperatura sensor mov 108 [%.1f C]"	<temperature>	(gr_urdaburu108,gr_urdaburu108_temperaturas)		{ zwave3="13:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	urdaburu108_consigna_radiador_1	"Consigna radiador 1  [%d]"	<heating>	(gr_urdaburu108,gr_urdaburu108_radiadores,gr_urdaburu108_consignas_radiadores)		{ zwave3="10:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0,refresh_interval=1800" }
+Number	urdaburu108_consigna_radiador_2	"Consigna radiador 2  [%d]"	<heating>	(gr_urdaburu108,gr_urdaburu108_radiadores,gr_urdaburu108_consignas_radiadores)		{ zwave3="11:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0,refresh_interval=1800" }
+Number	urdaburu108_bateria_temperatura_pared_1	"Bateria temp Urdaburu108 [%d %%]"	<battery>	(gr_urdaburu108,gr_urdaburu108_baterias)		{ zwave3="4:command=battery" }
+Number	urdaburu108_bateria_presencia_techo_1	"Bateria sen-mov Urdaburu108 [%d %%]"	<battery>	(gr_urdaburu108,gr_urdaburu108_baterias)		{ zwave3="13:command=battery" }
+Number	urdaburu108_bateria_radiador_1	"Bateria radiador 1 [%d %%]"	<battery>	(gr_urdaburu108,gr_urdaburu108_baterias)		{ zwave3="11:command=battery" }
+Number	urdaburu108_bateria_radiador_2	"Bateria radiador 2 [%d %%]"	<battery>	(gr_urdaburu108,gr_urdaburu108_baterias)		{ zwave3="10:command=battery" }
+Number	urdaburu108_bateria_puerta_1	"Bateria puerta 1 [%d %%]"	<battery>	(gr_urdaburu108,gr_urdaburu108_baterias)		{ zwave3="51:command=battery" }
+Number	urdaburu108_bateria_puerta_2	"Bateria puerta 2 [%d %%]"	<battery>	(gr_urdaburu108,gr_urdaburu108_baterias)		{ zwave3="52:command=battery" }

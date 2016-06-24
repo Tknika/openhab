@@ -1,0 +1,6 @@
+Switch  euskal_herria015_interruptor_general "Interruptor General"   <switch>        (gr_interruptores_generales)
+Switch  euskal_herria015_interruptor_general_nocalefaccion   "Interruptor General (Sin calefacción)"         <switch>        (gr_interruptores_generales)
+Switch  euskal_herria015_interruptor_calefaccion     "Interruptor calefaccion"       <heating>       (gr_interruptores_generales)
+Switch  euskal_herria015_reserva_activa       "Euskal Herria105 reserva activa [%s]"
+String  euskal_herria015_reserva_inicio       "Euskal Herria105 reserva inicio [%s]"
+String  euskal_herria015_reserva_fin          "Euskal Herria105 reserva fin [%s]" 

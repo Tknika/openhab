@@ -1,0 +1,40 @@
+Group	gr_ikaslab101_temperaturas	"Ikaslab101 Temperaturas"	(gr_temperaturas)	
+Group	gr_ikaslab101_potencias	"Ikaslab101 Potencias"	(gr_potencias)	
+Group	gr_ikaslab101_radiadores	"Ikaslab101 Radiadores"	(gr_radiadores)	
+Group:Number:AVG()	gr_ikaslab101_consignas_radiadores	"Nafarroa103 Consignas"
+Group:Switch:OR(ON,OFF)	gr_ikaslab101_interruptores	"Ikaslab101 Interruptores"	(gr_interruptores)	
+Group:Switch:OR(ON,OFF)	gr_ikaslab101_interruptores_luces	"Ikaslab101 Interruptores Luces"	(gr_ikaslab101_interruptores)	
+Group:Switch:OR(ON,OFF)	gr_ikaslab101_interruptores_enchufes	"Ikaslab101 Interruptores Enchufes"	(gr_ikaslab101_interruptores)	
+Group:Number:MIN()	gr_ikaslab101_baterias	"Ikaslab101 Baterias [%d %%]"	<battery>	(gr_baterias)	
+Group:Contact:OR(OPEN,CLOSED)   gr_ikaslab101_presencia        "Ikaslab101 Presencia [%s]"    <present>
+
+Number	ikaslab101_consigna_referencia	"Ikaslab101 consigna referencia [%d C]"
+Switch	ikaslab101_interruptor_general	"Interruptor General"	<switch>	(gr_interruptores_generales)	
+Switch	ikaslab101_interruptor_general_nocalefaccion	"IG Ikaslab (Sin calefacción)"	<switch>	(gr_interruptores_generales)	
+Switch	ikaslab101_interruptor_calefaccion	"Interruptor calefaccion"	<heating>	(gr_interruptores_generales)	
+
+Switch  ikaslab101_reserva_activa	"Ikaslab101 reserva activa"		<calendar>
+DateTime  ikaslab101_reserva_inicio	"Ikaslab101 reserva inicio [%s]"	<clock>
+DateTime  ikaslab101_reserva_fin	"Ikaslab101 reserva fin [%s]"		<clock>
+
+Switch	ikaslab101_interruptor_wallplug_1	"Imp3D wallplug "	(gr_ikaslab101)		{ zwave2="18:command=switch_binary" }
+Number	ikaslab101_potencia_wallplug_1	"Imp3D potencia wallplug [%.2f W]"	(gr_ikaslab101,gr_ikaslab101_potencias)		{ zwave2="18:command=sensor_multilevel,sensor_type=4" }
+Number	ikaslab101_temperatura_pared_1	"Temperatura ikaslab101 [%.1f C]"	<temperature>	(gr_ikaslab101,gr_ikaslab101_temperaturas)		{ zwave2="3:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	ikaslab101_temperatura_techo_1	"Temperatura sensor mov1 [%.1f C]"	<temperature>	(gr_ikaslab101,gr_ikaslab101_temperaturas)		{ zwave2="9:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	ikaslab101_temperatura_techo_2	"Temperatura sensor mov2 [%.1f C]"	<temperature>	(gr_ikaslab101,gr_temperaturas)		{ zwave2="10:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	ikaslab101_humedad_pared_1	"Humedad 1 [%d %%]"	<climate>	(gr_ikaslab101)		{ zwave2="3:command=sensor_multilevel,sensor_type=5" }
+Number	ikaslab101_luminosidad_techo_1	"Luminosidad 1 [%d lux]"	<sun>	(gr_ikaslab101)		{ zwave2="9:command=sensor_multilevel,sensor_type=3" }
+Number	ikaslab101_luminosidad_techo_2	"Luminosidad 2  [%d lux]"	<sun>	(gr_ikaslab101)		{ zwave2="10:command=sensor_multilevel,sensor_type=3" }
+Contact	ikaslab101_presencia_techo_1	"Presencia 1  [%d]"	<present>	(gr_ikaslab101,gr_ikaslab101_presencia)		{ zwave2="9:command=sensor_binary,respond_to_basic=true" }
+Contact	ikaslab101_presencia_techo_2	"Presencia 2 [%d]"	<present>	(gr_ikaslab101,gr_ikaslab101_presencia)		{ zwave2="10:command=sensor_binary,respond_to_basic=true" }
+
+Number	ikaslab101_consigna_radiador_1	"Consigna radiador 1 [%d]"	<heating>	(gr_ikaslab101,gr_ikaslab101_radiadores,gr_ikaslab101_consignas_radiadores)		{ zwave2="6:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0" }
+Number	ikaslab101_consigna_radiador_2	"Consigna radiador 2 [%d]"	<heating>	(gr_ikaslab101,gr_ikaslab101_radiadores,gr_ikaslab101_consignas_radiadores)		{ zwave2="7:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0" }
+Number	ikaslab101_consigna_radiador_3	"Consigna radiador 3 [%d]"	<heating>	(gr_ikaslab101,gr_ikaslab101_radiadores,gr_ikaslab101_consignas_radiadores)		{ zwave2="8:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0" }
+
+Number	ikaslab101_bateria_temperatura_pared_1	"Bateria temp 1 [%d %%]"	<battery>	(gr_ikaslab101,gr_ikaslab101_baterias)		{ zwave2="3:command=battery" }
+Number	ikaslab101_bateria_presencia_techo_1	"Bateria sensor mov 1 [%d %%]"	<battery>	(gr_ikaslab101,gr_ikaslab101_baterias)		{ zwave2="9:command=battery" }
+Number	ikaslab101_bateria_presencia_techo_2	"Bateria sensor mov 2 [%d %%]"	<battery>	(gr_ikaslab101,gr_ikaslab101_baterias)		{ zwave2="10:command=battery" }
+Number	ikaslab101_bateria_radiador_1	"Bateria radiador 1 [%d %%]"	<battery>	(gr_ikaslab101,gr_ikaslab101_baterias)		{ zwave2="6:command=battery" }
+Number	ikaslab101_bateria_radiador_2	"Bateria radiador 2 [%d %%]"	<battery>	(gr_ikaslab101,gr_ikaslab101_baterias)		{ zwave2="7:command=battery" }
+Number	ikaslab101_bateria_radiador_3	"Bateria radiador 3 [%d %%]"	<battery>	(gr_ikaslab101,gr_ikaslab101_baterias)		{ zwave2="8:command=battery" }

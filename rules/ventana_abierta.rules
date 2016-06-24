@@ -1,0 +1,22 @@
+import org.openhab.core.library.types.*
+
+var String ventana_mensaje_aviso = "Atención, ventana abierta y calefacción encendida"
+var String ventana_mensaje_gratitud = "Gracias por colaborar con el medio ambiente"
+
+rule "Nafarroa103 ventana abierta"
+when
+    Item gr_nafarroa103_ventanas changed
+then
+    //if (calderas_potencia_circuito_edificio_2.state > 1) {
+        if (gr_nafarroa103_ventanas.state == CLOSED) {
+            logInfo("Squeeze nafarroa", ventana_mensaje_gratitud)
+            squeezeboxSpeak("nafarroa103", ventana_mensaje_gratitud, 100, false)  
+        } else {
+            while (gr_nafarroa103_ventanas.state == OPEN) {
+                logInfo("Squeeze nafarroa", "Ventana abierta, aviso en chromecast")
+                squeezeboxSpeak("nafarroa103", ventana_mensaje_aviso, 100, false)
+                Thread::sleep(5000)
+            }
+        }
+    //}
+end

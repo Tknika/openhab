@@ -1,0 +1,3 @@
+Number	limpieza_hora_inicio	"Hora de inicio [%d]"	<calendar>
+Number	limpieza_hora_fin	"Hora de fin [%d]"	<calendar>
+Number	limpieza_tiempo_on	"Tiempo encendido"	<clock>

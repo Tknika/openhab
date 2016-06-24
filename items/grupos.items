@@ -1,0 +1,12 @@
+Group	gr_temperaturas	"Temperaturas"
+Group	gr_potencias	"Potencias"
+Group:Number:SUM()	gr_sennet_potencias_activas_edificios	"Potencias activas"
+Group	gr_energias	"Energías"
+Group	gr_tensiones	"Tensiones"
+Group	gr_intensidades	"Intensidades"
+Group:Number:MIN()	gr_baterias	"Baterias [%d %%]"	<battery>
+Group	gr_humedades	"Humedades"
+Group	gr_radiadores	"Radiadores"	<heating>
+Group:Switch:OR(ON,OFF) gr_interruptores     "Interruptores"
+Group	gr_interruptores_generales	"Interruptores generales"
+Group	gr_persianas	"Persianas"

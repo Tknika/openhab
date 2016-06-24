@@ -1,0 +1,89 @@
+import org.openhab.core.library.types.*
+
+rule "Voice control"
+when
+    Item VoiceCommand received command
+then
+    var String command = VoiceCommand.state.toString.toLowerCase
+    logInfo("Reconocimiento de voz", "Comando recibido " + command)
+    var String commandType = null
+    var String item = null
+    var String magnitude = null
+    var String unit = null
+    var String newState = null
+
+    if (command.contains("encender") || command.contains("enciende")) {
+        commandType = "set"
+        newState = "ON"
+    } else if (command.contains("apagar") || command.contains("apaga")) {
+        commandType = "set"
+        newState = "OFF"
+    } else if (command.contains("temperatura")) {
+        commandType = "get"
+        magnitude = "temperatura"
+        item = "nafarroa103_temperatura_pared_1"
+        unit = "grados"
+    } else if (command.contains("humedad")) {
+        commandType = "get"
+        magnitude = "humedad"
+        item = "nafarroa103_humedad_pared_1"
+        unit = "porciento"
+    } else if (command.contains("saluda") || command.contains("salud") || command.contains("saludo")) {
+        commandType = "greeting"
+    }
+
+    logInfo("Reconocimiento de voz", "Tipo de comando " + commandType)
+
+    if (commandType == "set") {
+        if (command.contains("luz") || command.contains("luces")) {
+            item = "luces"
+        } else if (command.contains("ordenador") || command.contains("ordenadores")) {
+            item = "enchufe"
+        } else if (command.contains("wall") || command.contains("plug")) {
+            item = "wallplug"
+        } else if (command.contains("lampara") || command.contains("mpara")) {
+            item = "wallplug_1"
+        }
+
+        if (item != null) {
+            if(command.contains("1")) {
+                item = item + "_1"
+            } else if (command.contains("2")) {
+                item = item + "_2"
+            } else if (command.contains("3")) {
+                item = item + "_3"
+            } else if (command.contains("uno")) {
+                item = item + "_1"
+            } else if (command.contains("dos")) {
+                item = item + "_2"
+            } else if (command.contains("tres")) {
+                item = item + "_3"
+            }
+        }
+	
+        item = "nafarroa103_interruptor_" + item
+
+        if (newState!=null && item!=null) {
+            logInfo("Reconocimiento de voz", "Nombre del item: " + item)
+            sendCommand(item,newState)
+        }
+    }
+
+    if (commandType == "get") {
+        logInfo("Reconocimiento de voz", "Entramos en el get")        
+        val getItem = gr_nafarroa103?.members.filter(n | n.name == item).head
+        val getState = String::format("%.1f", (getItem.state as DecimalType).floatValue())
+        logInfo("Reconocimiento de voz", "El estado es " + getState)
+        var String voiceSentence = getState + " " + unit + " de " + magnitude
+        logInfo("Reconocimiento de voz", "El mensaje de voz es: " + voiceSentence)
+        squeezeboxSpeak("nafarroa103", voiceSentence, 100, false)
+        logInfo("Reconocimiento de voz", "Mensaje de voz leido")
+    }
+
+    if (commandType == "greeting") {
+        logInfo("Reconocimiento de voz", "Entramos en el greeting")
+        var String voiceSentence = "Hola a todos, bienvenidos a  i o t lab"
+        squeezeboxSpeak("nafarroa103", voiceSentence, 100, false)
+    }
+
+end

@@ -1,0 +1,169 @@
+import org.openhab.core.library.types.*
+
+rule "Control general de ikaslab101"
+when
+    Item ikaslab101_interruptor_general received update
+then
+
+    var new_state = ikaslab101_interruptor_general.state.toString
+    gr_ikaslab101_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+    ikaslab101_interruptor_calefaccion.sendCommand(new_state)
+	
+end
+
+rule "Control general de ikaslab101 sin calefaccion"
+when
+    Item ikaslab101_interruptor_general_nocalefaccion received update
+then
+
+    var new_state = ikaslab101_interruptor_general_nocalefaccion.state.toString
+    gr_ikaslab101_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+
+end
+
+rule "Control general de alecop102"
+when
+    Item alecop102_interruptor_general received update
+then
+
+    var new_state = alecop102_interruptor_general.state.toString
+    gr_alecop102_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+    alecop102_interruptor_calefaccion.sendCommand(new_state)
+	
+end
+
+rule "Control general de alecop102 sin calefaccion"
+when
+    Item alecop102_interruptor_general_nocalefaccion received update
+then
+
+    var new_state = alecop102_interruptor_general_nocalefaccion.state.toString
+    gr_alecop102_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+
+end
+
+rule "Control general de nafarroa103"
+when
+    Item nafarroa103_interruptor_general received update
+then
+
+    var new_state = nafarroa103_interruptor_general.state.toString
+    gr_nafarroa103_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+    nafarroa103_interruptor_calefaccion.sendCommand(new_state)
+	
+end
+
+//rule "Control general de nafarroa103 sin calefaccion"
+//when
+//    Item nafarroa103_interruptor_general_nocalefaccion received update
+//then
+//
+//    var new_state = nafarroa103_interruptor_general_nocalefaccion.state.toString
+//    gr_nafarroa103_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+//
+//end
+
+rule "Control general de nafarroa_behera104"
+when
+    Item nafarroa_behera104_interruptor_general received update
+then
+
+    var new_state = nafarroa_behera104_interruptor_general.state.toString
+    gr_nafarroa_behera104_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+    nafarroa_behera104_interruptor_calefaccion.sendCommand(new_state)
+	
+end
+
+rule "Control general de nafarroa_behera104 sin calefaccion"
+when
+    Item nafarroa_behera104_interruptor_general_nocalefaccion received update
+then
+
+    var new_state = nafarroa_behera104_interruptor_general_nocalefaccion.state.toString
+    gr_nafarroa_behera104_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+
+end
+
+rule "Control general de lapurdi105"
+when
+    Item lapurdi105_interruptor_general received update
+then
+
+    var new_state = lapurdi105_interruptor_general.state.toString
+    gr_lapurdi105_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+    lapurdi105_interruptor_calefaccion.sendCommand(new_state)
+	
+end
+
+rule "Control general de lapurdi105 sin calefaccion"
+when
+    Item lapurdi105_interruptor_general_nocalefaccion received update
+then
+
+    var new_state = lapurdi105_interruptor_general_nocalefaccion.state.toString
+    gr_lapurdi105_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+
+end
+
+rule "Control general de zuberoa106"
+when
+    Item zuberoa106_interruptor_general received update
+then
+
+    var new_state = zuberoa106_interruptor_general.state.toString
+    gr_zuberoa106_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+    zuberoa106_interruptor_calefaccion.sendCommand(new_state)
+	
+end
+
+rule "Control general de zuberoa106 sin calefaccion"
+when
+    Item zuberoa106_interruptor_general_nocalefaccion received update
+then
+
+    var new_state = zuberoa106_interruptor_general_nocalefaccion.state.toString
+    gr_zuberoa106_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+
+end
+
+rule "Control general de smc_festo107"
+when
+    Item smc_festo107_interruptor_general received update
+then
+
+    var new_state = smc_festo107_interruptor_general.state.toString
+    gr_smc_festo107_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+    smc_festo107_interruptor_calefaccion.sendCommand(new_state)
+	
+end
+
+rule "Control general de smc_festo107 sin calefaccion"
+when
+    Item smc_festo107_interruptor_general_nocalefaccion received update
+then
+
+    var new_state = smc_festo107_interruptor_general_nocalefaccion.state.toString
+    gr_smc_festo107_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+
+end
+
+rule "Control general de urdaburu108"
+when
+    Item urdaburu108_interruptor_general received update
+then
+
+    var new_state = urdaburu108_interruptor_general.state.toString
+    gr_urdaburu108_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+    urdaburu108_interruptor_calefaccion.sendCommand(new_state)
+	
+end
+
+rule "Control general de urdaburu108 sin calefaccion"
+when
+    Item urdaburu108_interruptor_general_nocalefaccion received update
+then
+
+    var new_state = urdaburu108_interruptor_general_nocalefaccion.state.toString
+    gr_urdaburu108_interruptores?.members.forEach[ item | item.sendCommand(new_state) ]
+
+end

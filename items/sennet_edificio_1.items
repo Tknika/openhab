@@ -1,0 +1,17 @@
+Group	gr_sennet_edificio_1
+String	sennet_timestamp	"Fecha datos [%s]"	{ mqtt="<[mosquitto:openhab/sennet/timestamp:state:default]" }
+Number	sennet_edificio_1_energia_activa	"Eactiva edificio principal [%.1f kWh]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/interno2/ENEact:state:default]" }
+Number	sennet_edificio_1_fotovoltaica_energia_activa	"Energia activa fotovoltaica [%.1f kWh]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/fotovoltaica/ENEact:state:default]" }
+Number	sennet_edificio_1_pbaja_climatizacion_energia_activa	"Energia activa pbaja clima [%.1f kWh]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/pbaja_climatizacion_edificio_1/ENEact:state:default]" }
+Number	sennet_edificio_1_pprimera_climatizacion_energia_activa	"Energia activa pprim clima [%.1f kWh]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/pprim_climatizacion_edificio_1/ENEact:state:default]" }
+Number	sennet_edificio_1_psegunda_climatizacion_energia_activa	"Energia activa pseg clima [%.1f kWh]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/pseg_climatizacion_edificio_1/ENEact:state:default]" }
+Number	sennet_edificio_1_servidores_climatizacion_energia_activa	"Energia activa servidores clima [%.1f kWh]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/climatizacion_servidores/ENEact:state:default]" }
+Number	sennet_edificio_1_potencia_activa	"Pactiva edificio principal [%.1f W]"	(gr_sennet_edificio_1,gr_sennet_potencias_activas_edificios)		{ mqtt="<[mosquitto:openhab/sennet/interno2/POWact:state:default]" }
+Number	sennet_edificio_1_fotovoltaica_potencia_activa	"Potencia activa fotovoltaica [%.1f W]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/fotovoltaica/POWact:state:default], <[mosquitto:openhab/sennet/fotovoltaica/PA1:state:default]" }
+Number	sennet_edificio_1_pbaja_climatizacion_potencia_activa	"Potencia activa pbaja clima [%.1f W]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/pbaja_climatizacion_edificio_1/POWact:state:default]" }
+Number	sennet_edificio_1_pprimera_climatizacion_potencia_activa	"Potencia activa pprim clima [%.1f W]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/pprim_climatizacion_edificio_1/POWact:state:default]" }
+Number	sennet_edificio_1_psegunda_climatizacion_potencia_activa	"Potencia activa pseg clima [%.1f W]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/pseg_climatizacion_edificio_1/POWact:state:default]" }
+Number	sennet_edificio_1_servidores_climatizacion_potencia_activa	"Potencia activa servidores clima [%.1f W]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/climatizacion_servidores/POWact:state:default]" }
+Number	sennet_edificio_1_tension_1	"Tension [%.1f V]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/interno1/VAC1:state:default]" }
+Number	sennet_edificio_1_euskalherria_potencia_activa	"Potencia activa euskalherria [%.1f W]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/auditorio/POWact:state:default]" }
+Number	sennet_edificio_1_euskalherria_energia_activa	"Energia activa euskalherria [%.1f kWh]"	(gr_sennet_edificio_1)		{ mqtt="<[mosquitto:openhab/sennet/auditorio/ENEact:state:default]" }

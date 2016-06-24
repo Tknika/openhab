@@ -1,0 +1,37 @@
+Group	gr_zwave_checker	"Zwave checker"
+Group:Number:SUM()	gr_zwave_checker_nodes_num		"Nodos totales [%d]"
+Group:Number:SUM()	gr_zwave_checker_nodes_ok		"Nodos verdes [%d]"
+Group:Number:SUM()	gr_zwave_checker_nodes_warning		"Nodos amarillos [%d]"
+Group:Number:SUM()	gr_zwave_checker_nodes_error		"Nodos rojos [%d]"
+Group:Number:SUM()	gr_zwave_checker_nodes_uninitialized	"Nodos grises [%d]"
+
+
+String  zwave_checker_timestamp        "Fecha datos [%s]" 	(gr_zwave_checker)                          { mqtt="<[mosquitto:openhab/zwave_checker/timestamp:state:default]" }
+
+Number	zwave_checker_zwave_nodes_num		"Nodos en la red [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_num)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave/nodes_num:state:default]" }
+Number	zwave_checker_zwave_nodes_ok		"Nodos verdes [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_ok)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave/nodes_ok:state:default]" }
+Number	zwave_checker_zwave_nodes_warning	"Nodos amarillos [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_warning)	{ mqtt="<[mosquitto:openhab/zwave_checker/zwave/nodes_warning:state:default]" }
+Number	zwave_checker_zwave_nodes_error		"Nodos rojos [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_error)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave/nodes_error:state:default]" }
+Number	zwave_checker_zwave_nodes_uninitialized	"Nodos grises [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_uninitialized)	{ mqtt="<[mosquitto:openhab/zwave_checker/zwave/nodes_uninitialized:state:default]" }
+String	zwave_checker_zwave_timestamp		"Ultimos datos [%s]"		(gr_zwave_checker)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave/timestamp:state:default]" }
+
+Number	zwave_checker_zwave2_nodes_num		"Nodos en la red [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_num)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave2/nodes_num:state:default]" }
+Number	zwave_checker_zwave2_nodes_ok		"Nodos verdes [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_ok)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave2/nodes_ok:state:default]" }
+Number	zwave_checker_zwave2_nodes_warning	"Nodos amarillos [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_warning)	{ mqtt="<[mosquitto:openhab/zwave_checker/zwave2/nodes_warning:state:default]" }
+Number	zwave_checker_zwave2_nodes_error		"Nodos rojos [%d]"	(gr_zwave_checker,gr_zwave_checker_nodes_error)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave2/nodes_error:state:default]" }
+Number	zwave_checker_zwave2_nodes_uninitialized	"Nodos grises [%d]"	(gr_zwave_checker,gr_zwave_checker_nodes_uninitialized)	{ mqtt="<[mosquitto:openhab/zwave_checker/zwave2/nodes_uninitialized:state:default]" }
+String	zwave_checker_zwave2_timestamp		"Ultimos datos [%s]"		(gr_zwave_checker)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave2/timestamp:state:default]" }
+
+Number	zwave_checker_zwave3_nodes_num		"Nodos en la red [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_num)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave3/nodes_num:state:default]" }
+Number	zwave_checker_zwave3_nodes_ok		"Nodos verdes [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_ok)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave3/nodes_ok:state:default]" }
+Number	zwave_checker_zwave3_nodes_warning	"Nodos amarillos [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_warning)	{ mqtt="<[mosquitto:openhab/zwave_checker/zwave3/nodes_warning:state:default]" }
+Number	zwave_checker_zwave3_nodes_error		"Nodos rojos [%d]"	(gr_zwave_checker,gr_zwave_checker_nodes_error)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave3/nodes_error:state:default]" }
+Number	zwave_checker_zwave3_nodes_uninitialized	"Nodos grises [%d]"	(gr_zwave_checker,gr_zwave_checker_nodes_uninitialized)	{ mqtt="<[mosquitto:openhab/zwave_checker/zwave3/nodes_uninitialized:state:default]" }
+String	zwave_checker_zwave3_timestamp		"Ultimos datos [%s]"		(gr_zwave_checker)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave3/timestamp:state:default]" }
+
+Number	zwave_checker_zwave4_nodes_num		"Nodos en la red [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_num)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave4/nodes_num:state:default]" }
+Number	zwave_checker_zwave4_nodes_ok		"Nodos verdes [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_ok)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave4/nodes_ok:state:default]" }
+Number	zwave_checker_zwave4_nodes_warning	"Nodos amarillos [%d]"		(gr_zwave_checker,gr_zwave_checker_nodes_warning)	{ mqtt="<[mosquitto:openhab/zwave_checker/zwave4/nodes_warning:state:default]" }
+Number	zwave_checker_zwave4_nodes_error		"Nodos rojos [%d]"	(gr_zwave_checker,gr_zwave_checker_nodes_error)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave4/nodes_error:state:default]" }
+Number	zwave_checker_zwave4_nodes_uninitialized	"Nodos grises [%d]"	(gr_zwave_checker,gr_zwave_checker_nodes_uninitialized)	{ mqtt="<[mosquitto:openhab/zwave_checker/zwave4/nodes_uninitialized:state:default]" }
+String	zwave_checker_zwave4_timestamp		"Ultimos datos [%s]"		(gr_zwave_checker)		{ mqtt="<[mosquitto:openhab/zwave_checker/zwave4/timestamp:state:default]" }

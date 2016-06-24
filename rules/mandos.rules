@@ -1,0 +1,42 @@
+import org.openhab.core.library.types.*
+
+rule "Mando nodon 1 boton 1 pulsacion"
+when
+    Item mando_nodon_1_boton_1_pulsacion received update
+then
+    if (nafarroa103_interruptor_luces_1.state == ON)
+        sendCommand(nafarroa103_interruptor_luces_1, OFF)
+    else
+        sendCommand(nafarroa103_interruptor_luces_1, ON)
+end
+
+rule "Mando nodon 1 boton 2 pulsacion"
+when
+    Item mando_nodon_1_boton_2_pulsacion received update
+then
+    if (nafarroa103_interruptor_luces_2.state == ON)
+        sendCommand(nafarroa103_interruptor_luces_2, OFF)
+    else
+        sendCommand(nafarroa103_interruptor_luces_2, ON)
+end
+
+rule "Mando nodon 1 boton 3 pulsacion"
+when
+    Item mando_nodon_1_boton_3_pulsacion received update
+then
+    if (nafarroa103_interruptor_luces_3.state == ON)
+        sendCommand(nafarroa103_interruptor_luces_3, OFF)
+    else
+        sendCommand(nafarroa103_interruptor_luces_3, ON)
+end
+
+rule "Mando nodon 1 boton 4 pulsacion"
+when
+    Item mando_nodon_1_boton_4_pulsacion received update
+then
+    if (nafarroa103_interruptor_lampara_1.state == ON)
+        sendCommand(nafarroa103_interruptor_lampara_1, OFF)
+    else
+        sendCommand(nafarroa103_interruptor_lampara_1, ON)
+end
+

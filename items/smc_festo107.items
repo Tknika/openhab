@@ -1,0 +1,59 @@
+Group	gr_smc_festo107_temperaturas	"Festo107 Temperaturas"	(gr_temperaturas)	
+Group	gr_smc_festo107_humedades	"Festo107 Humedades"	(gr_humedades)	
+Group	gr_smc_festo107_energias	"Festo107 Energías"	(gr_energias)	
+Group	gr_smc_festo107_radiadores	"Festo107 Radiadores"	(gr_radiadores)	
+Group:Number:AVG()	gr_smc_festo107_consignas_radiadores	"Festo107 Consignas"
+Group:Number:MIN()	gr_smc_festo107_baterias	"Festo107 Baterias [%d %%]"	<battery>
+Group:Switch:OR(ON,OFF)	gr_smc_festo107_interruptores	"Festo107 Interruptores"	(gr_interruptores)	
+Group:Switch:OR(ON,OFF) gr_smc_festo107_interruptores_luces       "Festo107 Interruptores Luces"        (gr_smc_festo107_interruptores)
+Group:Switch:OR(ON,OFF) gr_smc_festo107_interruptores_enchufes    "Festo107 Interruptores Enchufes"     (gr_smc_festo107_interruptores)
+Group:Number:SUM()	gr_smc_festo107_potencias	"Potencia total [%.2f W]"	<energy>	(gr_potencias)	
+Group:Number:SUM()	gr_smc_festo107_potencias_luces	"Potencia luces [%.2f W]"	<energy>	(gr_smc_festo107_potencias)	
+Group:Number:SUM()	gr_smc_festo107_potencias_enchufes	"Potencia enchufes [%.2f W]"	<energy>	(gr_smc_festo107_potencias)	
+Group:Contact:OR(OPEN,CLOSED)	gr_smc_festo107_presencia	"Festo107 Presencia [%s]"	<present>
+Group:Contact:OR(OPEN,CLOSED)	gr_smc_festo107_puertas	"Festo107 Puertas [(%d)]"	<door>
+Switch  smc_festo107_reserva_activa       "Festo107 reserva activa"		<calendar>
+DateTime  smc_festo107_reserva_inicio       "Festo107 reserva inicio [%s]"	<clock>
+DateTime  smc_festo107_reserva_fin          "Festo107 reserva fin [%s]"		<clock>
+Number	smc_festo107_consigna_referencia	"Festo107 consigna referencia"
+Switch	smc_festo107_interruptor_general	"Interruptor General"	(gr_interruptores_generales)	
+Switch	smc_festo107_interruptor_general_nocalefaccion	"IG Festo (Sin Calefaccion)"	<switch>	(gr_interruptores_generales)	
+Switch	smc_festo107_interruptor_calefaccion	"Interruptor calefaccion"	<heating>	(gr_interruptores_generales)	
+Switch	smc_festo107_interruptor_enchufe_1	"Enchufes 1"	(gr_smc_festo107,gr_smc_festo107_interruptores_enchufes)		{ zwave3="28" }
+Switch	smc_festo107_interruptor_enchufe_2	"Enchufes 2"	(gr_smc_festo107,gr_smc_festo107_interruptores_enchufes)		{ zwave3="29" }
+Switch	smc_festo107_interruptor_enchufe_3	"Enchufes 3"	(gr_smc_festo107,gr_smc_festo107_interruptores_enchufes)		{ zwave3="30" }
+Number	smc_festo107_potencia_enchufe_1	"Potencia enchufe 1 [%.2f W]"	(gr_smc_festo107,gr_smc_festo107_potencias_enchufes)		{ zwave3="31:1:command=METER,meter_scale=E_W" }
+Number	smc_festo107_potencia_enchufe_2	"Potencia enchufe 2 [%.2f W]"	(gr_smc_festo107,gr_smc_festo107_potencias_enchufes)		{ zwave3="31:2:command=METER,meter_scale=E_W" }
+Number	smc_festo107_potencia_enchufe_3	"Potencia enchufe 3 [%.2f W]"	(gr_smc_festo107,gr_smc_festo107_potencias_enchufes)		{ zwave3="31:3:command=METER,meter_scale=E_W" }
+Number	smc_festo107_tension_enchufe_1	"Voltaje enchufe 1 [%.2f V]"	(gr_smc_festo107)		{ zwave3="31:1:command=METER,meter_scale=E_V" }
+Number	smc_festo107_tension_enchufe_2	"Voltaje enchufe 2 [%.2f V]"	(gr_smc_festo107)		{ zwave3="31:2:command=METER,meter_scale=E_V" }
+Number	smc_festo107_tension_enchufe_3	"Voltaje enchufe 3 [%.2f V]"	(gr_smc_festo107)		{ zwave3="31:3:command=METER,meter_scale=E_V" }
+Number	smc_festo107_intensidad_enchufe_1	"Intensidad enchufe 1 [%.2f A]"	(gr_smc_festo107)		{ zwave3="31:1:command=METER,meter_scale=E_A" }
+Number	smc_festo107_intensidad_enchufe_2	"Intensidad enchufe 2 [%.2f A]"	(gr_smc_festo107)		{ zwave3="31:2:command=METER,meter_scale=E_A" }
+Number	smc_festo107_intensidad_enchufe_3	"Intensidad enchufe 3 [%.2f A]"	(gr_smc_festo107)		{ zwave3="31:3:command=METER,meter_scale=E_A" }
+Number	smc_festo107_energia_enchufe_1	"Energia enchufe 1 [%.2f kWh]"	(gr_smc_festo107,gr_smc_festo107_energias)		{ zwave3="31:1:command=METER,meter_scale=E_KWh" }
+Number	smc_festo107_energia_enchufe_2	"Energia enchufe 2 [%.2f kWh]"	(gr_smc_festo107,gr_smc_festo107_energias)		{ zwave3="31:2:command=METER,meter_scale=E_KWh" }
+Number	smc_festo107_energia_enchufe_3	"Energia enchufe 3 [%.2f kWh]"	(gr_smc_festo107,gr_smc_festo107_energias)		{ zwave3="31:3:command=METER,meter_scale=E_KWh" }
+Switch	smc_festo107_interruptor_luces_1	"Luces 1"	(gr_smc_festo107,gr_smc_festo107_interruptores_luces)		{ zwave3="32:command=switch_binary,respond_to_basic=true" }
+Switch	smc_festo107_interruptor_luces_2	"Luces 2"	(gr_smc_festo107,gr_smc_festo107_interruptores_luces)		{ zwave3="33:command=switch_binary,respond_to_basic=true" }
+Switch	smc_festo107_interruptor_luces_3	"Luces 3"	(gr_smc_festo107,gr_smc_festo107_interruptores_luces)		{ zwave3="36:command=switch_binary,respond_to_basic=true" }
+Number	smc_festo107_potencia_luces_1	"Potencia luces 1 [%.2f W]"	(gr_smc_festo107,gr_smc_festo107_potencias_luces)		{ zwave3="32:command=meter,meter_scale=E_W" }
+Number	smc_festo107_potencia_luces_2	"Potencia luces 2 [%.2f W]"	(gr_smc_festo107,gr_smc_festo107_potencias_luces)		{ zwave3="33:command=meter,meter_scale=E_W" }
+Number	smc_festo107_potencia_luces_3	"Potencia luces 3 [%.2f W]"	(gr_smc_festo107,gr_smc_festo107_potencias_luces)		{ zwave3="36:command=meter,meter_scale=E_W" }
+Number	smc_festo107_temperatura_pared_1	"Temperatura SMC_Festo107 [%.1f C]"	<temperature>	(gr_smc_festo107,gr_smc_festo107_temperaturas)		{ zwave3="3:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	smc_festo107_humedad_pared_1	"Humedad SMC_Festo107 [%d %%]"	<climate>	(gr_smc_festo107,gr_smc_festo107_humedades)		{ zwave3="3:command=sensor_multilevel,sensor_type=5" }
+Contact	smc_festo107_presencia_techo_1	"Presencia smc_festo107 [%d]"	<present>	(gr_smc_festo107,gr_smc_festo107_presencia)		{ zwave3="14:command=sensor_binary,respond_to_basic=true" }
+Contact	smc_festo107_presencia_puerta_1	"Presencia puerta 1 [%d]"	<present>	(gr_smc_festo107,gr_smc_festo107_presencia)		{ zwave3="49:command=sensor_binary,sensor_type=12" }
+Contact	smc_festo107_presencia_puerta_2	"Presencia puerta 2 [%d]"	<present>	(gr_smc_festo107,gr_smc_festo107_presencia)		{ zwave3="50:command=sensor_binary,sensor_type=12" }
+Contact	smc_festo107_apertura_puerta_1	"Apertura puerta 1 [%s]"	<door>	(gr_smc_festo107,gr_smc_festo107_puertas)		{ zwave3="49:command=sensor_binary,sensor_type=10" }
+Contact	smc_festo107_apertura_puerta_2	"Apertura puerta 2 [%s]"	<door>	(gr_smc_festo107,gr_smc_festo107_puertas)		{ zwave3="50:command=sensor_binary,sensor_type=10" }
+Number	smc_festo107_luminosidad_techo_1	"Luminosidad smc_festo107 [%d lux]"	<sun>	(gr_smc_festo107)		{ zwave3="14:command=sensor_multilevel,sensor_type=3" }
+Number	smc_festo107_temperatura_techo_1	"Temperatura sensor mov [%.1f C]"	<temperature>	(gr_smc_festo107,gr_smc_festo107_temperaturas)		{ zwave3="14:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	smc_festo107_consigna_radiador_1	"Consigna radiador 1  [%d]"	<heating>	(gr_smc_festo107,gr_smc_festo107_radiadores,gr_smc_festo107_consignas_radiadores)		{ zwave3="17:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0,refresh_interval=1800" }
+Number	smc_festo107_consigna_radiador_2	"Consigna radiador 2  [%d]"	<heating>	(gr_smc_festo107,gr_smc_festo107_radiadores,gr_smc_festo107_consignas_radiadores)		{ zwave3="18:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0,refresh_interval=1800" }
+Number	smc_festo107_bateria_temperatura_pared_1	"Bateria temp smc_festo107 [%d %%]"	<battery>	(gr_smc_festo107,gr_smc_festo107_baterias)		{ zwave3="3:command=battery" }
+Number	smc_festo107_bateria_presencia_techo_1	"Bateria sensor movimiento [%d %%]"	<battery>	(gr_smc_festo107,gr_smc_festo107_baterias)		{ zwave3="14:command=battery" }
+Number	smc_festo107_bateria_radiador_1	"Bateria radiador 1 [%d %%]"	<battery>	(gr_smc_festo107,gr_smc_festo107_baterias)		{ zwave3="17:command=battery" }
+Number	smc_festo107_bateria_radiador_2	"Bateria radiador 2 [%d %%]"	<battery>	(gr_smc_festo107,gr_smc_festo107_baterias)		{ zwave3="18:command=battery" }
+Number	smc_festo107_bateria_puerta_1	"Bateria puerta 1 [%d %%]"	<battery>	(gr_smc_festo107,gr_smc_festo107_baterias)		{ zwave3="49:command=battery" }
+Number	smc_festo107_bateria_puerta_2	"Bateria puerta 2 [%d %%]"	<battery>	(gr_smc_festo107,gr_smc_festo107_baterias)		{ zwave3="50:command=battery" }

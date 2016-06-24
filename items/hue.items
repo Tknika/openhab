@@ -1,0 +1,34 @@
+Group	gr_hue	"Grupo Hue"
+Group:Switch:OR(ON,OFF)	 gr_hue_interruptores	"Hue Interruptores [(%d)]"
+Group	gr_hue_colores	"Grupo Hue Colores"
+Group:Dimmer	gr_hue_dimmers	"Hue Dimmers [(%d)]"
+Group:Dimmer	gr_hue_temperaturas_color	"Grupo Hue Temperaturas de Color"
+Switch	hue_interruptor_escena	"Escena 1"
+Switch	hue_interruptor_0	"Hue General"	(gr_hue)		{ mqtt="<[mosquitto:openhab/hue0/state:command:default]", mqtt=">[mosquitto:openhab/hue0/state_out:command:*:${command}]" }
+Color	hue_color_0	"Hue Color General"	(gr_hue)		{ mqtt="<[mosquitto:openhab/hue0/color:command:default]", mqtt=">[mosquitto:openhab/hue0/color_out:command:*:${command}]" }
+Dimmer	hue_dimmer_0	"Hue Dimmer General"	(gr_hue)		{ mqtt="<[mosquitto:openhab/hue0/bright:command:default]", mqtt=">[mosquitto:openhab/hue0/bright_out:command:*:${command}]" }
+Dimmer	hue_temperatura_color_0	"Hue Temperatura Color General"	(gr_hue)	
+Switch	hue_interruptor_1	"Hue 1"	(gr_hue,gr_hue_interruptores)		{ hue="8", mqtt="<[mosquitto:openhab/hue1/state:command:default]", mqtt=">[mosquitto:openhab/hue1/state_out:command:*:${command}]" }
+Switch	hue_interruptor_2	"Hue 2"	(gr_hue,gr_hue_interruptores)		{ hue="9", mqtt="<[mosquitto:openhab/hue2/state:command:default]", mqtt=">[mosquitto:openhab/hue2/state_out:command:*:${command}]" }
+Switch	hue_interruptor_3	"Hue 3"	(gr_hue,gr_hue_interruptores)		{ hue="10", mqtt="<[mosquitto:openhab/hue3/state:command:default]", mqtt=">[mosquitto:openhab/hue3/state_out:command:*:${command}]" }
+Switch	hue_interruptor_4	"Hue 4"	(gr_hue,gr_hue_interruptores)		{ hue="11", mqtt="<[mosquitto:openhab/hue4/state:command:default]", mqtt=">[mosquitto:openhab/hue4/state_out:command:*:${command}]" }
+Switch	hue_interruptor_5	"Hue 5"	(gr_hue,gr_hue_interruptores)		{ hue="12", mqtt="<[mosquitto:openhab/hue5/state:command:default]", mqtt=">[mosquitto:openhab/hue5/state_out:command:*:${command}]" }
+Switch	hue_interruptor_6	"Hue 6"	(gr_hue,gr_hue_interruptores)		{ hue="13", mqtt="<[mosquitto:openhab/hue6/state:command:default]", mqtt=">[mosquitto:openhab/hue6/state_out:command:*:${command}]" }
+Color	hue_color_1	"Hue Color 1"	(gr_hue,gr_hue_colores)		{ hue="8", mqtt="<[mosquitto:openhab/hue1/color:command:default]", mqtt=">[mosquitto:openhab/hue1/color_out:command:*:${command}]" }
+Color	hue_color_2	"Hue Color 2"	(gr_hue,gr_hue_colores)		{ hue="9", mqtt="<[mosquitto:openhab/hue2/color:command:default]", mqtt=">[mosquitto:openhab/hue2/color_out:command:*:${command}]" }
+Color	hue_color_3	"Hue Color 3"	(gr_hue,gr_hue_colores)		{ hue="10", mqtt="<[mosquitto:openhab/hue3/color:command:default]", mqtt=">[mosquitto:openhab/hue3/color_out:command:*:${command}]" }
+Color	hue_color_4	"Hue Color 4"	(gr_hue,gr_hue_colores)		{ hue="11", mqtt="<[mosquitto:openhab/hue4/color:command:default]", mqtt=">[mosquitto:openhab/hue4/color_out:command:*:${command}]" }
+Color	hue_color_5	"Hue Color 5"	(gr_hue,gr_hue_colores)		{ hue="12", mqtt="<[mosquitto:openhab/hue5/color:command:default]", mqtt=">[mosquitto:openhab/hue5/color_out:command:*:${command}]" }
+Color	hue_color_6	"Hue Color 6"	(gr_hue,gr_hue_colores)		{ hue="13", mqtt="<[mosquitto:openhab/hue6/color:command:default]", mqtt=">[mosquitto:openhab/hue6/color_out:command:*:${command}]" }
+Dimmer	hue_dimmer_1	"Hue Dimmer 1"	(gr_hue,gr_hue_dimmers)		{ hue="8;brightness;30", mqtt="<[mosquitto:openhab/hue1/bright:command:default]", mqtt=">[mosquitto:openhab/hue1/bright_out:command:*:${command}]" }
+Dimmer	hue_dimmer_2	"Hue Dimmer 2"	(gr_hue,gr_hue_dimmers)		{ hue="9;brightness;30", mqtt="<[mosquitto:openhab/hue2/bright:command:default]", mqtt=">[mosquitto:openhab/hue2/bright_out:command:*:${command}]" }
+Dimmer	hue_dimmer_3	"Hue Dimmer 3"	(gr_hue,gr_hue_dimmers)		{ hue="10;brightness;30", mqtt="<[mosquitto:openhab/hue3/bright:command:default]", mqtt=">[mosquitto:openhab/hue3/bright_out:command:*:${command}]" }
+Dimmer	hue_dimmer_4	"Hue Dimmer 4"	(gr_hue,gr_hue_dimmers)		{ hue="11;brightness;30", mqtt="<[mosquitto:openhab/hue4/bright:command:default]", mqtt=">[mosquitto:openhab/hue4/bright_out:command:*:${command}]" }
+Dimmer	hue_dimmer_5	"Hue Dimmer 5"	(gr_hue,gr_hue_dimmers)		{ hue="12;brightness;30", mqtt="<[mosquitto:openhab/hue5/bright:command:default]", mqtt=">[mosquitto:openhab/hue5/bright_out:command:*:${command}]" }
+Dimmer	hue_dimmer_6	"Hue Dimmer 6"	(gr_hue,gr_hue_dimmers)		{ hue="13;brightness;30", mqtt="<[mosquitto:openhab/hue6/bright:command:default]", mqtt=">[mosquitto:openhab/hue6/bright_out:command:*:${command}]" }
+Dimmer	hue_temperatura_color_1	"Hue Temperatura Color 1"	(gr_hue,gr_hue_temperaturas_color)		{ hue="8;colorTemperature;30" }
+Dimmer	hue_temperatura_color_2	"Hue Temperatura Color 2"	(gr_hue,gr_hue_temperaturas_color)		{ hue="9;colorTemperature;30" }
+Dimmer	hue_temperatura_color_3	"Hue Temperatura Color 3"	(gr_hue,gr_hue_temperaturas_color)		{ hue="10;colorTemperature;30" }
+Dimmer	hue_temperatura_color_4	"Hue Temperatura Color 4"	(gr_hue,gr_hue_temperaturas_color)		{ hue="11;colorTemperature;30" }
+Dimmer	hue_temperatura_color_5	"Hue Temperatura Color 5"	(gr_hue,gr_hue_temperaturas_color)		{ hue="12;colorTemperature;30" }
+Dimmer	hue_temperatura_color_6	"Hue Temperatura Color 6"	(gr_hue,gr_hue_temperaturas_color)		{ hue="13;colorTemperature;30" }

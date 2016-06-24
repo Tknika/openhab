@@ -1,0 +1,992 @@
+sitemap main label="TKNIKA IoT"
+{
+	Group item=gr_menu_aulas label="DOMOTICA AULAS" icon="house" {
+		Frame label="-1 Planta" icon="cellar" {
+			Group item=gr_calderas label="Sala de Calderas" icon="cellar" labelcolor=[gr_calderas_alarmas==ON="red"] {
+				Frame label="Temperaturas" {
+					Text item=calderas_temp_exterior					
+					Text item=calderas_temp_colector_impulsion					
+					Text item=calderas_temp_retorno_comun					
+					Text item=calderas_temp_impulsion_caldera_gas					
+					Text item=calderas_temp_retorno_caldera_gas					
+					Text item=calderas_temp_humos_caldera_gas					
+					Text item=calderas_temp_impulsion_caldera_biomasa					
+					Text item=calderas_temp_retorno_caldera_biomasa					
+					Text item=calderas_temp_humos_caldera_biomasa					
+					Text item=calderas_temp_entrada_depositos					
+					Text item=calderas_temp_salida_depositos					
+					Text item=calderas_temp_impulsion_caldera_biomasa_a_colector					
+				}				
+				Frame label="Consignas" {
+					Text item=calderas_consigna_caldera_gas					
+				}				
+				Frame label="Interruptores" {
+					Switch item=calderas_interruptor_circuito_edificio_1					
+					Switch item=calderas_interruptor_circuito_edificio_2					
+					Switch item=calderas_interruptor_circuito_edificio_3					
+					Switch item=calderas_interruptor_circuito_biotknifish					
+				}				
+				Frame label="Circuito edificio 1" {
+					Setpoint item=calderas_consigna_circuito_edificio_1					
+					Text item=calderas_temp_impulsion_circuito_edificio_1					
+					Text item=calderas_estado_bomba_circuito_edificio_1					
+					Text item=calderas_apertura_v3v_circuito_edificio_1					
+				}				
+				Frame label="Circuito edifico 2" {
+					Setpoint item=calderas_consigna_circuito_edificio_2					
+					Text item=calderas_temp_impulsion_circuito_edificio_2					
+					Text item=calderas_estado_bomba_circuito_edificio_2					
+					Text item=calderas_apertura_v3v_circuito_edificio_2					
+				}				
+				Frame label="Circuito edificio 3" {
+					Setpoint item=calderas_consigna_circuito_edificio_3					
+					Text item=calderas_temp_impulsion_circuito_edificio_3					
+					Text item=calderas_estado_bomba_circuito_edificio_3					
+					Text item=calderas_apertura_v3v_circuito_edificio_3					
+				}				
+				Frame label="Circuito biotknifish" {
+					Setpoint item=calderas_consigna_circuito_biotknifish					
+					Text item=calderas_estado_bomba_circuito_biotknifish					
+				}				
+				Frame label="Información" {
+					Text item=calderas_modbus_timestamp					
+				}				
+				Frame label="Otros" {
+					Group label="Otros" icon="solarplant" {
+						Frame label="Energia" {
+							Text item=calderas_energia_producida_caldera_gas							
+							Text item=calderas_energia_producida_caldera_biomasa							
+						}						
+						Frame label="Estados" {
+							Text item=calderas_estado_caldera_gas							
+							Text item=calderas_estado_bomba_caldera_gas							
+							Text item=calderas_estado_caldera_biomasa							
+							Text item=calderas_estado_bomba_caldera_biomasa_a_colector							
+							Text item=calderas_estado_ventilador_sala							
+							Text item=calderas_estado_electrovalvula_gas							
+							Text item=calderas_estado_v2v_caldera_gas							
+							Text item=calderas_estado_v2v_caldera_biomasa							
+						}						
+						Frame label="Alarmas" {
+							Text item=calderas_alarma_presostato_colector							
+							Text item=calderas_alarma_caldera_gas							
+							Text item=calderas_alarma_caldera_biomasa							
+							Text item=calderas_alarma_centralita_caldera_gas							
+						}						
+						Frame label="Mas" {
+							Text item=calderas_apertura_v3v_caldera_biomasa							
+							Text item=calderas_presostato_ventilador_sala							
+						}						
+						Frame label="Información" {
+							Text item=calderas_modbus_timestamp							
+						}						
+					}					
+					Group label="Mbus" icon="solarplant" {
+						Frame label="Edificio 2 Principal" {
+							Text item=calderas_potencia_circuito_edificio_2							
+							Text item=calderas_energia_circuito_edificio_2							
+							Text item=calderas_caudal_circuito_edificio_2							
+							Text item=calderas_volumen_circuito_edificio_2							
+							Text item=calderas_temp_impulsion_2_circuito_edificio_2							
+							Text item=calderas_temp_retorno_circuito_edificio_2							
+						}						
+						Frame label="Edificio 1 Talleres" {
+							Text item=calderas_potencia_circuito_edificio_1							
+							Text item=calderas_energia_circuito_edificio_1							
+							Text item=calderas_caudal_circuito_edificio_1							
+							Text item=calderas_volumen_circuito_edificio_1							
+							Text item=calderas_temp_impulsion_2_circuito_edificio_1							
+							Text item=calderas_temp_retorno_circuito_edificio_1							
+						}						
+						Frame label="Edificio 3 Ideatk" {
+							Text item=calderas_potencia_circuito_edificio_3							
+							Text item=calderas_energia_circuito_edificio_3							
+							Text item=calderas_caudal_circuito_edificio_3							
+							Text item=calderas_volumen_circuito_edificio_3							
+							Text item=calderas_temp_impulsion_2_circuito_edificio_3							
+							Text item=calderas_temp_retorno_circuito_edificio_3							
+						}						
+						Frame label="Información" {
+							Text item=calderas_mbus_timestamp							
+						}						
+					}					
+				}				
+			}			
+			Group label="Armario electrico" icon="groundfloor" {
+				Frame label="Energia" {
+					Text item=sennet_edificio_1_energia_activa					
+					Text item=sennet_edificio_2_energia_activa					
+					Text item=sennet_edificio_3_energia_activa					
+					Text item=sennet_edificio_1_fotovoltaica_energia_activa					
+					Text item=sennet_edificio_1_pbaja_climatizacion_energia_activa					
+					Text item=sennet_edificio_1_pprimera_climatizacion_energia_activa					
+					Text item=sennet_edificio_1_psegunda_climatizacion_energia_activa					
+					Text item=sennet_edificio_1_servidores_climatizacion_energia_activa					
+					Text item=sennet_edificio_1_euskalherria_energia_activa					
+				}				
+				Frame label="Potencia" {
+					Text item=sennet_edificio_1_potencia_activa					
+					Text item=sennet_edificio_2_potencia_activa					
+					Text item=sennet_edificio_3_potencia_activa					
+					Text item=sennet_edificio_1_fotovoltaica_potencia_activa					
+					Text item=sennet_edificio_1_pbaja_climatizacion_potencia_activa					
+					Text item=sennet_edificio_1_pprimera_climatizacion_potencia_activa					
+					Text item=sennet_edificio_1_psegunda_climatizacion_potencia_activa					
+					Text item=sennet_edificio_1_servidores_climatizacion_potencia_activa					
+					Text item=sennet_edificio_1_euskalherria_potencia_activa					
+				}				
+				Frame label="Información" {
+					Text item=sennet_timestamp					
+				}				
+			}			
+		}		
+		Frame label="0 Planta" icon="groundfloor" {
+			Group item=gr_araba003 label="003 Araba" icon="groundfloor"			
+			Group item=gr_bizkaia004 label="004 Bizkaia" icon="groundfloor"			
+			Group item=gr_gipuzkoa006 label="006 Gipuzkoa" icon="groundfloor"			
+		}		
+		Frame label="1 Planta" icon="firstfloor" {
+			Text label="101 Ikaslab" icon="firstfloor" {
+				Frame label="Interruptores generales" {
+					Text item=ikaslab101_reserva_activa label="Aula reservada [%S]" {
+						Text item=ikaslab101_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
+						Text item=ikaslab101_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
+					}					
+					Switch item=ikaslab101_interruptor_calefaccion					
+				}				
+				Frame label="Exterior" {
+					Text item=exterior_temperatura_norte_1 label="Temperatura exterior [%.1f C]" icon="temperature"					
+					Text item=exterior_humedad_norte_1 label="Humedad exterior [%d %%]" icon="climate"					
+				}				
+				Frame label="Interior" {
+					Text item=ikaslab101_temperatura_pared_1 label="Temperatura [%.1f ºC]" icon="temperature" {
+						Chart item=ikaslab101_temperatura_pared_1						
+						Text item=ikaslab101_temperatura_techo_1						
+						Text item=ikaslab101_temperatura_techo_2						
+					}					
+					Text item=ikaslab101_humedad_pared_1 label="Humedad [%.1f %%]" icon="climate"					
+					Text item=ikaslab101_luminosidad_techo_1					
+					Text item=ikaslab101_luminosidad_techo_2					
+					Group item=gr_ikaslab101_presencia label="Presencia [%d]" {
+						Text item=ikaslab101_presencia_techo_1						
+						Text item=ikaslab101_presencia_techo_2						
+					}					
+				}				
+				Frame label="Consignas" {
+					Setpoint item=ikaslab101_consigna_radiador_1					
+					Setpoint item=ikaslab101_consigna_radiador_2					
+					Setpoint item=ikaslab101_consigna_radiador_3 label="Consigna radiador 3 [%d]" icon="heating"					
+				}				
+				Frame label="Interruptores individuales" {
+					Switch item=ikaslab101_interruptor_wallplug_1 icon="socket"					
+				}				
+				Frame label="Consumos" {
+					Group label="Consumos individualizados" icon="energy" {
+						Text item=ikaslab101_potencia_wallplug_1						
+					}					
+				}				
+				Frame label="Baterias" {
+					Group item=gr_ikaslab101_baterias {
+						Text item=ikaslab101_bateria_temperatura_pared_1						
+						Text item=ikaslab101_bateria_presencia_techo_1						
+						Text item=ikaslab101_bateria_presencia_techo_2						
+						Text item=ikaslab101_bateria_radiador_1						
+						Text item=ikaslab101_bateria_radiador_2						
+						Text item=ikaslab101_bateria_radiador_3						
+					}					
+				}				
+			}			
+			Text label="102 Alecop" icon="firstfloor" {
+				Frame label="Interruptores generales" {
+					Text item=alecop102_reserva_activa label="Aula reservada [%S]" {
+						Text item=alecop102_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
+						Text item=alecop102_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
+					}					
+					Switch item=alecop102_interruptor_calefaccion					
+				}				
+				Frame label="Exterior" {
+					Text item=exterior_temperatura_norte_1					
+					Text item=exterior_humedad_norte_1					
+				}				
+				Frame label="Interior" {
+					Text item=alecop102_temperatura_pared_1 label="Temperatura [%.1f ºC]" {
+						Chart item=alecop102_temperatura_pared_1						
+						Text item=alecop102_temperatura_techo_1						
+						Text item=alecop102_temperatura_techo_2						
+					}					
+					Text item=alecop102_humedad_pared_1 label="Humedad [%.1f %%]"					
+					Text item=alecop102_luminosidad_techo_1					
+					Text item=alecop102_luminosidad_techo_2					
+					Group item=gr_alecop102_presencia label="Presencia [%d]" {
+						Text item=alecop102_presencia_techo_1						
+						Text item=alecop102_presencia_techo_2						
+					}					
+				}				
+				Frame label="Consignas" {
+					Setpoint item=alecop102_consigna_radiador_1					
+					Setpoint item=alecop102_consigna_radiador_2					
+					Setpoint item=alecop102_consigna_radiador_3					
+				}				
+				Frame label="Baterias" {
+					Group item=gr_alecop102_baterias {
+						Text item=alecop102_bateria_presencia_techo_1						
+						Text item=alecop102_bateria_presencia_techo_2						
+						Text item=alecop102_bateria_temperatura_pared_1						
+						Text item=alecop102_bateria_radiador_1						
+						Text item=alecop102_bateria_radiador_2						
+						Text item=alecop102_bateria_radiador_3						
+					}					
+				}				
+			}			
+			Text item=gr_nafarroa103_potencias label="103 Nafarroa [%.1f W]" icon="firstfloor" labelcolor=[nafarroa103_reserva_activa==ON="red"] {
+				Frame label="Interruptores generales" {
+					Text item=nafarroa103_reserva_activa label="Aula reservada [%S]" icon="calendar" {
+						Text item=nafarroa103_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]" icon="clock"						
+						Text item=nafarroa103_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]" icon="clock"						
+					}					
+					Switch item=nafarroa103_interruptor_general					
+					Switch item=nafarroa103_interruptor_calefaccion					
+					Switch item=nafarroa103_interruptor_general_nocalefaccion					
+				}				
+				Frame label="Interruptores individuales" {
+					Switch item=nafarroa103_interruptor_luces_1					
+					Switch item=nafarroa103_interruptor_luces_2					
+					Switch item=nafarroa103_interruptor_luces_3					
+					Slider item=nafarroa103_dimmer_luces_1					
+					Slider item=nafarroa103_dimmer_luces_2					
+					Slider item=nafarroa103_dimmer_luces_3					
+					Switch item=nafarroa103_interruptor_enchufe_1					
+					Switch item=nafarroa103_interruptor_enchufe_2					
+					Switch item=nafarroa103_interruptor_enchufe_3					
+					Switch item=nafarroa103_persiana_1					
+					Switch item=nafarroa103_persiana_2					
+					Group label="Philips Hue" icon="colorwheel" {
+						Frame label="Philips Hue Todas" {
+							Switch item=hue_interruptor_escena							
+							Switch item=gr_hue_interruptores							
+							Slider item=gr_hue_dimmers							
+							Colorpicker item=hue_color_0							
+							Slider item=gr_hue_temperaturas_color							
+						}						
+						Frame label="Philips Hue 1" {
+							Switch item=hue_interruptor_1							
+							Slider item=hue_dimmer_1							
+							Colorpicker item=hue_color_1							
+							Slider item=hue_temperatura_color_1							
+						}						
+						Frame label="Philips Hue 2" {
+							Switch item=hue_interruptor_2							
+							Slider item=hue_dimmer_2							
+							Colorpicker item=hue_color_2							
+							Slider item=hue_temperatura_color_2							
+						}						
+						Frame label="Philips Hue 3" {
+							Switch item=hue_interruptor_3							
+							Slider item=hue_dimmer_3							
+							Colorpicker item=hue_color_3							
+							Slider item=hue_temperatura_color_3							
+						}						
+						Frame label="Philips Hue 4" {
+							Switch item=hue_interruptor_4							
+							Slider item=hue_dimmer_4							
+							Colorpicker item=hue_color_4							
+							Slider item=hue_temperatura_color_4							
+						}						
+						Frame label="Philips Hue 5" {
+							Switch item=hue_interruptor_5							
+							Slider item=hue_dimmer_5							
+							Colorpicker item=hue_color_5							
+							Slider item=hue_temperatura_color_5							
+						}						
+						Frame label="Philips Hue 6" {
+							Switch item=hue_interruptor_6							
+							Slider item=hue_dimmer_6							
+							Colorpicker item=hue_color_6							
+							Slider item=hue_temperatura_color_6							
+						}						
+					}					
+				}				
+				Frame label="Consignas" {
+					Setpoint item=nafarroa103_consigna_radiador_1					
+					Setpoint item=nafarroa103_consigna_radiador_2					
+				}				
+				Frame label="Exterior" {
+					Text item=exterior_temperatura_norte_1 label="Temperatura exterior [%.1f C]" icon="temperature"					
+					Text item=exterior_humedad_norte_1 label="Humedad exterior [%d %%]" icon="climate"					
+				}				
+				Frame label="Interior " {
+					Text item=nafarroa103_temperatura_pared_1 label="Temperatura [%.1f C]" icon="temperature" {
+						Text item=nafarroa103_temperatura_netatmo_1						
+						Text item=nafarroa103_temperatura_techo_1 label="Temperatura 2 [%.1f C]" icon="temperature"						
+						Text item=nafarroa103_temperatura_techo_2						
+						Text item=nafarroa103_temperatura_puerta_1						
+						Chart item=gr_nafarroa103_temperaturas label="Temperatura Nafarroa 103"						
+					}					
+					Text item=nafarroa103_humedad_pared_1 label="Humedad [%d %%]" icon="climate" {
+						Text item=nafarroa103_humedad_netatmo_1						
+						Text item=nafarroa103_humedad_techo_1 label="Humedad 2 [%d %%]" icon="climate"						
+						Text item=nafarroa103_humedad_techo_2						
+					}					
+					Text item=nafarroa103_luminosidad_techo_2 label="Luminosidad [%d lux]" {
+						Text item=nafarroa103_luminosidad_techo_1 label="Luminosidad techo 1 [%d lux]" icon="sun"						
+						Text item=nafarroa103_luminosidad_puerta_1						
+					}					
+					Text label="Otros" icon="smartheater" {
+						Text item=nafarroa103_presion_netatmo_1						
+						Text item=nafarroa103_co2_netatmo_1						
+						Text item=nafarroa103_ruido_netatmo_1						
+					}					
+					Group item=gr_nafarroa103_presencia label="Presencia [MAP(presenceToNumber.map):%s]" {
+						Text item=nafarroa103_presencia_techo_1						
+						Text item=nafarroa103_presencia_techo_2						
+						Text item=nafarroa103_presencia_puerta_1						
+					}					
+					Group item=gr_nafarroa103_puertas label="Puertas [%S]" {
+						Text item=nafarroa103_apertura_puerta_1						
+					}					
+					Group item=gr_nafarroa103_ventanas label="Ventanas [%S]" {
+						Text item=nafarroa103_apertura_ventana_1						
+						Text item=nafarroa103_apertura_ventana_2						
+						Text item=nafarroa103_apertura_ventana_3						
+						Text item=nafarroa103_apertura_ventana_4						
+					}					
+				}				
+				Frame label="Consumos" {
+					Text item=gr_nafarroa103_potencias icon="energy" {
+						Frame label="Luz" {
+							Text item=nafarroa103_potencia_luces_1 label="Potencia luz 1 [%.2f W]" icon="slider"							
+							Text item=nafarroa103_potencia_luces_2 label="Potencia luz 2 [%.2f W]" icon="slider"							
+							Text item=nafarroa103_potencia_luces_3 label="Potencia luz 3 [%.2f W]" icon="slider"							
+							Text item=nafarroa103_energia_luces_1							
+							Text item=nafarroa103_energia_luces_2							
+							Text item=nafarroa103_energia_luces_3							
+						}						
+						Frame label="Enchufes" {
+							Text item=nafarroa103_energia_enchufe_1 label="Energia enchufe 1 [%.2f kWh]" icon="energy"							
+							Text item=nafarroa103_energia_enchufe_2 label="Energia enchufe 2 [%.2f kWh]" icon="energy"							
+							Text item=nafarroa103_energia_enchufe_3 label="Energia enchufe 3 [%.2f kWh]" icon="energy"							
+							Text item=nafarroa103_potencia_enchufe_1 icon="socket"							
+							Text item=nafarroa103_potencia_enchufe_2 icon="socket"							
+							Text item=nafarroa103_potencia_enchufe_3 icon="socket"							
+							Text item=nafarroa103_potencia_enchufe_1_q icon="socket"							
+							Text item=nafarroa103_potencia_enchufe_2_q icon="socket"							
+							Text item=nafarroa103_potencia_enchufe_3_q icon="socket"							
+							Text item=nafarroa103_tension_enchufe_1							
+							Text item=nafarroa103_tension_enchufe_2							
+							Text item=nafarroa103_tension_enchufe_3							
+							Text item=nafarroa103_intensidad_enchufe_1							
+							Text item=nafarroa103_intensidad_enchufe_2							
+							Text item=nafarroa103_intensidad_enchufe_3							
+						}						
+						Frame label="Persianas" {
+							Text item=nafarroa103_potencia_persiana_1							
+							Text item=nafarroa103_potencia_persiana_2							
+						}						
+					}					
+				}				
+				Frame label="Baterias" {
+					Group item=gr_nafarroa103_baterias {
+						Text item=nafarroa103_bateria_temperatura_pared_1						
+						Text item=nafarroa103_bateria_presencia_techo_1						
+						Text item=nafarroa103_bateria_radiador_1						
+						Text item=nafarroa103_bateria_radiador_2						
+						Text item=nafarroa103_bateria_puerta_1						
+						Text item=nafarroa103_bateria_ventana_1						
+						Text item=nafarroa103_bateria_ventana_2						
+						Text item=nafarroa103_bateria_ventana_3						
+						Text item=nafarroa103_bateria_ventana_4						
+					}					
+				}				
+			}			
+			Text item=gr_nafarroa_behera104_potencias label="104 Nafarroa Behera [%.1f W]" icon="firstfloor" labelcolor=[nafarroa_behera104_reserva_activa==ON="red"] {
+				Frame label="Interruptores generales" {
+					Text item=nafarroa_behera104_reserva_activa label="Aula reservada [%S]" {
+						Text item=nafarroa_behera104_reserva_inicio label="Siguiente reseva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
+						Text item=nafarroa_behera104_reserva_inicio label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
+					}					
+					Switch item=nafarroa_behera104_interruptor_general					
+					Switch item=nafarroa_behera104_interruptor_calefaccion					
+					Switch item=nafarroa_behera104_interruptor_general_nocalefaccion					
+				}				
+				Frame label="Interruptores individuales" {
+					Switch item=nafarroa_behera104_interruptor_luces_1					
+					Switch item=nafarroa_behera104_interruptor_luces_2					
+					Switch item=nafarroa_behera104_interruptor_luces_3					
+					Switch item=nafarroa_behera104_interruptor_enchufe_1					
+					Switch item=nafarroa_behera104_interruptor_enchufe_2					
+					Switch item=nafarroa_behera104_interruptor_enchufe_3					
+				}				
+				Frame label="Consignas" {
+					Setpoint item=nafarroa_behera104_consigna_radiador_1					
+					Setpoint item=nafarroa_behera104_consigna_radiador_2					
+				}				
+				Frame label="Exterior" {
+					Text item=exterior_temperatura_norte_1					
+					Text item=exterior_humedad_norte_1					
+				}				
+				Frame label="Interior" {
+					Text item=nafarroa_behera104_temperatura_pared_1 label="Temperatura [%.1f ºC]" {
+						Text item=nafarroa_behera104_temperatura_techo_1						
+						Chart item=nafarroa_behera104_temperatura_pared_1						
+					}					
+					Text item=nafarroa_behera104_humedad_pared_1 label="Humedad [%.1f %%]"					
+					Text item=nafarroa_behera104_luminosidad_techo_1 label="Luminosidad [%d lux]"					
+					Group item=gr_nafarroa_behera104_presencia label="Presencia [MAP(presenceToNumber.map):%s]" {
+						Text item=nafarroa_behera104_presencia_puerta_1						
+						Text item=nafarroa_behera104_presencia_puerta_2						
+					}					
+					Group item=gr_nafarroa_behera104_puertas label="Puertas [%s]" {
+						Text item=nafarroa_behera104_apertura_puerta_1						
+						Text item=nafarroa_behera104_apertura_puerta_2						
+					}					
+				}				
+				Frame label="Consumos" {
+					Text item=gr_nafarroa_behera104_potencias icon="energy" {
+						Frame label="Luz" {
+							Text item=nafarroa_behera104_potencia_luces_1							
+							Text item=nafarroa_behera104_potencia_luces_2							
+							Text item=nafarroa_behera104_potencia_luces_3							
+						}						
+						Frame label="Enchufes" {
+							Text item=nafarroa_behera104_potencia_enchufe_1							
+							Text item=nafarroa_behera104_potencia_enchufe_2							
+							Text item=nafarroa_behera104_potencia_enchufe_3							
+							Text item=nafarroa_behera104_energia_enchufe_1							
+							Text item=nafarroa_behera104_energia_enchufe_2							
+							Text item=nafarroa_behera104_energia_enchufe_3							
+							Text item=nafarroa_behera104_tension_enchufe_1							
+							Text item=nafarroa_behera104_tension_enchufe_2							
+							Text item=nafarroa_behera104_tension_enchufe_3							
+							Text item=nafarroa_behera104_intensidad_enchufe_1							
+							Text item=nafarroa_behera104_intensidad_enchufe_2							
+							Text item=nafarroa_behera104_intensidad_enchufe_3							
+						}						
+					}					
+				}				
+				Frame label="Baterias" {
+					Group item=gr_nafarroa_behera104_baterias {
+						Text item=nafarroa_behera104_bateria_presencia_techo_1						
+						Text item=nafarroa_behera104_bateria_temperatura_pared_1						
+						Text item=nafarroa_behera104_bateria_radiador_1						
+						Text item=nafarroa_behera104_bateria_radiador_2						
+						Text item=nafarroa_behera104_bateria_puerta_1						
+						Text item=nafarroa_behera104_bateria_puerta_2						
+					}					
+				}				
+			}			
+			Text item=gr_lapurdi105_potencias label="105 Lapurdi [%.1f W]" icon="firstfloor" labelcolor=[lapurdi105_reserva_activa==ON="red"] {
+				Frame label="Interruptores generales" {
+					Text item=lapurdi105_reserva_activa label="Aula reservada [%S]" {
+						Text item=lapurdi105_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
+						Text item=lapurdi105_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
+					}					
+					Switch item=lapurdi105_interruptor_general					
+					Switch item=lapurdi105_interruptor_calefaccion					
+					Switch item=lapurdi105_interruptor_general_nocalefaccion					
+				}				
+				Frame label="Interruptores individuales" {
+					Switch item=lapurdi105_interruptor_luces_1					
+					Switch item=lapurdi105_interruptor_luces_2					
+					Switch item=lapurdi105_interruptor_luces_3					
+					Switch item=lapurdi105_interruptor_enchufe_1 icon="socket"					
+					Switch item=lapurdi105_interruptor_enchufe_2 icon="socket"					
+					Switch item=lapurdi105_interruptor_enchufe_3 icon="socket"					
+				}				
+				Frame label="Exterior" {
+					Text item=exterior_temperatura_norte_1					
+					Text item=exterior_humedad_norte_1					
+				}				
+				Frame label="Interior" {
+					Text item=lapurdi105_temperatura_pared_1 label="Temperatura [%.1f ºC]" {
+						Chart item=lapurdi105_temperatura_pared_1						
+						Text item=lapurdi105_temperatura_techo_1						
+					}					
+					Text item=lapurdi105_humedad_pared_1 label="Humedad [%.1f %%]"					
+					Text item=lapurdi105_luminosidad_techo_1 label="Luminosidad [%d lux]"					
+					Group item=gr_lapurdi105_presencia label="Presencia [MAP(presenceToNumber.map):%s]" {
+						Text item=lapurdi105_presencia_techo_1						
+						Text item=lapurdi105_presencia_puerta_1						
+						Text item=lapurdi105_presencia_puerta_2						
+					}					
+					Group item=gr_lapurdi105_puertas label="Puertas [%S]" {
+						Text item=lapurdi105_apertura_puerta_1						
+						Text item=lapurdi105_apertura_puerta_2						
+					}					
+				}				
+				Frame label="Consignas" {
+					Setpoint item=lapurdi105_consigna_radiador_1					
+					Setpoint item=lapurdi105_consigna_radiador_2					
+				}				
+				Frame label="Consumos" {
+					Text item=gr_lapurdi105_potencias {
+						Frame label="Luces" {
+							Text item=lapurdi105_potencia_luces_1							
+							Text item=lapurdi105_potencia_luces_2							
+							Text item=lapurdi105_potencia_luces_3							
+						}						
+						Frame label="Enchufes" {
+							Text item=lapurdi105_energia_enchufe_1							
+							Text item=lapurdi105_energia_enchufe_2							
+							Text item=lapurdi105_energia_enchufe_3							
+							Text item=lapurdi105_potencia_enchufe_1							
+							Text item=lapurdi105_potencia_enchufe_2							
+							Text item=lapurdi105_potencia_enchufe_3							
+							Text item=lapurdi105_tension_enchufe_1							
+							Text item=lapurdi105_tension_enchufe_2							
+							Text item=lapurdi105_tension_enchufe_3							
+							Text item=lapurdi105_intensidad_enchufe_1							
+							Text item=lapurdi105_intensidad_enchufe_2							
+							Text item=lapurdi105_intensidad_enchufe_3							
+						}						
+					}					
+				}				
+				Frame label="Baterias" {
+					Group item=gr_lapurdi105_baterias label="Baterías [%d %%]" {
+						Text item=lapurdi105_bateria_temperatura_pared_1						
+						Text item=lapurdi105_bateria_presencia_techo_1						
+						Text item=lapurdi105_bateria_puerta_1						
+						Text item=lapurdi105_bateria_puerta_2						
+					}					
+				}				
+			}			
+			Text item=gr_zuberoa106_potencias label="106 Zuberoa [%.1f W]" icon="firstfloor" labelcolor=[zuberoa106_reserva_activa==ON="red"] {
+				Frame label="Interruptores generales" {
+					Text item=zuberoa106_reserva_activa label="Aula reservada [%S]" {
+						Text item=zuberoa106_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
+						Text item=zuberoa106_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
+					}					
+					Switch item=zuberoa106_interruptor_general					
+					Switch item=zuberoa106_interruptor_calefaccion					
+					Switch item=zuberoa106_interruptor_general_nocalefaccion					
+				}				
+				Frame label="Interruptores individuales" {
+					Switch item=zuberoa106_interruptor_luces_1					
+					Switch item=zuberoa106_interruptor_luces_2					
+					Switch item=zuberoa106_interruptor_luces_3					
+					Switch item=zuberoa106_interruptor_enchufe_1					
+					Switch item=zuberoa106_interruptor_enchufe_2					
+					Switch item=zuberoa106_interruptor_enchufe_3					
+				}				
+				Frame label="Exterior" {
+					Text item=exterior_temperatura_norte_1					
+					Text item=exterior_humedad_norte_1					
+				}				
+				Frame label="Interior" {
+					Text item=zuberoa106_temperatura_pared_1 label="Temperatura [%.1f ºC]" {
+						Chart item=zuberoa106_temperatura_pared_1						
+						Text item=zuberoa106_temperatura_techo_1						
+					}					
+					Text item=zuberoa106_humedad_pared_1 label="Humedad [%.1f %%]"					
+					Text item=zuberoa106_luminosidad_techo_1 label="Luminosidad [%d lux]"					
+					Group item=gr_zuberoa106_presencia label="Presencia [MAP(presenceToNumber.map):%s]" {
+						Text item=zuberoa106_presencia_puerta_1						
+						Text item=zuberoa106_presencia_puerta_2						
+					}					
+					Group item=gr_zuberoa106_puertas label="Puertas [%S]" {
+						Text item=zuberoa106_apertura_puerta_1						
+						Text item=zuberoa106_apertura_puerta_2						
+					}					
+				}				
+				Frame label="Consumos" {
+					Text item=gr_zuberoa106_potencias {
+						Frame label="Luz" {
+							Text item=zuberoa106_potencia_luces_1							
+							Text item=zuberoa106_potencia_luces_2							
+							Text item=zuberoa106_potencia_luces_3							
+						}						
+						Frame label="Enchufes" {
+							Text item=zuberoa106_potencia_enchufe_1							
+							Text item=zuberoa106_potencia_enchufe_2							
+							Text item=zuberoa106_potencia_enchufe_3							
+							Text item=zuberoa106_energia_enchufe_1							
+							Text item=zuberoa106_energia_enchufe_2							
+							Text item=zuberoa106_energia_enchufe_3							
+							Text item=zuberoa106_tension_enchufe_1							
+							Text item=zuberoa106_tension_enchufe_2							
+							Text item=zuberoa106_tension_enchufe_3							
+							Text item=zuberoa106_intensidad_enchufe_1							
+							Text item=zuberoa106_intensidad_enchufe_2							
+							Text item=zuberoa106_intensidad_enchufe_3							
+						}						
+					}					
+				}				
+				Frame label="Consignas" {
+					Setpoint item=zuberoa106_consigna_radiador_1					
+					Setpoint item=zuberoa106_consigna_radiador_2					
+				}				
+				Frame label="Baterias" {
+					Group item=gr_zuberoa106_baterias label="Baterías [%d %%]" {
+						Text item=zuberoa106_bateria_temperatura_pared_1						
+						Text item=zuberoa106_bateria_presencia_techo_1						
+						Text item=zuberoa106_bateria_radiador_1						
+						Text item=zuberoa106_bateria_radiador_2						
+						Text item=zuberoa106_bateria_puerta_1						
+						Text item=zuberoa106_bateria_puerta_2						
+					}					
+				}				
+			}			
+			Text item=gr_smc_festo107_potencias label="107 SMC [%.1f W]" icon="firstfloor" labelcolor=[smc_festo107_reserva_activa==ON="red"] {
+				Frame label="Interruptores generales" {
+					Text item=smc_festo107_reserva_activa label="Aula reservada [%S]" {
+						Text item=smc_festo107_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
+						Text item=smc_festo107_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
+					}					
+					Switch item=smc_festo107_interruptor_general					
+					Switch item=smc_festo107_interruptor_calefaccion					
+					Switch item=smc_festo107_interruptor_general_nocalefaccion					
+				}				
+				Frame label="Interruptores individuales" {
+					Switch item=smc_festo107_interruptor_luces_1					
+					Switch item=smc_festo107_interruptor_luces_2					
+					Switch item=smc_festo107_interruptor_luces_3					
+					Switch item=smc_festo107_interruptor_enchufe_1					
+					Switch item=smc_festo107_interruptor_enchufe_2					
+					Switch item=smc_festo107_interruptor_enchufe_3					
+				}				
+				Frame label="Consignas" {
+					Setpoint item=smc_festo107_consigna_radiador_1					
+					Setpoint item=smc_festo107_consigna_radiador_2					
+				}				
+				Frame label="Exterior" {
+					Text item=exterior_temperatura_norte_1					
+					Text item=exterior_humedad_norte_1					
+				}				
+				Frame label="Interior" {
+					Text item=smc_festo107_temperatura_pared_1 label="Temperatura [%.1f ºC]" {
+						Chart item=smc_festo107_temperatura_pared_1						
+						Text item=smc_festo107_temperatura_techo_1						
+					}					
+					Text item=smc_festo107_humedad_pared_1 label="Humedad [%.1f %%]"					
+					Text item=smc_festo107_luminosidad_techo_1 label="Luminosidad [%d lux]"					
+					Group item=gr_smc_festo107_presencia label="Presencia [MAP(presenceToNumber.map):%s]" {
+						Text item=smc_festo107_presencia_techo_1						
+						Text item=smc_festo107_presencia_puerta_1						
+						Text item=smc_festo107_presencia_puerta_2						
+					}					
+					Group item=gr_smc_festo107_puertas label="Puertas [%S]" {
+						Text item=smc_festo107_apertura_puerta_1						
+						Text item=smc_festo107_apertura_puerta_2						
+					}					
+				}				
+				Frame label="Consumos" {
+					Text item=gr_smc_festo107_potencias {
+						Frame label="Luz" {
+							Text item=smc_festo107_potencia_luces_1							
+							Text item=smc_festo107_potencia_luces_2							
+							Text item=smc_festo107_potencia_luces_3							
+						}						
+						Frame label="Enchufes" {
+							Text item=smc_festo107_energia_enchufe_1							
+							Text item=smc_festo107_energia_enchufe_2							
+							Text item=smc_festo107_energia_enchufe_3							
+							Text item=smc_festo107_potencia_enchufe_1							
+							Text item=smc_festo107_potencia_enchufe_2							
+							Text item=smc_festo107_potencia_enchufe_3							
+							Text item=smc_festo107_tension_enchufe_1							
+							Text item=smc_festo107_tension_enchufe_2							
+							Text item=smc_festo107_tension_enchufe_3							
+							Text item=smc_festo107_intensidad_enchufe_1							
+							Text item=smc_festo107_intensidad_enchufe_2							
+							Text item=smc_festo107_intensidad_enchufe_3							
+						}						
+					}					
+				}				
+				Frame label="Baterias" {
+					Group item=gr_smc_festo107_baterias label="Baterías [%d]" {
+						Text item=smc_festo107_bateria_temperatura_pared_1						
+						Text item=smc_festo107_bateria_presencia_techo_1						
+						Text item=smc_festo107_bateria_radiador_1						
+						Text item=smc_festo107_bateria_radiador_2						
+						Text item=smc_festo107_bateria_puerta_1						
+						Text item=smc_festo107_bateria_puerta_2						
+					}					
+				}				
+			}			
+			Text item=gr_urdaburu108_potencias label="108 Urdaburu [%.1f W]" icon="firstfloor" labelcolor=[urdaburu108_reserva_activa==ON="red"] {
+				Frame label="Interruptores generales" {
+					Text item=urdaburu108_reserva_activa label="Aula reservada [%S]" {
+						Text item=urdaburu108_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
+						Text item=urdaburu108_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
+					}					
+					Switch item=urdaburu108_interruptor_general					
+					Switch item=urdaburu108_interruptor_calefaccion					
+					Switch item=urdaburu108_interruptor_general_nocalefaccion					
+				}				
+				Frame label="Interruptores individuales" {
+					Switch item=urdaburu108_interruptor_luces_1					
+					Switch item=urdaburu108_interruptor_luces_2					
+					Switch item=urdaburu108_interruptor_luces_3					
+					Switch item=urdaburu108_interruptor_enchufe_1 icon="socket"					
+					Switch item=urdaburu108_interruptor_enchufe_2 icon="socket"					
+					Switch item=urdaburu108_interruptor_enchufe_3 icon="socket"					
+				}				
+				Frame label="Exterior" {
+					Text item=exterior_temperatura_norte_1					
+					Text item=exterior_humedad_norte_1					
+				}				
+				Frame label="Interior" {
+					Text item=urdaburu108_temperatura_pared_1 label="Temperatura [%.1f ºC]" {
+						Chart item=urdaburu108_temperatura_pared_1						
+						Text item=urdaburu108_temperatura_techo_1						
+					}					
+					Text item=urdaburu108_humedad_pared_1 label="Humedad [%.1f %%]"					
+					Text item=urdaburu108_luminosidad_techo_1 label="Luminosidad [%d lux]"					
+					Group item=gr_urdaburu108_presencia label="Presencia [MAP(presenceToNumber.map):%s]" {
+						Text item=urdaburu108_presencia_techo_1						
+						Text item=urdaburu108_presencia_puerta_1						
+						Text item=urdaburu108_presencia_puerta_2						
+					}					
+					Group item=gr_urdaburu108_puertas label="Puertas [%S]" {
+						Text item=urdaburu108_apertura_puerta_1						
+						Text item=urdaburu108_apertura_puerta_2						
+					}					
+				}				
+				Frame label="Consignas" {
+					Setpoint item=urdaburu108_consigna_radiador_1					
+					Setpoint item=urdaburu108_consigna_radiador_2					
+				}				
+				Frame label="Consumos" {
+					Text item=gr_urdaburu108_potencias {
+						Frame label="Luz" {
+							Text item=urdaburu108_potencia_luces_1							
+							Text item=urdaburu108_potencia_luces_2							
+							Text item=urdaburu108_potencia_luces_3							
+						}						
+						Frame label="Enchufes" {
+							Text item=urdaburu108_potencia_enchufe_1							
+							Text item=urdaburu108_potencia_enchufe_2							
+							Text item=urdaburu108_potencia_enchufe_3							
+							Text item=urdaburu108_energia_enchufe_1							
+							Text item=urdaburu108_energia_enchufe_2							
+							Text item=urdaburu108_energia_enchufe_3							
+							Text item=urdaburu108_tension_enchufe_1							
+							Text item=urdaburu108_tension_enchufe_2							
+							Text item=urdaburu108_tension_enchufe_3							
+							Text item=urdaburu108_intensidad_enchufe_1							
+							Text item=urdaburu108_intensidad_enchufe_2							
+							Text item=urdaburu108_intensidad_enchufe_3							
+						}						
+					}					
+				}				
+				Frame label="Baterias" {
+					Group item=gr_urdaburu108_baterias label="Baterías [%d]" {
+						Text item=urdaburu108_bateria_temperatura_pared_1						
+						Text item=urdaburu108_bateria_presencia_techo_1						
+						Text item=urdaburu108_bateria_radiador_1						
+						Text item=urdaburu108_bateria_radiador_2						
+						Text item=urdaburu108_bateria_puerta_1						
+						Text item=urdaburu108_bateria_puerta_2						
+					}					
+				}				
+			}			
+		}		
+		Frame label="2 Planta" icon="attic" {
+			Group item=gr_kalitate201 label="201 Kalitatea" icon="attic"			
+			Group item=gr_telekomunikazioak202 label="202 Telekomunikazioak" icon="attic"			
+			Group item=gr_ulhi203 label="203 ULHI" icon="attic"			
+			Group item=gr_txindoki204 label="204 Txindoki" icon="attic"			
+			Group item=gr_alorra205 label="205 Alorra" icon="attic"			
+			Group item=gr_formakuntza207 label="207 Formakuntza  " icon="attic"			
+			Group item=gr_internalizazioa208 label="208 Internalizazioa" icon="attic"			
+		}		
+	}	
+	Frame {
+		Group item=gr_menu_consumos label="CONSUMOS " icon="energy" {
+			Frame label="Electricos" {
+				Text label="Energia contador general [ kWh]"				
+				Text label="Potencia contador general [ kW]"				
+				Text label="Energia Edificio1 [%.1f kWh]"				
+				Text label="Potencia Edificio1 [%.1f kW]"				
+				Text label="Energia Edificio2 [ kWh]"				
+				Text label="Potencia Edificio2 [ kW]"				
+				Text label="Energia Edificio3 [ kWh]"				
+				Text label="Potencia Edifico3 [ kW]"				
+				Text label="Energia Euskal Herria [ kWh]"				
+				Text label="Potencia Euskal Herria [ kW]"				
+				Text label="Energia servidores [ kWh]"				
+				Text label="Potencia servidores [ kW]"				
+			}			
+			Frame label="Termicos" {
+				Text				
+			}			
+			Frame label="Agua" {
+				Text				
+			}			
+		}		
+		Group item=gr_menu_graficos label="GRAFICOS" icon="chart" {
+			Webview url="/static/main.php" height=17			
+		}		
+		Group item=gr_menu_scadas label="SCADAS" icon="pie"		
+		Group item=gr_menu_estado label="ESTADO SISTEMA" icon="lock" {
+			Frame label="Baterias" {
+				Group item=gr_baterias labelcolor=[0="red"] {
+					Group item=gr_lapurdi105_baterias {
+						Text item=lapurdi105_bateria_temperatura_pared_1						
+						Text item=lapurdi105_bateria_presencia_techo_1						
+					}					
+					Group item=gr_nafarroa103_baterias {
+						Text item=nafarroa103_bateria_temperatura_pared_1						
+						Text item=nafarroa103_bateria_presencia_techo_1						
+						Text item=nafarroa103_bateria_radiador_1						
+						Text item=nafarroa103_bateria_radiador_2						
+						Text item=nafarroa103_bateria_puerta_1						
+						Text item=nafarroa103_bateria_ventana_1						
+						Text item=nafarroa103_bateria_ventana_2						
+						Text item=nafarroa103_bateria_ventana_3						
+						Text item=nafarroa103_bateria_ventana_4						
+					}					
+					Group item=gr_ikaslab101_baterias {
+						Text item=ikaslab101_bateria_temperatura_pared_1						
+						Text item=ikaslab101_bateria_presencia_techo_1						
+						Text item=ikaslab101_bateria_presencia_techo_2						
+						Text item=ikaslab101_bateria_radiador_1						
+						Text item=ikaslab101_bateria_radiador_2						
+						Text item=ikaslab101_bateria_radiador_3						
+					}					
+					Group item=gr_zuberoa106_baterias {
+						Text item=zuberoa106_bateria_temperatura_pared_1						
+						Text item=zuberoa106_bateria_presencia_techo_1						
+						Text item=zuberoa106_bateria_radiador_1						
+						Text item=zuberoa106_bateria_radiador_2						
+					}					
+					Group item=gr_nafarroa_behera104_baterias {
+						Text item=nafarroa_behera104_bateria_presencia_techo_1						
+						Text item=nafarroa_behera104_bateria_temperatura_pared_1						
+						Text item=nafarroa_behera104_bateria_radiador_1						
+						Text item=nafarroa_behera104_bateria_radiador_2						
+					}					
+					Group item=gr_urdaburu108_baterias {
+						Text item=urdaburu108_bateria_temperatura_pared_1						
+						Text item=urdaburu108_bateria_presencia_techo_1						
+						Text item=urdaburu108_bateria_radiador_1						
+						Text item=urdaburu108_bateria_radiador_2						
+					}					
+					Group item=gr_smc_festo107_baterias {
+						Text item=smc_festo107_bateria_temperatura_pared_1						
+						Text item=smc_festo107_bateria_presencia_techo_1						
+						Text item=smc_festo107_bateria_radiador_1						
+						Text item=smc_festo107_bateria_radiador_2						
+					}					
+					Group item=gr_alecop102_baterias {
+						Text item=alecop102_bateria_presencia_techo_1						
+						Text item=alecop102_bateria_presencia_techo_2						
+						Text item=alecop102_bateria_temperatura_pared_1						
+						Text item=alecop102_bateria_radiador_1						
+						Text item=alecop102_bateria_radiador_2						
+						Text item=alecop102_bateria_radiador_3						
+					}					
+					Group item=gr_exterior_baterias {
+						Text item=exterior_bateria_temperatura_norte_1						
+						Text item=exterior_bateria_temperatura_norte_2						
+					}					
+				}				
+			}			
+			Frame label="Redes zwave" {
+				Group item=gr_zwave_nodos_erroneos {
+					Text item=zwave_nodo_erroneo_1					
+					Text item=zwave_nodo_erroneo_2					
+					Text item=zwave_nodo_erroneo_3					
+					Text item=zwave_nodo_erroneo_4					
+					Text item=zwave_nodo_erroneo_5					
+				}				
+				Text item=gr_zwave_checker_nodes_num				
+				Text item=gr_zwave_checker_nodes_ok				
+				Text item=gr_zwave_checker_nodes_warning				
+				Text item=gr_zwave_checker_nodes_error				
+				Text item=gr_zwave_checker_nodes_uninitialized				
+				Text label="Detalles" {
+					Frame label="Red zwave 1" {
+						Text item=zwave_checker_zwave_nodes_num						
+						Text item=zwave_checker_zwave_nodes_ok						
+						Text item=zwave_checker_zwave_nodes_warning						
+						Text item=zwave_checker_zwave_nodes_error						
+						Text item=zwave_checker_zwave_nodes_uninitialized						
+						Text item=zwave_checker_zwave_timestamp						
+					}					
+					Frame label="Red zwave 2" {
+						Text item=zwave_checker_zwave2_nodes_num						
+						Text item=zwave_checker_zwave2_nodes_ok						
+						Text item=zwave_checker_zwave2_nodes_warning						
+						Text item=zwave_checker_zwave2_nodes_error						
+						Text item=zwave_checker_zwave2_nodes_uninitialized						
+						Text item=zwave_checker_zwave2_timestamp						
+					}					
+					Frame label="Red zwave 3" {
+						Text item=zwave_checker_zwave3_nodes_num						
+						Text item=zwave_checker_zwave3_nodes_ok						
+						Text item=zwave_checker_zwave3_nodes_warning						
+						Text item=zwave_checker_zwave3_nodes_error						
+						Text item=zwave_checker_zwave3_nodes_uninitialized						
+						Text item=zwave_checker_zwave3_timestamp						
+					}					
+					Frame label="Red zwave 4" {
+						Text item=zwave_checker_zwave4_nodes_num						
+						Text item=zwave_checker_zwave4_nodes_ok						
+						Text item=zwave_checker_zwave4_nodes_warning						
+						Text item=zwave_checker_zwave4_nodes_error						
+						Text item=zwave_checker_zwave4_nodes_uninitialized						
+						Text item=zwave_checker_zwave4_timestamp						
+					}					
+				}				
+			}			
+			Frame label="Control" {
+				Switch item=openhab_kill mappings=[ON="Reiniciar"]				
+				Text item=openhab_memoria_realm				
+				Text item=openhab_memoria_virtual				
+				Text item=openhab_cpu_porcentaje				
+				Text item=openhab_tiempo_actividad_formato				
+				Text item=servidor_cpu_total				
+			}			
+		}		
+		Group item=gr_menu_temperaturas label="TEMPERATURAS DEL EDIFICIO" icon="temperature" {
+			Frame label="Calefaccion" {
+				Setpoint item=calefaccion_temperatura_minima icon="heating" minValue=16 maxValue=22 step=0.5				
+			}			
+			Frame label="Exterior" {
+				Text item=exterior_temperatura_norte_1				
+				Text item=exterior_temperatura_norte_2				
+			}			
+			Frame label="Interior" {
+				Text item=ikaslab101_temperatura_pared_1				
+				Text item=alecop102_temperatura_pared_1				
+				Text item=nafarroa103_temperatura_pared_1				
+				Text item=nafarroa103_temperatura_netatmo_1				
+				Text item=nafarroa103_temperatura_puerta_1				
+				Text item=nafarroa_behera104_temperatura_pared_1				
+				Text item=lapurdi105_temperatura_pared_1				
+				Text item=zuberoa106_temperatura_pared_1				
+				Text item=smc_festo107_temperatura_pared_1				
+				Text item=urdaburu108_temperatura_pared_1				
+			}			
+		}		
+		Group label="CONFIGURACION" icon="settings" {
+			Frame label="Avanzado" {
+				Switch item=scripts_opciones_avanzadas icon="settings"				
+			}			
+			Frame label="Limpieza" {
+				Setpoint item=limpieza_hora_inicio minValue=0 maxValue=23 step=1				
+				Setpoint item=limpieza_hora_fin minValue=0 maxValue=23 step=1				
+				Selection item=limpieza_tiempo_on mappings=[1="1 min", 2="2 min", 3="3 min", 5="5 min", 7="7 min", 10="10 min", 15="15 min", 30="30 min"]				
+			}			
+			Frame label="Sennet" {
+				Selection item=scripts_sennet_data_interval mappings=[30="30 seg", 60="1 min", 120="2 min", 180="3 min", 300="5 min", 600="10 min", 900="15 min", 1800="30 min"]				
+			}			
+			Frame label="Checker" {
+				Selection item=scripts_checker_unique_process_check_interval mappings=[30="30 seg", 60="1 min", 120="2 min", 180="3 min", 300="5 min"]				
+				Selection item=scripts_checker_connectivity_check_interval mappings=[30="30 seg", 60="1 min", 120="2 min", 180="3 min", 300="5 min", 600="10 min", 900="15 min", 1800="30 min"]				
+				Selection item=scripts_checker_connectivity_retry_interval mappings=[20="20 seg", 30="30 seg", 40="40 seg", 60="1 min", 120="2 min"] visibility=[scripts_opciones_avanzadas==ON]				
+				Selection item=scripts_checker_zwave_logs_check_interval mappings=[30="30 seg", 60="1 min", 120="2 min", 180="3 min", 300="5 min", 600="10 min", 900="15 min", 1800="30 min"]				
+				Selection item=scripts_checker_events_log_check_interval mappings=[30="30 seg", 60="1 min", 120="2 min", 180="3 min", 300="5 min"]				
+				Selection item=scripts_checker_events_log_timeout mappings=[180="3 min", 300="5 min", 420="7 min", 600="10 min"] visibility=[scripts_opciones_avanzadas==ON]				
+				Selection item=scripts_checker_zwave_ports_timeout mappings=[30="30 seg", 60="1 min", 120="2 min", 180="3 min", 300="5 min"] visibility=[scripts_opciones_avanzadas==ON]				
+				Selection item=scripts_checker_thermoaulas_start_delay mappings=[180="3 min", 300="5 min", 600="10 min", 900="15 min"] visibility=[scripts_opciones_avanzadas==ON]				
+			}			
+			Frame label="Calderas Mbus" {
+				Selection item=scripts_caldera_mbus_data_interval mappings=[15="15 seg", 30="30 seg", 60="1 min", 120="2 min", 180="3 min", 300="5 min", 600="10 min", 900="15 min"]				
+			}			
+			Frame label="Caldera Modbus" {
+				Selection item=scripts_caldera_modbus_data_interval mappings=[15="15 seg", 30="30 seg", 60="1 min", 120="2 min", 180="3 min", 300="5 min", 600="10 min", 900="15 min"]				
+			}			
+		}		
+	}	
+}

@@ -1,0 +1,3 @@
+Group	gr_sennet_edificio_2
+Number	sennet_edificio_2_energia_activa	"Eactiva edificio talleres [%.1f kWh]"	(gr_sennet_edificio_2)		{ mqtt="<[mosquitto:openhab/sennet/interno3/ENEact:state:default]" }
+Number	sennet_edificio_2_potencia_activa	"Pactiva edificio talleres [%.1f W]"	(gr_sennet_edificio_2,gr_sennet_potencias_activas_edificios)		{ mqtt="<[mosquitto:openhab/sennet/interno3/POWact:state:default]" }

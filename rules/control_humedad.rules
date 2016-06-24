@@ -1,0 +1,18 @@
+var Number humMaxima = 60
+var Number humMinima = 55
+var Number humDeseada= 50
+
+//rule "Control humedad relativa de nafarroa103"
+//when 
+//    Item nafarroa103_humedad_pared_1 received update
+//then
+//	
+//	if(nafarroa103_humedad_pared_1.state >= humMaxima) {
+//        sendCommand(nafarroa103_interruptor_wallplug_1, ON)
+//    } else {
+//       	if(nafarroa103_humedad_pared_1.state <= humMinima) {
+//            sendCommand(nafarroa103_interruptor_wallplug_1, OFF)
+//       	}
+//    }
+//
+//end

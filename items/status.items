@@ -1,0 +1,12 @@
+Switch  openhab_kill    "Reiniciar openhab"     { exec="ON:/usr/bin/pkill -9 java", autoupdate="false" }
+
+Number	openhab_memoria_realm			"Memoria real [%.1f MB]"   		{ systeminfo="ProcessRealMem:5000:$$" }
+Number	openhab_memoria_virtual			"Memoria virtual [%.1f MB]"		{ systeminfo="ProcessVirtualMem:5000:$$" }
+Number	openhab_cpu_porcentaje			"Porcentaje CPU [%.1f %%]"		{ systeminfo="ProcessCpuPercent:5000:$$" }
+Number	openhab_cpu_sistema			"CPU sistema [%.1f]"			{ systeminfo="ProcessCpuSystem:5000:$$" }
+Number	openhab_cpu_usuario			"CPU usuario [%.1f]"			{ systeminfo="ProcessCpuUser:5000:$$" }
+Number	openhab_cpu_total			"CPU total [%.1f]"			{ systeminfo="ProcessCpuTotal:5000:$$" }
+Number	openhab_tiempo_actividad		"Tiempo actividad [%d]"			{ systeminfo="ProcessUptime:5000:$$" }
+String	openhab_tiempo_actividad_formato	"Tiempo actividad [%s]"			{ systeminfo="ProcessUptimeFormatted:5000:$$" }
+
+Number	servidor_cpu_total  			"CPU combined [%.1f]"   		{ systeminfo="CpuCombined:5000" }

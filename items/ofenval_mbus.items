@@ -1,0 +1,28 @@
+Group:Number:SUM gr_calderas_energia_circuitos_edificios "Energia edificios [%.1f kWh]"		<energy>	(gr_energias)
+Group:Number:SUM gr_calderas_potencia_circuitos_edificios "Potencia edificios [%.1f kWh]"	<energy>	(gr_potencias)
+
+String  calderas_mbus_timestamp        "Fecha datos [%s]"                                 (gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/mbus_timestamp:state:default]" }
+
+Number  calderas_potencia_circuito_edificio_1		"Potencia edificio 1 [%.1f W]" 	  (gr_calderas_potencia_circuitos_edificios,gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/potencia_circuito_edificio_1:state:default]" }
+Number  calderas_potencia_circuito_edificio_2		"Potencia edificio 2 [%.1f W]" 	  (gr_calderas_potencia_circuitos_edificios,gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/potencia_circuito_edificio_2:state:default]" }
+Number  calderas_potencia_circuito_edificio_3		"Potencia edificio 3 [%.1f W]" 	  (gr_calderas_potencia_circuitos_edificios,gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/potencia_circuito_edificio_3:state:default]" }
+
+Number  calderas_energia_circuito_edificio_1		"Energia edificio 1 [%.1f kWh]"   (gr_calderas_energia_circuitos_edificios,gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/energia_circuito_edificio_1:state:default]" }
+Number  calderas_energia_circuito_edificio_2		"Energia edificio 2 [%.1f kWh]"   (gr_calderas_energia_circuitos_edificios,gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/energia_circuito_edificio_2:state:default]" }
+Number  calderas_energia_circuito_edificio_3		"Energia edificio 3 [%.1f kWh]"   (gr_calderas_energia_circuitos_edificios,gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/energia_circuito_edificio_3:state:default]" }
+
+Number  calderas_caudal_circuito_edificio_1		"Caudal edificio 1 [%.1f m3/h]"   (gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/caudal_circuito_edificio_1:state:default]" }
+Number  calderas_caudal_circuito_edificio_2		"Caudal edificio 2 [%.1f m3/h]"   (gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/caudal_circuito_edificio_2:state:default]" }
+Number  calderas_caudal_circuito_edificio_3		"Caudal edificio 3 [%.1f m3/h]"   (gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/caudal_circuito_edificio_3:state:default]" }
+
+Number  calderas_volumen_circuito_edificio_1		"Volumen edificio 1 [%.1f m3]"   (gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/volumen_circuito_edificio_1:state:default]" }
+Number  calderas_volumen_circuito_edificio_2		"Volumen edificio 2 [%.1f m3]"   (gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/volumen_circuito_edificio_2:state:default]" }
+Number  calderas_volumen_circuito_edificio_3		"Volumen edificio 3 [%.1f m3]"   (gr_calderas)   	{ mqtt="<[mosquitto:openhab/ofenval/volumen_circuito_edificio_3:state:default]" }
+
+Number  calderas_temp_impulsion_2_circuito_edificio_1	"Temp impulsion 2 edificio 1 [%.1f C]"   (gr_calderas)   { mqtt="<[mosquitto:openhab/ofenval/temp_impulsion_2_circuito_edificio_1:state:default]" }
+Number  calderas_temp_impulsion_2_circuito_edificio_2	"Temp impulsion 2 edificio 2 [%.1f C]"   (gr_calderas)   { mqtt="<[mosquitto:openhab/ofenval/temp_impulsion_2_circuito_edificio_2:state:default]" }
+Number  calderas_temp_impulsion_2_circuito_edificio_3	"Temp impulsion 2 edificio 3 [%.1f C]"   (gr_calderas)   { mqtt="<[mosquitto:openhab/ofenval/temp_impulsion_2_circuito_edificio_3:state:default]" }
+
+Number  calderas_temp_retorno_circuito_edificio_1	"Temp retorno edificio 1 [%.1f C]"   (gr_calderas)   { mqtt="<[mosquitto:openhab/ofenval/temp_retorno_circuito_edificio_1:state:default]" }
+Number  calderas_temp_retorno_circuito_edificio_2	"Temp retorno edificio 2 [%.1f C]"   (gr_calderas)   { mqtt="<[mosquitto:openhab/ofenval/temp_retorno_circuito_edificio_2:state:default]" }
+Number  calderas_temp_retorno_circuito_edificio_3	"Temp retorno edificio 3 [%.1f C]"   (gr_calderas)   { mqtt="<[mosquitto:openhab/ofenval/temp_retorno_circuito_edificio_3:state:default]" }

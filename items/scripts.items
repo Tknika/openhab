@@ -1,0 +1,17 @@
+Group	gr_scripts 	"Configuracion de los scripts"
+
+Switch	scripts_opciones_avanzadas	"Opciones avanzadas"	(gr_scripts)
+
+Number	scripts_sennet_data_interval	"Periodo de datos"	(gr_scripts)		{ mqtt="<[mosquitto:openhab/scripts/configuration/sennet/data_interval:state:default],>[mosquitto:openhab/scripts/configuration/sennet/data_interval:command:*:${command}]" }
+
+Number	scripts_checker_zwave_ports_timeout		"Timeout puertos zwave"		(gr_scripts)		{ mqtt="<[mosquitto:openhab/scripts/configuration/checker/zwave_ports_interval:state:default],>[mosquitto:openhab/scripts/configuration/checker/zwave_ports_interval:command:*:${command}]" }
+Number	scripts_checker_unique_process_check_interval	"Intervalo proceso"		(gr_scripts)		{ mqtt="<[mosquitto:openhab/scripts/configuration/checker/unique_process_check_interval:state:default],>[mosquitto:openhab/scripts/configuration/checker/unique_process_check_interval:command:*:${command}]" }
+Number	scripts_checker_connectivity_check_interval	"Intervalo conectividad"	(gr_scripts)		{ mqtt="<[mosquitto:openhab/scripts/configuration/checker/connectivity_check_interval:state:default],>[mosquitto:openhab/scripts/configuration/checker/connectivity_check_interval:command:*:${command}]" }
+Number	scripts_checker_connectivity_retry_interval	"Intervalo intentos conectividad"	(gr_scripts)	{ mqtt="<[mosquitto:openhab/scripts/configuration/checker/connectivity_retry_interval:state:default],>[mosquitto:openhab/scripts/configuration/checker/connectivity_retry_interval:command:*:${command}]" }
+Number	scripts_checker_zwave_logs_check_interval	"Intervalo zwave"		(gr_scripts)		{ mqtt="<[mosquitto:openhab/scripts/configuration/checker/zwave_logs_check_interval:state:default],>[mosquitto:openhab/scripts/configuration/checker/zwave_logs_check_interval:command:*:${command}]" }
+Number	scripts_checker_events_log_check_interval	"Intervalo eventos"		(gr_scripts)		{ mqtt="<[mosquitto:openhab/scripts/configuration/checker/events_log_check_interval:state:default],>[mosquitto:openhab/scripts/configuration/checker/events_log_check_interval:command:*:${command}]" }
+Number	scripts_checker_events_log_timeout		"Timeout eventos"		(gr_scripts)		{ mqtt="<[mosquitto:openhab/scripts/configuration/checker/events_log_timeout:state:default],>[mosquitto:openhab/scripts/configuration/checker/events_log_timeout:command:*:${command}]" }
+Number	scripts_checker_thermoaulas_start_delay		"Thermoaulas delay"		(gr_scripts)		{ mqtt="<[mosquitto:openhab/scripts/configuration/checker/thermoaulas_start_delay:state:default],>[mosquitto:openhab/scripts/configuration/checker/thermoaulas_start_delay:command:*:${command}]" }
+
+Number	scripts_caldera_mbus_data_interval	"Periodo de datos"	(gr_scripts)	{ mqtt="<[mosquitto:openhab/scripts/configuration/caldera_mbus/data_interval:state:default],>[mosquitto:openhab/scripts/configuration/caldera_mbus/data_interval:command:*:${command}]" }
+Number	scripts_caldera_modbus_data_interval	"Periodo de datos"	(gr_scripts)	{ mqtt="<[mosquitto:openhab/scripts/configuration/caldera_modbus/data_interval:state:default],>[mosquitto:openhab/scripts/configuration/caldera_modbus/data_interval:command:*:${command}]" }

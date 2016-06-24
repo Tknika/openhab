@@ -1,0 +1,4 @@
+Group	gr_sennet_edificio_3
+Number	sennet_edificio_3_energia_activa	"Eactiva edificio IdeaTK [%.1f kWh]"	(gr_sennet_edificio_3)		{ mqtt="<[mosquitto:openhab/sennet/edificio3/ENEact:state:default]" }
+Number	sennet_edificio_3_potencia_activa	"Pactiva edificio IdeaTK [%.1f W]"	(gr_sennet_edificio_3,gr_sennet_potencias_activas_edificios)		{ mqtt="<[mosquitto:openhab/sennet/edificio3/POWact:state:default]" }
+Number	sennet_edificio_3_tension_1	"Tension1 edificio3 [%.1f V]"	(gr_sennet_edificio_3)		{ mqtt="<[mosquitto:openhab/sennet/fotovoltaica/VAC1:state:default]" }

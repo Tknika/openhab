@@ -1,0 +1,6 @@
+Group	gr_menu_aulas		"DOMOTICA AULAS"
+Group	gr_menu_consumos	"CONSUMOS"
+Group	gr_menu_graficos	"GRAFICOS"
+Group	gr_menu_scadas		"SCADAS"
+Group	gr_menu_estado		"ESTADO SISTEMA"
+Group	gr_menu_temperaturas	"TEMPERATURAS DEL EDIFICIO"

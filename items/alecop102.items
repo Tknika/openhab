@@ -1,0 +1,40 @@
+Group	gr_alecop102_potencias	"Alecop102 Potencias"	(gr_potencias)	
+Group	gr_alecop102_temperaturas	"Alecop102 Temperaturas"	(gr_temperaturas)	
+Group	gr_alecop102_energias	"Alecop102 Energías"	(gr_energias)	
+Group	gr_alecop102_humedades	"Alecop102 Humedades"	(gr_humedades)	
+Group	gr_alecop102_radiadores	"Alecop102 Radiadores"	(gr_radiadores)	
+Group:Number:AVG()	gr_alecop102_consignas_radiadores	"Nafarroa103 Consignas"
+Group:Switch:OR(ON,OFF)	gr_alecop102_interruptores	"Alecop102 Interruptores"	(gr_interruptores)	
+Group:Switch:OR(ON,OFF) gr_alecop102_interruptores_luces       "Alecop102 Interruptores Luces"        (gr_alecop102_interruptores)
+Group:Switch:OR(ON,OFF) gr_alecop102_interruptores_enchufes    "Alecop102 Interruptores Enchufes"     (gr_alecop102_interruptores)
+Group:Number:MIN()	gr_alecop102_baterias	"Alecop102 Baterias [%d %%]"	<battery>	(gr_baterias)
+Group:Contact:OR(OPEN,CLOSED)   gr_alecop102_presencia        "Alecop102 Presencia [%s]"    <present>
+
+Number	alecop102_consigna_referencia	"Alecop102 consigna referencia"
+Switch	alecop102_interruptor_general	"Interruptor General"	<switch>	(gr_interruptores_generales)	
+Switch	alecop102_interruptor_general_nocalefaccion	"IG Alecop (Sin calefacción)"	<switch>	(gr_interruptores_generales)	
+Switch	alecop102_interruptor_calefaccion	"Interruptor calefaccion"	<heating>	(gr_interruptores_generales)	
+
+Switch  alecop102_reserva_activa       	"Alecop102 reserva activa"		<calendar>		
+DateTime  alecop102_reserva_inicio	"Alecop102 reserva inicio [%s]"		<clock>
+DateTime  alecop102_reserva_fin        	"Alecop102 reserva fin [%s]"		<clock>
+
+Number	alecop102_temperatura_pared_1	"Temperatura Alecop102 [%.1f C]"	<temperature>	(gr_alecop102,gr_alecop102_temperaturas)		{ zwave2="4:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	alecop102_temperatura_techo_1	"Temperatura sensor mov1 [%.1f C]"	<temperature>	(gr_alecop102,gr_alecop102_temperaturas)		{ zwave2="11:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	alecop102_temperatura_techo_2	"Temperatura sensor mov2 [%.1f C]"	<temperature>	(gr_alecop102,gr_alecop102_temperaturas)		{ zwave2="12:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	alecop102_humedad_pared_1	"Humedad Alecop102 [%d %%]"	<climate>	(gr_alecop102,gr_alecop102_humedades)		{ zwave2="4:command=sensor_multilevel,sensor_type=5" }
+Number	alecop102_luminosidad_techo_1	"Luminosidad 1 [%d lux]"	<sun>	(gr_alecop102)		{ zwave2="11:command=sensor_multilevel,sensor_type=3" }
+Number	alecop102_luminosidad_techo_2	"Luminosidad 2  [%d lux]"	<sun>	(gr_alecop102)		{ zwave2="12:command=sensor_multilevel,sensor_type=3" }
+Contact	alecop102_presencia_techo_1	"Presencia 1  [%d]"	<present>	(gr_alecop102,gr_alecop102_presencia)		{ zwave2="11:command=sensor_binary,respond_to_basic=true" }
+Contact	alecop102_presencia_techo_2	"Presencia 2 [%d]"	<present>	(gr_alecop102,gr_alecop102_presencia)		{ zwave2="12:command=sensor_binary,respond_to_basic=true" }
+
+Number	alecop102_consigna_radiador_1	"Consigna radiador 1 [%d]"	<heating>	(gr_alecop102,gr_alecop102_radiadores,gr_alecop102_consignas_radiadores)		{ zwave2="13:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0" }
+Number	alecop102_consigna_radiador_2	"Consigna radiador 2 [%d]"	<heating>	(gr_alecop102,gr_alecop102_radiadores,gr_alecop102_consignas_radiadores)		{ zwave2="14:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0" }
+Number	alecop102_consigna_radiador_3	"Consigna radiador 3 [%d]"	<heating>	(gr_alecop102,gr_alecop102_radiadores,gr_alecop102_consignas_radiadores)		{ zwave2="15:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0" }
+
+Number	alecop102_bateria_presencia_techo_1	"Bateria sensor mov 1 [%d %%]"	<battery>	(gr_alecop102,gr_alecop102_baterias)		{ zwave2="11:command=battery" }
+Number	alecop102_bateria_presencia_techo_2	"Bateria sensor mov 2 [%d %%]"	<battery>	(gr_alecop102,gr_alecop102_baterias)		{ zwave2="12:command=battery" }
+Number	alecop102_bateria_temperatura_pared_1	"Bateria temp alecop102 [%d %%]"	<battery>	(gr_alecop102,gr_alecop102_baterias)		{ zwave2="4:command=battery" }
+Number	alecop102_bateria_radiador_1	"Bateria radiador 1 [%d %%]"	<battery>	(gr_alecop102,gr_alecop102_baterias)		{ zwave2="13:command=battery" }
+Number	alecop102_bateria_radiador_2	"Bateria radiador 2 [%d %%]"	<battery>	(gr_alecop102,gr_alecop102_baterias)		{ zwave2="14:command=battery" }
+Number	alecop102_bateria_radiador_3	"Bateria radiador 3 [%d %%]"	<battery>	(gr_alecop102,gr_alecop102_baterias)		{ zwave2="15:command=battery" }

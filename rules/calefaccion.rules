@@ -1,0 +1,173 @@
+var Number tempMaxima = 28
+var Number tempMinima = 4
+var Number tempDeseada = 21
+
+
+rule "Controlar interruptor de calefaccion de ikaslab101"
+when
+    Item ikaslab101_interruptor_calefaccion received update
+then
+    if (ikaslab101_interruptor_calefaccion.state == ON) tempDeseada = tempMaxima
+    else tempDeseada = tempMinima
+
+	sendCommand(ikaslab101_consigna_referencia, tempDeseada)
+end
+
+rule "Sincronizar radiadores y consigna referencia en ikaslab101"
+when
+    Item ikaslab101_consigna_referencia received update or
+    Item gr_ikaslab101_consignas_radiadores received update
+then
+    if (gr_ikaslab101_consignas_radiadores.state != ikaslab101_consigna_referencia.state)
+        sendCommand(gr_ikaslab101_consignas_radiadores, ikaslab101_consigna_referencia.state.toString)
+end
+
+
+
+rule "Controlar el interruptor de calefaccion de alecop102"
+when
+    Item alecop102_interruptor_calefaccion received update
+then
+    if (alecop102_interruptor_calefaccion.state == ON) tempDeseada = tempMaxima
+    else tempDeseada = tempMinima
+
+    sendCommand(alecop102_consigna_referencia, tempDeseada)
+end
+
+rule "Sincronizar radiadores y consigna referencia en alecop102"
+when
+    Item alecop102_consigna_referencia received update or
+    Item gr_alecop102_consignas_radiadores received update
+then
+    if (gr_alecop102_consignas_radiadores.state != alecop102_consigna_referencia.state)
+        sendCommand(gr_alecop102_consignas_radiadores, alecop102_consigna_referencia.state.toString)
+end
+
+
+
+rule "Controlar interruptor de calefaccion de nafarroa103"
+when
+    Item nafarroa103_interruptor_calefaccion received update
+then
+    if (nafarroa103_interruptor_calefaccion.state == ON) tempDeseada = tempMaxima
+    else tempDeseada = tempMinima
+
+    sendCommand(nafarroa103_consigna_referencia, tempDeseada)
+end
+
+rule "Sincronizar radiadores y consigna referencia en nafarroa103"
+when
+    Item nafarroa103_consigna_referencia received update or
+    Item gr_nafarroa103_consignas_radiadores received update
+then
+    if (gr_nafarroa103_consignas_radiadores.state != nafarroa103_consigna_referencia.state) {
+        logInfo("Sincronizacion radiadores nafarroa103", "Consignas: " + gr_nafarroa103_consignas_radiadores.state + ", referencias: " + nafarroa103_consigna_referencia.state)
+        logInfo("Sincronizacion radiadores nafarroa103", "Mandamos el nuevo valor porque estan desincronizados")
+        sendCommand(gr_nafarroa103_consignas_radiadores, nafarroa103_consigna_referencia.state.toString)
+    }
+end
+
+
+
+rule "Controlar la calefaccion de nafarroa_behera104"
+when
+    Item nafarroa_behera104_interruptor_calefaccion received update
+then
+    if (nafarroa_behera104_interruptor_calefaccion.state == ON) tempDeseada = tempMaxima
+    else tempDeseada = tempMinima
+
+    sendCommand(nafarroa_behera104_consigna_referencia, tempDeseada)
+end
+
+rule "Sincronizar radiadores y consigna referencia en nafarroa_behera104"
+when
+    Item nafarroa_behera104_consigna_referencia received update or
+    Item gr_nafarroa_behera104_consignas_radiadores received update
+then
+    if (gr_nafarroa_behera104_consignas_radiadores.state != nafarroa_behera104_consigna_referencia.state)
+        sendCommand(gr_nafarroa_behera104_consignas_radiadores, nafarroa_behera104_consigna_referencia.state.toString)
+end
+
+
+
+rule "Controlar la calefaccion de lapurdi105"
+when
+    Item lapurdi105_interruptor_calefaccion received update
+then
+    if (lapurdi105_interruptor_calefaccion.state == ON) tempDeseada = tempMaxima
+    else tempDeseada = tempMinima
+
+    sendCommand(lapurdi105_consigna_referencia, tempDeseada)
+end
+
+rule "Sincronizar radiadores y consigna referencia en lapurdi105"
+when
+    Item lapurdi105_consigna_referencia received update or
+    Item gr_lapurdi105_consignas_radiadores received update
+then
+    if (gr_lapurdi105_consignas_radiadores.state != lapurdi105_consigna_referencia.state)
+        sendCommand(gr_lapurdi105_consignas_radiadores, lapurdi105_consigna_referencia.state.toString)
+end
+
+
+
+rule "Controlar la calefaccion de zuberoa106"
+when
+    Item zuberoa106_interruptor_calefaccion received update
+then
+    if (zuberoa106_interruptor_calefaccion.state == ON) tempDeseada = tempMaxima
+    else tempDeseada = tempMinima
+
+    sendCommand(zuberoa106_consigna_referencia, tempDeseada)
+end
+
+rule "Sincronizar radiadores y consigna referencia en zuberoa106"
+when
+    Item zuberoa106_consigna_referencia received update or
+    Item gr_zuberoa106_consignas_radiadores received update
+then
+    if (gr_zuberoa106_consignas_radiadores.state != zuberoa106_consigna_referencia.state)
+        sendCommand(gr_zuberoa106_consignas_radiadores, zuberoa106_consigna_referencia.state.toString)
+end
+
+
+
+rule "Controlar la calefaccion de smc_festo107"
+when
+    Item smc_festo107_interruptor_calefaccion received update
+then
+    if (smc_festo107_interruptor_calefaccion.state == ON) tempDeseada = tempMaxima
+    else tempDeseada = tempMinima
+
+    sendCommand(smc_festo107_consigna_referencia, tempDeseada)
+end
+
+rule "Sincronizar radiadores y consigna referencia en smc_festo107"
+when
+    Item smc_festo107_consigna_referencia received update or
+    Item gr_smc_festo107_consignas_radiadores received update
+then
+    if (gr_smc_festo107_consignas_radiadores.state != smc_festo107_consigna_referencia.state)
+        sendCommand(gr_smc_festo107_consignas_radiadores, smc_festo107_consigna_referencia.state.toString)
+end
+
+
+
+rule "Controlar la calefaccion de urdaburu108"
+when
+    Item urdaburu108_interruptor_calefaccion received update
+then
+    if (urdaburu108_interruptor_calefaccion.state == ON) tempDeseada = tempMaxima
+    else tempDeseada = tempMinima
+
+    sendCommand(urdaburu108_consigna_referencia, tempDeseada)
+end
+
+rule "Sincronizar radiadores y consigna referencia en urdaburu108"
+when
+    Item urdaburu108_consigna_referencia received update or
+    Item gr_urdaburu108_consignas_radiadores received update
+then
+    if (gr_urdaburu108_consignas_radiadores.state != urdaburu108_consigna_referencia.state)
+        sendCommand(gr_urdaburu108_consignas_radiadores, urdaburu108_consigna_referencia.state.toString)
+end

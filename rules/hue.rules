@@ -1,0 +1,67 @@
+import org.openhab.core.library.types.*
+import org.openhab.core.library.types.PercentType
+import org.openhab.core.library.types.DecimalType
+import org.openhab.core.library.types.HSBType
+import java.util.ArrayList
+
+var ArrayList<DecimalType> colors = newArrayList(0,120,240)
+
+rule "Interruptor General Hue"
+when
+    Item hue_interruptor_0 received update
+then
+    var new_state = hue_interruptor_0.state.toString
+    gr_hue_interruptores?.members.forEach[ hue | hue.sendCommand(new_state) ]
+	
+end
+
+rule "Color General Hue"
+when
+    Item hue_color_0 received update
+then
+
+    var new_color = hue_color_0.state.toString
+    gr_hue_colores?.members.forEach[ hue |
+        hue.sendCommand(new_color)
+    ]
+	
+end
+
+rule "Dimmer General Hue"
+when
+    Item hue_dimmer_0 received update
+then
+
+    var new_value = hue_dimmer_0.state.toString
+    gr_hue_dimmers?.members.forEach[ hue | hue.sendCommand(new_value) ]
+	
+end
+
+rule "Temperatura Color General Hue"
+when
+    Item hue_temperatura_color_0 received update
+then
+
+    var new_value = hue_temperatura_color_0.state.toString
+    gr_hue_temperaturas_color?.members.forEach[ hue | hue.sendCommand(new_value) ]
+	
+end
+
+rule "Interruptor escena 1"
+when
+    Item hue_interruptor_escena changed from OFF to ON
+then
+    while (hue_interruptor_escena.state == ON) {
+        for (color: colors) {
+            logInfo("Escena","El color es " + color)
+            var String command = color + "," + 100 + "," + 100 
+            gr_hue_colores?.members.forEach [ bulb|
+                if (hue_interruptor_escena.state == ON) {
+                    Thread::sleep(500)
+                    bulb.sendCommand(command)
+                }
+            ]
+        }
+    }
+    sendCommand(gr_hue_interruptores, "OFF")
+end

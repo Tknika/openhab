@@ -1,0 +1,60 @@
+Group	gr_lapurdi105_radiadores	"Lapurdi105 Radiadores"	(gr_radiadores)	
+Group	gr_lapurdi105_temperaturas	"Lapurdi105 Temperaturas"	(gr_temperaturas)	
+Group	gr_lapurid105_humedades	"Lapurdi105 Humedades"	(gr_humedades)	
+Group:Number:AVG()	gr_lapurdi105_consignas_radiadores	"Lapurdi105 Consignas"
+Group:Switch:OR(ON,OFF)	gr_lapurdi105_interruptores	"Lapurdi105 Interruptores"	(gr_interruptores)	
+Group:Switch:OR(ON,OFF) gr_lapurdi105_interruptores_luces       "Lapurdi105 Interruptores Luces"        (gr_lapurdi105_interruptores)
+Group:Switch:OR(ON,OFF) gr_lapurdi105_interruptores_enchufes    "Lapurdi105 Interruptores Enchufes"     (gr_lapurdi105_interruptores)
+Group:Number:MIN()	gr_lapurdi105_baterias	"Lapurdi105 Baterias [%d %%]"	<battery>	(gr_baterias)	
+Group:Number:SUM()	gr_lapurdi105_potencias	"Potencia total [%.2f W]"	<energy>	(gr_potencias)	
+Group:Number:SUM()	gr_lapurdi105_potencias_luces	"Potencia luces [%.2f W]"	<energy>	(gr_lapurdi105_potencias)	
+Group:Number:SUM()	gr_lapurdi105_potencias_enchufes	"Potencia enchufes [%.2f W]"	<energy>	(gr_lapurdi105_potencias)	
+Group:Contact:OR(OPEN,CLOSED)	gr_lapurdi105_presencia	"Lapurdi105 Presencia [%s]"	<present>
+Group:Contact:OR(OPEN,CLOSED)	gr_lapurdi105_puertas	"Lapurdi105 Puertas [(%d)]"	<door>
+
+Switch  lapurdi105_reserva_activa       "Lapurdi105 reserva activa"
+DateTime  lapurdi105_reserva_inicio       "Lapurdi105 reserva inicio [%s]"
+DateTime  lapurdi105_reserva_fin          "Lapurdi105 reserva fin [%s]"
+
+Number	lapurdi105_consigna_referencia	"Lapurdi105 consigna referencia"
+Switch	lapurdi105_interruptor_general	"Interruptor General "	(gr_interruptores_generales)	
+Switch	lapurdi105_interruptor_general_nocalefaccion	"IG Lapurdi (Sin Calefaccion)"	<switch>	(gr_interruptores_generales)	
+Switch	lapurdi105_interruptor_calefaccion	"Interruptor calefaccion"	<heating>	(gr_interruptores_generales)	
+Switch	lapurdi105_interruptor_luces_1	"Luces 1"	(gr_lapurdi105,gr_lapurdi105_interruptores_luces)		{ zwave3="40:command=switch_binary,respond_to_basic=true" }
+Switch	lapurdi105_interruptor_luces_2	"Luces 2"	(gr_lapurdi105,gr_lapurdi105_interruptores_luces)		{ zwave3="41:command=switch_binary,respond_to_basic=true" }
+Switch	lapurdi105_interruptor_luces_3	"Luces 3"	(gr_lapurdi105,gr_lapurdi105_interruptores_luces)		{ zwave3="42:command=switch_binary,respond_to_basic=true" }
+Switch	lapurdi105_interruptor_enchufe_1	"Enchufes 1"	<socket>	(gr_lapurdi105,gr_lapurdi105_interruptores_enchufes)		{ zwave3="24" }
+Switch	lapurdi105_interruptor_enchufe_2	"Enchufes 2"	<socket>	(gr_lapurdi105,gr_lapurdi105_interruptores_enchufes)		{ zwave3="25" }
+Switch	lapurdi105_interruptor_enchufe_3	"Enchufes 3"	<socket>	(gr_lapurdi105,gr_lapurdi105_interruptores_enchufes)		{ zwave3="26" }
+Number	lapurdi105_potencia_luces_1	"Potencia luces 1 [%.2f W]"	(gr_lapurdi105,gr_lapurdi105_potencias_luces)		{ zwave3="40:command=meter,meter_scale=E_W" }
+Number	lapurdi105_potencia_luces_2	"Potencia luces 2 [%.2f W]"	(gr_lapurdi105,gr_lapurdi105_potencias_luces)		{ zwave3="41:command=meter,meter_scale=E_W" }
+Number	lapurdi105_potencia_luces_3	"Potencia luces 3 [%.2f W]"	(gr_lapurdi105,gr_lapurdi105_potencias_luces)		{ zwave3="42:command=meter,meter_scale=E_W" }
+Number	lapurdi105_potencia_enchufe_1	"Potencia enchufe 1 [%.2f W]"	(gr_lapurdi105,gr_lapurdi105_potencias_enchufes)		{ zwave3="27:1:command=METER,meter_scale=E_W" }
+Number	lapurdi105_potencia_enchufe_2	"Potencia enchufe 2 [%.2f W]"	(gr_lapurdi105,gr_lapurdi105_potencias_enchufes)		{ zwave3="27:2:command=METER,meter_scale=E_W" }
+Number	lapurdi105_potencia_enchufe_3	"Potencia enchufe 3 [%.2f W]"	(gr_lapurdi105,gr_lapurdi105_potencias_enchufes)		{ zwave3="27:3:command=METER,meter_scale=E_W" }
+Number	lapurdi105_tension_enchufe_1	"Voltaje enchufe 1 [%.2f V]"	(gr_lapurdi105)		{ zwave3="27:1:command=METER,meter_scale=E_V" }
+Number	lapurdi105_tension_enchufe_2	"Voltaje enchufe 2 [%.2f V]"	(gr_lapurdi105)		{ zwave3="27:2:command=METER,meter_scale=E_V" }
+Number	lapurdi105_tension_enchufe_3	"Voltaje enchufe 3 [%.2f V]"	(gr_lapurdi105)		{ zwave3="27:3:command=METER,meter_scale=E_V" }
+Number	lapurdi105_intensidad_enchufe_1	"Intensidad enchufe 1 [%.2f A]"	(gr_lapurdi105)		{ zwave3="27:1:command=METER,meter_scale=E_A" }
+Number	lapurdi105_intensidad_enchufe_2	"Intensidad enchufe 2 [%.2f A]"	(gr_lapurdi105)		{ zwave3="27:2:command=METER,meter_scale=E_A" }
+Number	lapurdi105_intensidad_enchufe_3	"Intensidad enchufe 3 [%.2f A]"	(gr_lapurdi105)		{ zwave3="27:3:command=METER,meter_scale=E_A" }
+Number	lapurdi105_energia_enchufe_1	"Energia enchufe 1 [%.2f kWh]"	(gr_lapurdi105)		{ zwave3="27:1:command=METER,meter_scale=E_KWh" }
+Number	lapurdi105_energia_enchufe_2	"Energia enchufe 2 [%.2f kWh]"	(gr_lapurdi105)		{ zwave3="27:2:command=METER,meter_scale=E_KWh" }
+Number	lapurdi105_energia_enchufe_3	"Energia enchufe 3 [%.2f kWh]"	(gr_lapurdi105)		{ zwave3="27:3:command=METER,meter_scale=E_KWh" }
+Number	lapurdi105_temperatura_pared_1	"Temperatura Lapurdi 105 [%.1f C]"	<temperature>	(gr_lapurdi105,gr_lapurdi105_temperaturas)		{ zwave="15:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	lapurdi105_humedad_pared_1	"Humedad 1 [%d %%]"	<climate>	(gr_lapurdi105)		{ zwave="15:command=sensor_multilevel,sensor_type=5" }
+Number	lapurdi105_temperatura_techo_1	"Temperatura sensor mov [%.1f C]"	<temperature>	(gr_lapurdi105,gr_lapurdi105_temperaturas)		{ zwave="14:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Contact	lapurdi105_presencia_techo_1	"Presencia  [%d]"	<present>	(gr_lapurdi105,gr_lapurdi105_presencia)		{ zwave="14:command=sensor_binary,respond_to_basic=true" }
+Contact	lapurdi105_presencia_puerta_1	"Presencia puerta 1 [%d]"	<present>	(gr_lapurdi105,gr_lapurdi105_presencia)		{ zwave="23:command=sensor_binary,sensor_type=12" }
+Contact	lapurdi105_presencia_puerta_2	"Presencia puerta 2 [%d]"	<present>	(gr_lapurdi105,gr_lapurdi105_presencia)		{ zwave3="53:command=sensor_binary,sensor_type=12" }
+Contact	lapurdi105_apertura_puerta_1	"Apertura puerta 1 [%s]"	<door>	(gr_lapurdi105,gr_lapurdi105_puertas)		{ zwave="23:command=sensor_binary,sensor_type=10" }
+Contact	lapurdi105_apertura_puerta_2	"Apertura puerta 2 [%s]"	<door>	(gr_lapurdi105,gr_lapurdi105_puertas)		{ zwave3="53:command=sensor_binary,sensor_type=10" }
+Number	lapurdi105_luminosidad_techo_1	"Luminosidad Lapurdi105 [%d lux]"	<sun>	(gr_lapurdi105)		{ zwave="14:command=sensor_multilevel,sensor_type=3" }
+Number	lapurdi105_consigna_radiador_1	"Consigna radiador 1  [%d]"	<heating>	(gr_lapurdi105,gr_lapurdi105_radiadores,gr_lapurdi105_consignas_radiadores)		{ zwave="16:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0,refresh_interval=1800" }
+Number	lapurdi105_consigna_radiador_2	"Consigna radiador 2  [%d]"	<heating>	(gr_lapurdi105,gr_lapurdi105_radiadores,gr_lapurdi105_consignas_radiadores)		{ zwave="17:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0,refresh_interval=1800" }
+Number	lapurdi105_bateria_temperatura_pared_1	"Bateria temp lapurdi105 [%d %%]"	<battery>	(gr_lapurdi105,gr_lapurdi105_baterias)		{ zwave="15:command=battery" }
+Number	lapurdi105_bateria_presencia_techo_1	"Bateria sensor movimiento [%d %%]"	<battery>	(gr_lapurdi105,gr_lapurdi105_baterias)		{ zwave="14:command=battery" }
+Number	lapurdi105_bateria_radiador_1	"Bateria radiador 1 [%d %%]"	<battery>	(gr_lapurdi105)		{ zwave="16:command=battery" }
+Number	lapurdi105_bateria_radiador_2	"Bateria radiador 2 [%d %%]"	<battery>	(gr_lapurdi105)		{ zwave="17:command=battery" }
+Number	lapurdi105_bateria_puerta_1	"Bateria puerta 1 [%d %%]"	<battery>	(gr_lapurdi105,gr_lapurdi105_baterias)		{ zwave="23:command=battery" }
+Number	lapurdi105_bateria_puerta_2	"Bateria puerta 2 [%d %%]"	<battery>	(gr_lapurdi105,gr_lapurdi105_baterias)		{ zwave3="53:command=battery" }

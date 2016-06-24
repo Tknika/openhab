@@ -1,0 +1,14 @@
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.Timer
+
+rule "Persianas nafarroa103"
+when
+    Item nafarroa103_interruptor_persianas received update
+then
+    if (nafarroa103_interruptor_persianas.state == ON) {
+        gr_nafarroa103_persianas?.members.forEach[persiana | persiana.sendCommand(UP)]
+    } else {
+        gr_nafarroa103_persianas?.members.forEach[persiana | persiana.sendCommand(DOWN)]
+    }
+
+end

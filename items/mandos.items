@@ -1,0 +1,14 @@
+Switch    mando_nodon_1_boton_1_pulsacion    "Nodon_Button1_Single"	<switch>	{ zwave="56:command=SCENE_ACTIVATION,scene=10,state=1" }
+Switch    mando_nodon_1_boton_2_pulsacion    "Nodon_Button2_Single"	<switch>	{ zwave="56:command=SCENE_ACTIVATION,scene=20,state=1" }
+Switch    mando_nodon_1_boton_3_pulsacion    "Nodon_Button3_Single"	<switch>	{ zwave="56:command=SCENE_ACTIVATION,scene=30,state=1" }
+Switch    mando_nodon_1_boton_4_pulsacion    "Nodon_Button4_Single"	<switch>	{ zwave="56:command=SCENE_ACTIVATION,scene=40,state=1" }
+
+Switch    mando_nodon_1_boton_1_pulsacion_larga    "Nodon_Button1_Long"  <switch>          { zwave="56:command=SCENE_ACTIVATION,scene=12,state=1" }
+Switch    mando_nodon_1_boton_2_pulsacion_larga    "Nodon_Button2_Long"  <switch>          { zwave="56:command=SCENE_ACTIVATION,scene=22,state=1" }
+Switch    mando_nodon_1_boton_3_pulsacion_larga    "Nodon_Button3_Long"  <switch>          { zwave="56:command=SCENE_ACTIVATION,scene=32,state=1" }
+Switch    mando_nodon_1_boton_4_pulsacion_larga    "Nodon_Button4_Long"  <switch>          { zwave="56:command=SCENE_ACTIVATION,scene=42,state=1" }
+
+Switch    mando_nodon_1_boton_1_doble_pulsacion    "Nodon_Button1_Double" <switch>         { zwave="56:command=SCENE_ACTIVATION,scene=13,state=1" }
+Switch    mando_nodon_1_boton_2_doble_pulsacion    "Nodon_Button2_Double" <switch>         { zwave="56:command=SCENE_ACTIVATION,scene=23,state=1" }
+Switch    mando_nodon_1_boton_3_doble_pulsacion    "Nodon_Button3_Double" <switch>         { zwave="56:command=SCENE_ACTIVATION,scene=33,state=1" }
+Switch    mando_nodon_1_boton_4_doble_pulsacion    "Nodon_Button4_Double" <switch>         { zwave="56:command=SCENE_ACTIVATION,scene=43,state=1" }

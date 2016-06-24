@@ -1,0 +1,6 @@
+Group:String:COUNT("ERROR") gr_zwave_nodos_erroneos "Nodos erroneos [%d]"
+String zwave_nodo_erroneo_1 "Detector presencia 1 [Ikaslab101]" (gr_zwave_nodos_erroneos)
+String zwave_nodo_erroneo_2 "Detector presencia 2 [Alecop102]" (gr_zwave_nodos_erroneos)
+String zwave_nodo_erroneo_3 "Sensor temperatura [Urdaburu108]" (gr_zwave_nodos_erroneos)
+String zwave_nodo_erroneo_4 "Detector presencia [Zuberoa106]" (gr_zwave_nodos_erroneos)
+String zwave_nodo_erroneo_5 "Sensor Puerta 1 [Urdaburu108]" (gr_zwave_nodos_erroneos)

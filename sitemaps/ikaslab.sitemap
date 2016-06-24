@@ -1,0 +1,8 @@
+sitemap ikaslab label="IKASLAB"
+{
+	Frame label="Impresora Tumaker" {
+		Switch item=ikaslab101_interruptor_wallplug_1		
+		Text item=ikaslab101_potencia_wallplug_1		
+		Chart item=ikaslab101_potencia_wallplug_1 label="Consumo tumaker [ W]" period=12h refresh=10000		
+	}	
+}

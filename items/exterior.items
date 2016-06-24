@@ -1,0 +1,9 @@
+Group	gr_exterior_temperaturas	"Exterior Temperaturas"	(gr_temperaturas)	
+Group	gr_exterior_humedades	"Exterior Humedades"	(gr_humedades)	
+Group:Number:MIN()	gr_exterior_baterias	"Exterior Baterias [%d %%]"	<battery>	(gr_baterias)	
+Number	exterior_temperatura_norte_1	"Temperatura exterior [%.1f C]"	<temperature>	(gr_exterior_temperaturas)		{ zwave4="25:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	exterior_humedad_norte_1	"Humedad exterior [%d %%]"	<climate>	(gr_exterior_humedades)		{ zwave4="25:command=sensor_multilevel,sensor_type=5" }
+Number	exterior_bateria_temperatura_norte_1	"Bateria sensor temp exterior [%d %%]"	<battery>	(gr_exterior_baterias)		{ zwave4="25:command=battery" }
+Number	exterior_temperatura_norte_2	"Temperatura exterior netatmo [%.1f C]"	<temperature>	(gr_exterior_temperaturas)		{ netatmo="70:ee:50:12:83:7c#02:00:00:12:4c:c4#Temperature" }
+Number	exterior_humedad_norte_2	"Humedad exterior netatmo [%d %%]"	<climate>	(gr_exterior_humedades)		{ netatmo="70:ee:50:12:83:7c#02:00:00:12:4c:c4#Humidity" }
+Number	exterior_bateria_temperatura_norte_2	"Bateria sensor temp exterior [%d %%]"	<battery>	(gr_exterior_baterias)		{ netatmo="70:ee:50:12:83:7c#02:00:00:12:4c:c4#BatteryVP" }

@@ -1,0 +1,61 @@
+Group	gr_zuberoa106_temperaturas	"Zuberoa106 Temperaturas"	(gr_temperaturas)	
+Group	gr_zuberoa106_humedades	"Zuberoa106 Humedades"	(gr_humedades)	
+Group	gr_zuberoa106_radiadores	"Zuberoa106 Radiadores"	(gr_radiadores)	
+Group	gr_zuberoa106_energias	"zuberoa106 Energías"	(gr_energias)	
+Group:Number:AVG()	gr_zuberoa106_consignas_radiadores	"Zuberoa106 Consignas"
+Group:Switch:OR(ON,OFF)	gr_zuberoa106_interruptores	"Zuberoa106 Interruptores"	(gr_interruptores)	
+Group:Switch:OR(ON,OFF) gr_zuberoa106_interruptores_luces       "Zuberoa106 Interruptores Luces"        (gr_zuberoa106_interruptores)
+Group:Switch:OR(ON,OFF) gr_zuberoa106_interruptores_enchufes    "Zuberoa106 Interruptores Enchufes"     (gr_zuberoa106_interruptores)
+Group:Number:MIN()	gr_zuberoa106_baterias	"Zuberoa106 Baterias [%d %%]"	<battery>	(gr_baterias)	
+Group:Number:SUM()	gr_zuberoa106_potencias	"Potencia total [%.2f W]"	<energy>	(gr_potencias)	
+Group:Number:SUM()	gr_zuberoa106_potencias_luces	"Potencia luces [%.2f W]"	<energy>	(gr_zuberoa106_potencias)	
+Group:Number:SUM()	gr_zuberoa106_potencias_enchufes	"Potencia enchufes [%.2f W]"	<energy>	(gr_zuberoa106_potencias)	
+Group:Contact:OR(OPEN,CLOSED)	gr_zuberoa106_presencia	"Zuberoa106 Presencia [%s]"	<present>
+Group:Contact:OR(OPEN,CLOSED)	gr_zuberoa106_puertas	"Zuberoa106 Puertas [(%d)]"	<door>
+
+Switch  zuberoa106_reserva_activa       "Zuberoa106 reserva activa"		<calendar>
+DateTime zuberoa106_reserva_inicio       "Zuberoa106 reserva inicio [%s]"	<clock>
+DateTime zuberoa106_reserva_fin          "Zuberoa106 reserva fin [%s]"		<clock>
+
+Number	zuberoa106_consigna_referencia	"Zuberoa106 consigna referencia"
+Switch	zuberoa106_interruptor_general	"Interruptor General"	(gr_interruptores_generales)	
+Switch	zuberoa106_interruptor_general_nocalefaccion	"IG Zuberoa (Sin calefacción)"	<switch>	(gr_interruptores_generales)	
+Switch	zuberoa106_interruptor_calefaccion	"Interruptor calefaccion"	(gr_interruptores_generales)	
+Switch	zuberoa106_interruptor_enchufe_1	"Enchufes 1"	(gr_zuberoa106,gr_zuberoa106_interruptores_enchufes)		{ zwave="6:command=switch_binary" }
+Switch	zuberoa106_interruptor_enchufe_2	"Enchufes 2"	(gr_zuberoa106,gr_zuberoa106_interruptores_enchufes)		{ zwave="7:command=switch_binary" }
+Switch	zuberoa106_interruptor_enchufe_3	"Enchufes 3"	(gr_zuberoa106,gr_zuberoa106_interruptores_enchufes)		{ zwave="8:command=switch_binary" }
+Switch	zuberoa106_interruptor_luces_1	"Luces 1"	(gr_zuberoa106,gr_zuberoa106_interruptores_luces)		{ zwave3="43:0:command=switch_binary,respond_to_basic=true" }
+Switch	zuberoa106_interruptor_luces_2	"Luces 2"	(gr_zuberoa106,gr_zuberoa106_interruptores_luces)		{ zwave3="44:0:command=switch_binary,respond_to_basic=true" }
+Switch	zuberoa106_interruptor_luces_3	"Luces 3"	(gr_zuberoa106,gr_zuberoa106_interruptores_luces)		{ zwave3="45:0:command=switch_binary,respond_to_basic=true" }
+Number	zuberoa106_potencia_luces_1	"Potencia luces 1 [%.2f W]"	(gr_zuberoa106,gr_zuberoa106_potencias_luces)		{ zwave3="43:command=meter,meter_scale=E_W" }
+Number	zuberoa106_potencia_luces_2	"Potencia luces 2 [%.2f W]"	(gr_zuberoa106,gr_zuberoa106_potencias_luces)		{ zwave3="44:command=meter,meter_scale=E_W" }
+Number	zuberoa106_potencia_luces_3	"Potencia luces 3 [%.2f W]"	(gr_zuberoa106,gr_zuberoa106_potencias_luces)		{ zwave3="45:command=meter,meter_scale=E_W" }
+Number	zuberoa106_potencia_enchufe_1	"Potencia enchufe 1 [%.2f W]"	(gr_zuberoa106_potencias_enchufes,gr_zuberoa106)		{ zwave="9:1:command=METER,meter_scale=E_W" }
+Number	zuberoa106_potencia_enchufe_2	"Potencia enchufe 2 [%.2f W]"	(gr_zuberoa106_potencias_enchufes,gr_zuberoa106)		{ zwave="9:2:command=METER,meter_scale=E_W" }
+Number	zuberoa106_potencia_enchufe_3	"Potencia enchufe 3 [%.2f W]"	(gr_zuberoa106_potencias_enchufes,gr_zuberoa106)		{ zwave="9:3:command=METER,meter_scale=E_W" }
+Number	zuberoa106_energia_enchufe_1	"Energia enchufe 1 [%.3f kWh]"	(gr_zuberoa106,gr_zuberoa106_energias)		{ zwave="9:1:command=METER,meter_scale=E_KWh" }
+Number	zuberoa106_energia_enchufe_2	"Energia enchufe 2 [%.3f kWh]"	(gr_zuberoa106,gr_zuberoa106_energias)		{ zwave="9:2:command=METER,meter_scale=E_KWh" }
+Number	zuberoa106_energia_enchufe_3	"Energia enchufe 3 [%.3f kWh]"	(gr_zuberoa106,gr_zuberoa106_energias)		{ zwave="9:3:command=METER,meter_scale=E_KWh" }
+Number	zuberoa106_tension_enchufe_1	"Voltaje enchufe 1 [%.2f V]"	(gr_zuberoa106)		{ zwave="9:1:command=METER,meter_scale=E_V" }
+Number	zuberoa106_tension_enchufe_2	"Voltaje enchufe 2 [%.2f V]"	(gr_zuberoa106)		{ zwave="9:2:command=METER,meter_scale=E_V" }
+Number	zuberoa106_tension_enchufe_3	"Voltaje enchufe 3 [%.2f V]"	(gr_zuberoa106)		{ zwave="9:3:command=METER,meter_scale=E_V" }
+Number	zuberoa106_intensidad_enchufe_1	"Intensidad enchufe 1 [%.2f A]"	(gr_zuberoa106)		{ zwave="9:1:command=METER,meter_scale=E_A" }
+Number	zuberoa106_intensidad_enchufe_2	"Intensidad enchufe 2 [%.2f A]"	(gr_zuberoa106)		{ zwave="9:2:command=METER,meter_scale=E_A" }
+Number	zuberoa106_intensidad_enchufe_3	"Intensidad enchufe 3 [%.2f A]"	(gr_zuberoa106)		{ zwave="9:3:command=METER,meter_scale=E_A" }
+Number	zuberoa106_temperatura_pared_1	"Temperatura Zuberoa106 [%.1f C]"	<temperature>	(gr_zuberoa106,gr_zuberoa106_temperaturas)		{ zwave3="5:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	zuberoa106_humedad_pared_1	"Humedad Zuberoa106 [%d %%]"	<climate>	(gr_zuberoa106,gr_zuberoa106_humedades)		{ zwave3="5:command=sensor_multilevel,sensor_type=5" }
+Number	zuberoa106_temperatura_techo_1	"Temperatura sensor mov [%.1f C]"	<temperature>	(gr_zuberoa106,gr_zuberoa106_temperaturas)		{ zwave3="12:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Contact	zuberoa106_presencia_techo_1	"Presencia zuberoa106 [%d]"	<present>	(gr_zuberoa106)		{ zwave3="12:command=sensor_binary,respond_to_basic=true" }
+Contact	zuberoa106_presencia_puerta_1	"Presencia puerta 1 [%d]"	<present>	(gr_zuberoa106,gr_zuberoa106_presencia)		{ zwave="24:command=sensor_binary,sensor_type=12" }
+Contact	zuberoa106_presencia_puerta_2	"Presencia puerta 2 [%d]"	<present>	(gr_zuberoa106,gr_zuberoa106_presencia)		{ zwave3="54:command=sensor_binary,sensor_type=12" }
+Contact	zuberoa106_apertura_puerta_1	"Apertura puerta 1 [%s]"	<door>	(gr_zuberoa106,gr_zuberoa106_puertas)		{ zwave="24:command=sensor_binary,sensor_type=10" }
+Contact	zuberoa106_apertura_puerta_2	"Apertura puerta 2 [%s]"	<door>	(gr_zuberoa106,gr_zuberoa106_puertas)		{ zwave3="54:command=sensor_binary,sensor_type=10" }
+Number	zuberoa106_luminosidad_techo_1	"Luminosidad zuberoa106 [%d lux]"	<sun>	(gr_zuberoa106)		{ zwave3="12:command=sensor_multilevel,sensor_type=3" }
+Number	zuberoa106_consigna_radiador_1	"Consigna radiador 1  [%d]"	<heating>	(gr_zuberoa106,gr_zuberoa106_radiadores,gr_zuberoa106_consignas_radiadores)		{ zwave3="6:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0,refresh_interval=1800" }
+Number	zuberoa106_consigna_radiador_2	"Consigna radiador 2  [%d]"	<heating>	(gr_zuberoa106,gr_zuberoa106_radiadores,gr_zuberoa106_consignas_radiadores)		{ zwave3="7:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0,refresh_interval=1800" }
+Number	zuberoa106_bateria_temperatura_pared_1	"Bateria temp zuberoa106 [%d %%]"	<battery>	(gr_zuberoa106,gr_zuberoa106_baterias)		{ zwave3="5:command=battery" }
+Number	zuberoa106_bateria_presencia_techo_1	"Bateria sensor movimiento [%d %%]"	<battery>	(gr_zuberoa106,gr_zuberoa106_baterias)		{ zwave3="12:command=battery" }
+Number	zuberoa106_bateria_radiador_1	"Bateria radiador 1 [%d %%]"	<battery>	(gr_zuberoa106,gr_zuberoa106_baterias)		{ zwave3="6:command=battery" }
+Number	zuberoa106_bateria_radiador_2	"Bateria radiador 2 [%d %%]"	<battery>	(gr_zuberoa106,gr_zuberoa106_baterias)		{ zwave3="7:command=battery" }
+Number	zuberoa106_bateria_puerta_1	"Bateria puerta 1 [%d %%]"	<battery>	(gr_zuberoa106,gr_zuberoa106_baterias)		{ zwave="24:command=battery" }
+Number	zuberoa106_bateria_puerta_2	"Bateria puerta 2 [%d %%]"	<battery>	(gr_zuberoa106,gr_zuberoa106_baterias)		{ zwave3="54:command=battery" }

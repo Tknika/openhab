@@ -1,0 +1,26 @@
+rule "Edificio Talleres"
+when
+    Item edificio_talleres_interruptor_general_nocalefaccion received update
+then
+    var group_state = edificio_talleres_interruptor_general_nocalefaccion.state
+    var to_change = edificio_talleres_interruptor_general_nocalefaccion?.members.filter(x|x.state != group_state)
+    to_change.forEach[ item | sendCommand(item, group_state.toString) ]
+end
+
+rule "Edificio Principal"
+when
+    Item edificio_principal_interruptor_general_nocalefaccion received update
+then
+    var group_state = edificio_principal_interruptor_general_nocalefaccion.state
+    var to_change = edificio_principal_interruptor_general_nocalefaccion?.members.filter(x|x.state != group_state)
+    to_change.forEach[ item | sendCommand(item, group_state.toString) ]
+end
+
+rule "Edificio ETHAZI"
+when
+    Item edificio_ethazi_interruptor_general_nocalefaccion received update
+then
+    var group_state = edificio_ethazi_interruptor_general_nocalefaccion.state
+    var to_change = edificio_ethazi_interruptor_general_nocalefaccion?.members.filter(x|x.state != group_state)
+    to_change.forEach[ item | sendCommand(item, group_state.toString) ]
+end

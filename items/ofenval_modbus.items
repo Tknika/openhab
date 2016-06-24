@@ -1,0 +1,80 @@
+Group	gr_calderas	"Grupo calderas"
+Group:Switch:OR(ON,OFF) edificio_talleres_interruptor_general_nocalefaccion	"Interruptor bomba circuito 1"
+Switch  edificio_talleres_reserva_activa       "Edificio talleres reserva activa"
+String  edificio_talleres_reserva_inicio       "Edificio talleres reserva inicio [%s]"
+String  edificio_talleres_reserva_fin          "Edificio talleres reserva fin [%s]"
+Group:Switch:OR(ON,OFF) edificio_principal_interruptor_general_nocalefaccion	"Interruptor bomba circuito 2"
+Switch  edificio_principal_reserva_activa       "Edificio principal reserva activa"
+String  edificio_principal_reserva_inicio       "Edificio principal reserva inicio [%s]"
+String  edificio_principal_reserva_fin          "Edificio principal reserva fin [%s]"
+Group:Switch:OR(ON,OFF) edificio_ethazi_interruptor_general_nocalefaccion	"Interruptor bomba circuito 3"
+Switch  edificio_ethazi_reserva_activa       "Edificio ethazi reserva activa"
+String  edificio_ethazi_reserva_inicio       "Edificio ethazi reserva inicio [%s]"
+String  edificio_ethazi_reserva_fin          "Edificio ethazi reserva fin [%s]"
+Group:Switch:OR(ON,OFF)	gr_calderas_alarmas "Caldera Alarmas"	(gr_calderas)
+Group:Switch:OR(ON,OFF) gr_calderas_estado_bombas  "Caldera bombas"	(gr_calderas)
+
+String  calderas_modbus_timestamp        "Fecha datos [%s]"                                             (gr_calderas)   { mqtt="<[mosquitto:openhab/ofenval/lectura/modbus_timestamp:state:default]" }
+
+Number	calderas_temp_colector_impulsion	"T colector imp [%.1f C]"		<temperature>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_colector_impulsion:state:default]" }
+Number	calderas_temp_retorno_comun		"T retorno comun [%.1f C]"		<temperature>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_retorno_comun:state:default]" }
+Number	calderas_temp_impulsion_caldera_gas	"T imp gas [%.1f C]"			<temperature>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_impulsion_caldera_gas:state:default]" }
+Number	calderas_temp_retorno_caldera_gas	"T retorno gas [%.1f C]"		<temperature>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_retorno_caldera_gas:state:default]" }
+Number	calderas_temp_humos_caldera_gas		"T humos gas [%.1f C]"			<temperature>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_humos_caldera_gas:state:default]" }
+Number	calderas_temp_impulsion_caldera_biomasa	"T imp biomasa [%.1f C]"		<temperature>	(gr_calderas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_impulsion_caldera_biomasa:state:default]" }
+Number	calderas_temp_retorno_caldera_biomasa	"T retorno biomasa [%.1f C]"		<temperature>	(gr_calderas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_retorno_caldera_biomasa:state:default]" }
+Number	calderas_temp_humos_caldera_biomasa	"T humos biomasa [%.1f C]"		<temperature>	(gr_calderas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_humos_caldera_biomasa:state:default]" }
+Number	calderas_temp_entrada_depositos		"T entrada depositos [%.1f C]"		<temperature>	(gr_calderas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_entrada_depositos:state:default]" }
+Number	calderas_temp_salida_depositos		"T salida depositos [%.1f C]"		<temperature>	(gr_calderas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_salida_depositos:state:default]" }
+Number	calderas_temp_impulsion_caldera_biomasa_a_colector	"T imp biomasa a colector [%.1f C]"		<temperature>	(gr_calderas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_impulsion_caldera_biomasa_a_colector:state:default]" }
+Number	calderas_temp_exterior			"Temperatura exterior Caldera [%.1f C]"	<temperature>	(gr_calderas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_exterior:state:default]" }
+
+Number	calderas_alarma_presostato_colector	"Alarma presostato colector [%d]"			(gr_calderas,gr_calderas_alarmas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/alarma_presostato_colector:state:default]" }
+Number	calderas_alarma_caldera_gas		"Alarma caldera gas [%d]"				(gr_calderas,gr_calderas_alarmas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/alarma_caldera_gas:state:default]" }
+Number	calderas_alarma_caldera_biomasa		"Alarma caldera biomasa [%d]"				(gr_calderas,gr_calderas_alarmas) 	{ mqtt="<[mosquitto:openhab/ofenval/lectura/alarma_caldera_biomasa:state:default]" }
+Number	calderas_alarma_centralita_caldera_gas	"Alarma centralita gas [%d]"				(gr_calderas,gr_calderas_alarmas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/alarma_centralita_caldera_gas:state:default]" }
+
+Number	calderas_energia_producida_caldera_gas	"Energia caldera gas [%.1f kWh]"	<energy>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/energia_producida_caldera_gas:state:default]" }
+Number	calderas_energia_producida_caldera_biomasa	"Energia caldera biomasa [%.1f kWh]"	<energy>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/energia_producida_caldera_biomasa:state:default]" }
+
+Number	calderas_marcha_paro_caldera_gas	"Marcha/paro gas [%d]"					(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/marcha_paro_caldera_gas:state:default]" }
+Number	calderas_marcha_paro_caldera_biomasa	"Marcha/paro biomasa [%d]"				(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/marcha_paro_caldera_biomasa:state:default]" }
+
+Number	calderas_estado_caldera_gas	"Estado caldera gas [MAP(numberToSwitch.map):%s]"		(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_caldera_gas:state:default]" }
+Number	calderas_estado_bomba_caldera_gas	"Estado bomba caldera gas [MAP(numberToSwitch.map):%s]"	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_bomba_caldera_gas:state:default]" }
+Number	calderas_estado_caldera_biomasa	"Estado caldera biomasa [MAP(numberToSwitch.map):%s]"		(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_caldera_biomasa:state:default]" }
+Number	calderas_estado_bomba_caldera_biomasa_a_colector	"Bomba biomasa a colector[MAP(numberToSwitch.map):%s]"	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_bomba_caldera_biomasa_a_colector:state:default]" }
+Number	calderas_estado_ventilador_sala	"Estado ventilador sala [MAP(numberToSwitch.map):%s]"		(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_ventilador_sala:state:default]" }
+Number	calderas_estado_electrovalvula_gas "Estado electrovalvula gas [MAP(numberToSwitch.map):%s]"	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_electrovalvula_gas:state:default]" }
+
+Number	calderas_estado_v2v_caldera_gas	"Estado v2v gas [MAP(numberToContact.map):%s]"			(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_v2v_caldera_gas:state:default]" }
+Number	calderas_estado_v2v_caldera_biomasa	"Estado v2v biomasa [MAP(numberToContact.map):%s]"	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_v2v_caldera_biomasa:state:default]" }
+	
+Number	calderas_apertura_v3v_caldera_biomasa	"Apertura v3v biomasa [%.1f %%]"			(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/apertura_v3v_caldera_biomasa:state:default]" }
+
+Number	calderas_presostato_ventilador_sala	"Presostado ventilador sala [%d]"		(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/presostato_ventilador_sala:state:default]" }
+
+Number	calderas_consigna_caldera_gas	"Consigna caldera gas [%.2f C]"		<heating>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/consigna_caldera_gas:state:default]" }
+
+Number	calderas_temp_impulsion_circuito_edificio_1	"T imp biomasa circ 1 [%.1f C]"	<temperature>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_impulsion_circuito_edificio_1:state:default]" }
+Number	calderas_temp_impulsion_circuito_edificio_2	"T imp biomasa circ 2 [%.1f C]"	<temperature>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_impulsion_circuito_edificio_2:state:default]" }
+Number	calderas_temp_impulsion_circuito_edificio_3	"T imp biomasa circ 3 [%.1f C]"	<temperature>	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/temp_impulsion_circuito_edificio_3:state:default]" }
+
+Switch	calderas_interruptor_circuito_edificio_1	"Bomba circuito 1"	<heating>	(gr_calderas,edificio_talleres_interruptor_general_nocalefaccion)	{ mqtt=">[mosquitto:openhab/ofenval/escritura/interruptor_circuito_edificio_1:command:ON:1],>[mosquitto:openhab/ofenval/escritura/interruptor_circuito_edificio_1:command:OFF:0]" }
+Switch	calderas_interruptor_circuito_edificio_2	"Bomba circuito 2"	<heating>	(gr_calderas,edificio_principal_interruptor_general_nocalefaccion)	{ mqtt=">[mosquitto:openhab/ofenval/escritura/interruptor_circuito_edificio_2:command:ON:1],>[mosquitto:openhab/ofenval/escritura/interruptor_circuito_edificio_2:command:OFF:0]" }
+Switch	calderas_interruptor_circuito_edificio_3	"Bomba circuito 3"	<heating>	(gr_calderas,edificio_ethazi_interruptor_general_nocalefaccion)	{ mqtt=">[mosquitto:openhab/ofenval/escritura/interruptor_circuito_edificio_3:command:ON:1],>[mosquitto:openhab/ofenval/escritura/interruptor_circuito_edificio_3:command:OFF:0]" }
+Switch	calderas_interruptor_circuito_biotknifish	"Bomba biotknifish"	<heating>	(gr_calderas)	{ mqtt=">[mosquitto:openhab/ofenval/escritura/interruptor_circuito_biotknifish:command:ON:1],>[mosquitto:openhab/ofenval/escritura/interruptor_circuito_biotknifish:command:OFF:0]" }
+
+Number	calderas_estado_bomba_circuito_edificio_1	"Estado bomba circ 1 [MAP(numberToSwitch.map):%s]"	(gr_calderas,gr_calderas_estado_bombas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_bomba_circuito_edificio_1:state:default]" }
+Number	calderas_estado_bomba_circuito_edificio_2	"Estado bomba circ 2 [MAP(numberToSwitch.map):%s]"	(gr_calderas,gr_calderas_estado_bombas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_bomba_circuito_edificio_2:state:default]" }
+Number	calderas_estado_bomba_circuito_edificio_3	"Estado bomba circ 3 [MAP(numberToSwitch.map):%s]"	(gr_calderas,gr_calderas_estado_bombas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_bomba_circuito_edificio_3:state:default]" }
+Number	calderas_estado_bomba_circuito_biotknifish	"Estado bomba biotknifish [MAP(numberToSwitch.map):%s]"	(gr_calderas,gr_calderas_estado_bombas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/estado_bomba_circuito_biotknifish:state:default]" }
+
+Number	calderas_apertura_v3v_circuito_edificio_1	"Apertura V3V circ 1 [%.1f %%]"	(gr_calderas)		{ mqtt="<[mosquitto:openhab/ofenval/lectura/apertura_v3v_circuito_edificio_1:state:default]" }
+Number	calderas_apertura_v3v_circuito_edificio_2	"Apertura V3V circ 2 [%.1f %%]"	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/apertura_v3v_circuito_edificio_2:state:default]" }
+Number	calderas_apertura_v3v_circuito_edificio_3	"Apertura V3V circ 3 [%.1f %%]"	(gr_calderas)	{ mqtt="<[mosquitto:openhab/ofenval/lectura/apertura_v3v_circuito_edificio_3:state:default]" }
+
+Number	calderas_consigna_circuito_edificio_1		"Consigna circuito 1 [%.1f C]"	<heating>	(gr_calderas)	{ mqtt=">[mosquitto:openhab/ofenval/escritura/consigna_circuito_edificio_1:command:*:${command}]" }
+Number	calderas_consigna_circuito_edificio_2		"Consigna circuito 2 [%.1f C]"	<heating>	(gr_calderas)	{ mqtt=">[mosquitto:openhab/ofenval/escritura/consigna_circuito_edificio_2:command:*:${command}]" }
+Number	calderas_consigna_circuito_edificio_3		"Consigna circuito 3 [%.1f C]"	<heating>	(gr_calderas)	{ mqtt=">[mosquitto:openhab/ofenval/escritura/consigna_circuito_edificio_3:command:*:${command}]" }
+Number	calderas_consigna_circuito_biotknifish		"Consigna biotknifish [%.1f C]"	<heating>	(gr_calderas)	{ mqtt=">[mosquitto:openhab/ofenval/escritura/consigna_circuito_biotknifish:command:*:${command}]" }

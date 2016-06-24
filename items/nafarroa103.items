@@ -1,0 +1,109 @@
+Group	gr_nafarroa103_temperaturas	"Nafarroa103 Temperaturas"	(gr_temperaturas)	
+Group	gr_nafarroa103_humedades	"Nafarroa103 Humedades"	(gr_humedades)	
+Group	gr_nafarroa103_dimmers	"Nafarroa103 Dimmers"
+Group	gr_nafarroa103_energias	"Nafarroa103 Energías"	(gr_energias)	
+Group	gr_nafarroa103_persianas	"Nafarroa103 Persianas"	(gr_persianas)	
+Group	gr_nafarroa103_radiadores	"Nafarroa103 Radiadores"	(gr_radiadores)	
+Group:Number:AVG()	gr_nafarroa103_consignas_radiadores	"Nafarroa103 Consignas"
+Group:Switch:OR(ON,OFF)	gr_nafarroa103_interruptores	"Nafarroa103 Interruptores"	(gr_interruptores)	
+Group:Switch:OR(ON,OFF) gr_nafarroa103_interruptores_luces "Nafarroa103 Interruptores luces" (gr_nafarroa103_interruptores)
+Group:Switch:OR(ON,OFF) gr_nafarroa103_interruptores_enchufes "Nafarroa103 Interruptores enchufes" (gr_nafarroa103_interruptores)
+Group:Number:MIN()	gr_nafarroa103_baterias	"Nafarroa103 Baterias [%d %%]"	<battery>	(gr_baterias)	
+Group:Number:SUM()	gr_nafarroa103_potencias	"Potencia total [%.2f W]"	<energy>	(gr_potencias)	
+Group:Number:SUM()	gr_nafarroa103_potencias_luces	"Potencia luces [%.2f W]"	<energy>	(gr_nafarroa103_potencias)	
+Group:Number:SUM()	gr_nafarroa103_potencias_enchufes	"Potencia enchufes [%.2f W]"	<energy>	(gr_nafarroa103_potencias)	
+Group:Contact:OR(OPEN,CLOSED)	gr_nafarroa103_ventanas	"Nafarroa103 Ventanas [(%d)]"	<contact>
+Group:Contact:OR(OPEN,CLOSED)	gr_nafarroa103_puertas	"Nafarroa103 Puertas [(%d)]"	<door>
+Group:Contact:OR(OPEN,CLOSED)	gr_nafarroa103_presencia	"Nafarroa103 Presencia [%s]"	<present>
+
+Number	nafarroa103_modo_aula	"Modo aula"
+Switch  nafarroa103_reserva_activa       "Nafarroa103 reserva activa"
+Number  nafarroa103_reserva_estado
+DateTime  nafarroa103_reserva_inicio       "Nafarroa103 reserva inicio [%1$tm/%1$td %1$tH:%1$tM]"
+DateTime  nafarroa103_reserva_fin          "Nafarroa103 reserva fin [%1$tm/%1$td %1$tH:%1$tM]"
+Number	nafarroa103_consigna_referencia	"Nafarroa103 consigna ref [%d C]"
+Switch	nafarroa103_interruptor_general	"Interruptor General"	<switch>	(gr_interruptores_generales)	
+Switch	nafarroa103_interruptor_general_nocalefaccion	"IG Nafarroa (Sin calefacción)"	<switch>	(gr_interruptores_generales)	
+Switch	nafarroa103_interruptor_calefaccion	"Interruptor calefaccion"	<heating>	(gr_interruptores_generales)	
+Switch	nafarroa103_interruptor_luces_1	"Luces 1"	<switch>	(gr_nafarroa103,gr_nafarroa103_interruptores_luces)		{ zwave4="5:command=switch_multilevel" }
+Switch	nafarroa103_interruptor_luces_2	"Luces 2"	<switch>	(gr_nafarroa103,gr_nafarroa103_interruptores_luces)		{ zwave4="2:command=switch_multilevel" }
+Switch	nafarroa103_interruptor_luces_3	"Luces 3"	<switch>	(gr_nafarroa103,gr_nafarroa103_interruptores_luces)		{ zwave4="6:command=switch_multilevel" }
+Dimmer	nafarroa103_dimmer_luces_1	"Dimmer luces 1"	(gr_nafarroa103,gr_nafarroa103_dimmers)		{ zwave4="5:command=switch_multilevel" }
+Dimmer	nafarroa103_dimmer_luces_2	"Dimmer luces 2"	(gr_nafarroa103,gr_nafarroa103_dimmers)		{ zwave4="2:command=switch_multilevel" }
+Dimmer	nafarroa103_dimmer_luces_3	"Dimmer luces 3"	(gr_nafarroa103,gr_nafarroa103_dimmers)		{ zwave4="6:command=switch_multilevel" }
+Switch	nafarroa103_interruptor_enchufe_1	"Enchufes 1"	<socket>	(gr_nafarroa103,gr_nafarroa103_interruptores_enchufes)		{ zwave4="8:command=switch_binary" }
+Switch	nafarroa103_interruptor_enchufe_2	"Enchufes 2"	<socket>	(gr_nafarroa103,gr_nafarroa103_interruptores_enchufes)		{ zwave4="11:command=switch_binary" }
+Switch	nafarroa103_interruptor_enchufe_3	"Enchufes 3"	<socket>	(gr_nafarroa103,gr_nafarroa103_interruptores_enchufes)		{ zwave4="12:command=switch_binary" }
+Number	nafarroa103_potencia_luces_1	"Potencia luz 1 [%.2f W]"	(gr_nafarroa103_potencias_luces,gr_nafarroa103)		{ zwave4="5:command=meter,meter_scale=E_W" }
+Number	nafarroa103_potencia_luces_2	"Potencia luz 2 [%.2f W]"	(gr_nafarroa103_potencias_luces,gr_nafarroa103)		{ zwave4="2:command=meter,meter_scale=E_W" }
+Number	nafarroa103_potencia_luces_3	"Potencia luz 3 [%.2f W]"	(gr_nafarroa103_potencias_luces,gr_nafarroa103)		{ zwave4="6:command=meter,meter_scale=E_W" }
+Number	nafarroa103_energia_luces_1	"Energia luces 1 - Q [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="5:command=METER,meter_scale=E_KWh,refresh_interval=900" }
+Number	nafarroa103_energia_luces_2	"Energia luces 2 - Q [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="2:command=METER,meter_scale=E_KWh,refresh_interval=900" }
+Number	nafarroa103_energia_luces_3	"Energia luces 3 - Q [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="6:command=METER,meter_scale=E_KWh,referesh_interval=900" }
+Number	nafarroa103_potencia_wallplug_1	"Potencia wallplug1 [%.2f W]"	(gr_nafarroa103)		{ zwave4="100:command=sensor_multilevel,sensor_type=4" }
+Number	nafarroa103_potencia_wallplug_2	"Potencia wallplug2 [%.2f W]"	(gr_nafarroa103)		{ zwave4="101:command=sensor_multilevel,sensor_type=4" }
+Number	nafarroa103_potencia_wallplug_3	"Potencia wallplug3 [%.2f W]"	(gr_nafarroa103)		{ zwave4="102:command=meter,meter_scale=E_W" }
+Number	nafarroa103_potencia_enchufe_1	"Potencia enchufe 1 [%.2f W]"	(gr_nafarroa103_potencias_enchufes,gr_nafarroa103)		{ zwave4="10:1:command=METER,meter_scale=E_W" }
+Number	nafarroa103_potencia_enchufe_2	"Potencia enchufe 2 [%.2f W]"	(gr_nafarroa103_potencias_enchufes,gr_nafarroa103)		{ zwave4="10:2:command=METER,meter_scale=E_W" }
+Number	nafarroa103_potencia_enchufe_3	"Potencia enchufe 3 [%.2f W]"	(gr_nafarroa103_potencias_enchufes,gr_nafarroa103)		{ zwave4="10:3:command=METER,meter_scale=E_W" }
+Number	nafarroa103_potencia_enchufe_1_q	"Potencia enchufe 1 - Q [%.2f W]"	(gr_nafarroa103)		{ zwave4="8:command=meter,meter_scale=E_W" }
+Number	nafarroa103_potencia_enchufe_2_q	"Potencia enchufe 2 - Q [%.2f W]"	(gr_nafarroa103)		{ zwave4="11:command=meter,meter_scale=E_W" }
+Number	nafarroa103_potencia_enchufe_3_q	"Potencia enchufe 3 - Q [%.2f W]"	(gr_nafarroa103)		{ zwave4="12:command=meter,meter_scale=E_W" }
+Number	nafarroa103_energia_enchufe_1	"Energia enchufe 1 [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="10:1:command=METER,meter_scale=E_KWh" }
+Number	nafarroa103_energia_enchufe_2	"Energia enchufe 2 [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="10:2:command=METER,meter_scale=E_KWh" }
+Number	nafarroa103_energia_enchufe_3	"Energia enchufe 3 [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="10:3:command=METER,meter_scale=E_KWh" }
+Number	nafarroa103_energia_enchufe_1_q	"Energia enchufe 1 - Q [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="8:command=METER,meter_scale=E_KWh" }
+Number	nafarroa103_energia_enchufe_2_q	"Energia enchufe 2 - Q [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="11:command=METER,meter_scale=E_KWh" }
+Number	nafarroa103_energia_enchufe_3_q	"Energia enchufe 3 - Q [%.3f kWh]"	(gr_nafarroa103,gr_nafarroa103_energias)		{ zwave4="12:command=METER,meter_scale=E_KWh" }
+Number	nafarroa103_tension_enchufe_1	"Voltaje enchufe 1 [%.2f V]"	(gr_nafarroa103)		{ zwave4="10:1:command=METER,meter_scale=E_V" }
+Number	nafarroa103_tension_enchufe_2	"Voltaje enchufe 2 [%.2f V]"	(gr_nafarroa103)		{ zwave4="10:2:command=METER,meter_scale=E_V" }
+Number	nafarroa103_tension_enchufe_3	"Voltaje enchufe 3 [%.2f V]"	(gr_nafarroa103)		{ zwave4="10:3:command=METER,meter_scale=E_V" }
+Number	nafarroa103_intensidad_enchufe_1	"Intensidad enchufe 1 [%.2f A]"	(gr_nafarroa103)		{ zwave4="10:1:command=METER,meter_scale=E_A" }
+Number	nafarroa103_intensidad_enchufe_2	"Intensidad enchufe 2 [%.2f A]"	(gr_nafarroa103)		{ zwave4="10:2:command=METER,meter_scale=E_A" }
+Number	nafarroa103_intensidad_enchufe_3	"Intensidad enchufe 3 [%.2f A]"	(gr_nafarroa103)		{ zwave4="10:3:command=METER,meter_scale=E_A" }
+Contact	nafarroa103_presencia_techo_1	"Presencia techo 1 [%d]"	<present>	(gr_nafarroa103,gr_nafarroa103_presencia)		{ zwave4="22:command=sensor_binary,respond_to_basic=true" }
+Contact	nafarroa103_presencia_techo_2	"Presencia techo 2 [%d]"	<present>	(gr_nafarroa103,gr_nafarroa103_presencia)		{ zwave4="23:command=sensor_binary,respond_to_basic=true" }
+Contact	nafarroa103_presencia_puerta_1	"Presencia puerta 1 [%d]"	<present>	(gr_nafarroa103,gr_nafarroa103_presencia)		{ zwave4="17:command=sensor_binary,sensor_type=12" }
+Contact	nafarroa103_apertura_puerta_1	"Apertura puerta 1 [%s]"	<door>	(gr_nafarroa103,gr_nafarroa103_puertas)		{ zwave4="17:command=sensor_binary,sensor_type=10" }
+Contact	nafarroa103_apertura_ventana_1	"Apertura ventana 1 [%s]"	<contact>	(gr_nafarroa103,gr_nafarroa103_ventanas)		{ zwave4="18:command=sensor_binary,sensor_type=10" }
+Contact	nafarroa103_apertura_ventana_2	"Apertura ventana 2 [%s]"	<contact>	(gr_nafarroa103,gr_nafarroa103_ventanas)		{ zwave4="19:command=sensor_binary,sensor_type=10" }
+Contact	nafarroa103_apertura_ventana_3	"Apertura ventana 3 [%s]"	<contact>	(gr_nafarroa103,gr_nafarroa103_ventanas)		{ zwave4="20:command=sensor_binary,sensor_type=10" }
+Contact	nafarroa103_apertura_ventana_4	"Apertura ventana 4 [%s]"	<contact>	(gr_nafarroa103,gr_nafarroa103_ventanas)		{ zwave4="21:command=sensor_binary,sensor_type=10" }
+Number	nafarroa103_temperatura_pared_1	"Temperatura pared 1 [%.1f C]"	<temperature>	(gr_nafarroa103,gr_nafarroa103_temperaturas)		{ zwave4="24:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	nafarroa103_temperatura_techo_1	"Temperatura techo 1 [%.1f C]"	<temperature>	(gr_nafarroa103,gr_nafarroa103_temperaturas)		{ zwave4="22:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	nafarroa103_temperatura_techo_2	"Temperatura techo 2 [%.1f C]"	<temperature>	(gr_nafarroa103,gr_nafarroa103_temperaturas)		{ zwave4="23:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	nafarroa103_temperatura_puerta_1	"Temperatura puerta 1 [%.1f C]"	<temperature>	(gr_nafarroa103,gr_nafarroa103_temperaturas)		{ zwave4="17:command=sensor_multilevel,sensor_type=1,sensor_scale=0" }
+Number	nafarroa103_temperatura_netatmo_1	"Temperatura netatmo [%.1f C]"	<temperature>	(gr_nafarroa103,gr_nafarroa103_temperaturas)		{ netatmo="70:ee:50:12:83:7c#Temperature" }
+Number	nafarroa103_humedad_pared_1	"Humedad pared 1 [%d %%]"	<climate>	(gr_nafarroa103,gr_nafarroa103_humedades)		{ zwave4="24:command=sensor_multilevel,sensor_type=5" }
+Number	nafarroa103_humedad_techo_1	"Humedad techo 1 [%d %%]"	<climate>	(gr_nafarroa103,gr_nafarroa103_humedades)		{ zwave4="22:command=sensor_multilevel,sensor_type=5" }
+Number	nafarroa103_humedad_techo_2	"Humedad techo 2 [%d %%]"	<climate>	(gr_nafarroa103,gr_nafarroa103_humedades)		{ zwave4="23:command=sensor_multilevel,sensor_type=5" }
+Number	nafarroa103_humedad_netatmo_1	"Humedad netatmo [%d %%]"	<climate>	(gr_nafarroa103,gr_nafarroa103_humedades)		{ netatmo="70:ee:50:12:83:7c#Humidity" }
+Number	nafarroa103_luminosidad_techo_1	"Luminosidad techo 1 [%d lux]"	<sun>	(gr_nafarroa103)		{ zwave4="22:command=sensor_multilevel,sensor_type=3" }
+Number	nafarroa103_luminosidad_techo_2	"Luminosidad techo 2 [%d lux]"	<sun>	(gr_nafarroa103)		{ zwave4="23:command=sensor_multilevel,sensor_type=3" }
+Number	nafarroa103_luminosidad_puerta_1	"Luminosidad puerta 1 [%d lux]"	<sun>	(gr_nafarroa103)		{ zwave4="17:command=sensor_multilevel,sensor_type=3" }
+Number	nafarroa103_ultravioleta_techo_2	"Ultravioleta techo 2 [%d]"	(gr_nafarroa103)		{ zwave4="23:command=sensor_multilevel,sensor_type=27" }
+Number	nafarroa103_co2_netatmo_1	"CO2 netatmo [%.2f ppm]"	(gr_nafarroa103)		{ netatmo="70:ee:50:12:83:7c#Co2" }
+Number	nafarroa103_ruido_netatmo_1	"Ruido netatmo [%d dB]"	(gr_nafarroa103)		{ netatmo="70:ee:50:12:83:7c#Noise" }
+Number	nafarroa103_presion_netatmo_1	"Presion netatmo [%.2f mbar]"	(gr_nafarroa103)		{ netatmo="70:ee:50:12:83:7c#Pressure" }
+Number	nafarroa103_consigna_radiador_1	"Consigna radiador 1 [%d]"	<heating>	(gr_nafarroa103,gr_nafarroa103_radiadores,gr_nafarroa103_consignas_radiadores)		{ zwave4="13:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0" }
+Number	nafarroa103_consigna_radiador_2	"Consigna radiador 2 [%d]"	<heating>	(gr_nafarroa103,gr_nafarroa103_radiadores,gr_nafarroa103_consignas_radiadores)		{ zwave4="14:command=THERMOSTAT_SETPOINT,setpoint_type=1,setpoint_scale=0" }
+Number	nafarroa103_bateria_temperatura_pared_1	"Bateria temp pared [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="24:command=battery" }
+Number	nafarroa103_bateria_presencia_techo_1	"Bateria presencia techo [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="22:command=battery" }
+Number	nafarroa103_bateria_radiador_1	"Bateria radiador 1 [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="13:command=battery" }
+Number	nafarroa103_bateria_radiador_2	"Bateria radiador 2 [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="14:command=battery" }
+Number	nafarroa103_bateria_puerta_1	"Bateria puerta 1 [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="17:command=battery" }
+Number	nafarroa103_bateria_ventana_1	"Bateria ventana 1 [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="18:command=battery" }
+Number	nafarroa103_bateria_ventana_2	"Bateria ventana 2 [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="19:command=battery" }
+Number	nafarroa103_bateria_ventana_3	"Bateria ventana 3 [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="20:command=battery" }
+Number	nafarroa103_bateria_ventana_4	"Bateria ventana 4 [%d %%]"	<battery>	(gr_nafarroa103,gr_nafarroa103_baterias)		{ zwave4="21:command=battery" }
+Dimmer	nafarroa103_volumen_reproductor_1	"Volumen [%d]"	{ squeeze="nafarroa103:volume" }
+Switch	nafarroa103_play_reproductor_1	"Play"	{ squeeze="nafarroa103:play" }
+Dimmer	nafarroa103_volumen_reproductor_2	"Volumen [%d]"	{ squeeze="nafarroa1032:volume" }
+Switch	nafarroa103_play_reproductor_2	"Play"	{ squeeze="nafarroa1032:play" }
+Rollershutter	nafarroa103_persiana_1	"Persiana 1 [%d %%]"	(gr_nafarroa103_persianas,gr_nafarroa103)		{ zwave4="15:command=switch_multilevel,invert_state=false,invert_percent=true" }
+Number	nafarroa103_potencia_persiana_1	"Potencia persiana 1 [%.1f W]"	<energy>	(gr_nafarroa103)		{ zwave4="15:command=sensor_multilevel" }
+Number	nafarroa103_energia_persiana_1	"Energia persiana 1 [%.2f KWh]"	<energy>	(gr_nafarroa103)		{ zwave4="15:command=meter" }
+Rollershutter	nafarroa103_persiana_2	"Persiana 2 [%d %%]"	(gr_nafarroa103_persianas,gr_nafarroa103)		{ zwave4="16:command=switch_multilevel,invert_state=false,invert_percent=true" }
+Number	nafarroa103_potencia_persiana_2	"Potencia persiana 2 [%.1f W]"	<energy>	(gr_nafarroa103)		{ zwave4="16:command=sensor_multilevel" }
+Number	nafarroa103_energia_persiana_2	"Energia persiana 2 [%.2f KWh]"	<energy>	(gr_nafarroa103)		{ zwave4="16:command=meter" }
+Switch	nafarroa103_interruptor_persianas	"Interruptor persianas"
