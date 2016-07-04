@@ -14,6 +14,7 @@ Group:Contact:OR(OPEN,CLOSED)	gr_nafarroa_behera104_presencia	"Nafarroa Behera 1
 Group:Contact:OR(OPEN,CLOSED)	gr_nafarroa_behera104_puertas	"Nafarroa Behera 104 Puertas [(%d)]"	<door>
 
 Switch  nafarroa_behera104_reserva_activa       "Nafarroa Behera 104 reserva activa"		<calendar>
+Number  nafarroa_behera104_reserva_estado
 DateTime  nafarroa_behera104_reserva_inicio       "Nafarroa Behera 104 reserva inicio [%s]"	<clock>
 DateTime  nafarroa_behera104_reserva_fin          "Nafarroa Behera 104 reserva fin [%s]"	<clock>
 

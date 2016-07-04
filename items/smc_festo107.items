@@ -13,6 +13,7 @@ Group:Number:SUM()	gr_smc_festo107_potencias_enchufes	"Potencia enchufes [%.2f W
 Group:Contact:OR(OPEN,CLOSED)	gr_smc_festo107_presencia	"Festo107 Presencia [%s]"	<present>
 Group:Contact:OR(OPEN,CLOSED)	gr_smc_festo107_puertas	"Festo107 Puertas [(%d)]"	<door>
 Switch  smc_festo107_reserva_activa       "Festo107 reserva activa"		<calendar>
+Number  smc_festo107_reserva_estado
 DateTime  smc_festo107_reserva_inicio       "Festo107 reserva inicio [%s]"	<clock>
 DateTime  smc_festo107_reserva_fin          "Festo107 reserva fin [%s]"		<clock>
 Number	smc_festo107_consigna_referencia	"Festo107 consigna referencia"

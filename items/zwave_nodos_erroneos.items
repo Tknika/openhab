@@ -4,3 +4,5 @@ String zwave_nodo_erroneo_2 "Detector presencia 2 [Alecop102]" (gr_zwave_nodos_e
 String zwave_nodo_erroneo_3 "Sensor temperatura [Urdaburu108]" (gr_zwave_nodos_erroneos)
 String zwave_nodo_erroneo_4 "Detector presencia [Zuberoa106]" (gr_zwave_nodos_erroneos)
 String zwave_nodo_erroneo_5 "Sensor Puerta 1 [Urdaburu108]" (gr_zwave_nodos_erroneos)
+String zwave_nodo_erroneo_6 "Sensor Puerta 2 [Lapurdi105]" (gr_zwave_nodos_erroneos)
+String zwave_nodo_erroneo_7 "Sensor Puerta 2 [Zuberoa106]" (gr_zwave_nodos_erroneos)

@@ -1,0 +1,1 @@
+String gesture_sensor_event { mqtt="<[mosquitto:devices/121e13e0/gesture/event:state:default]" }

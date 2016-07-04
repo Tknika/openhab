@@ -13,6 +13,7 @@ Group:Contact:OR(OPEN,CLOSED)	gr_lapurdi105_presencia	"Lapurdi105 Presencia [%s]
 Group:Contact:OR(OPEN,CLOSED)	gr_lapurdi105_puertas	"Lapurdi105 Puertas [(%d)]"	<door>
 
 Switch  lapurdi105_reserva_activa       "Lapurdi105 reserva activa"
+Number  lapurdi105_reserva_estado
 DateTime  lapurdi105_reserva_inicio       "Lapurdi105 reserva inicio [%s]"
 DateTime  lapurdi105_reserva_fin          "Lapurdi105 reserva fin [%s]"
 

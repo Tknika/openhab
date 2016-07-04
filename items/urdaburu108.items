@@ -13,6 +13,7 @@ Group:Number:SUM()	gr_urdaburu108_potencias_enchufes	"Potencia enchufes [%.2f W]
 Group:Contact:OR(OPEN,CLOSED)	gr_urdaburu108_presencia	"Urdaburu108 Presencia [%s]"	<present>
 Group:Contact:OR(OPEN,CLOSED)	gr_urdaburu108_puertas	"Urdaburu108 Puertas [(%d)]"	<door>
 Switch  urdaburu108_reserva_activa       "Urdaburu108 reserva activa"		<calendar>
+Number  urdaburu108_reserva_estado
 DateTime  urdaburu108_reserva_inicio       "Urdaburu108 reserva inicio [%s]"	<clock>
 DateTime  urdaburu108_reserva_fin          "Urdaburu108 reserva fin [%s]"	<clock>
 Number	urdaburu108_consigna_referencia	"Urdaburu108 consigna referencia"

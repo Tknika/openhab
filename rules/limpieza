@@ -1,0 +1,286 @@
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.Timer
+
+var String en_uso_nafarroa103 = "OFF"
+var String aviso_nafarroa103 = "OFF"
+var String en_uso_nafarroabehera104 = "OFF"
+var String aviso_nafarroabehera104 = "OFF"
+var String en_uso_lapurdi105 = "OFF"
+var String aviso_lapurdi105 = "OFF"
+var String en_uso_zuberoa106 = "OFF"
+var String aviso_zuberoa106 = "OFF"
+var String en_uso_festo107 = "OFF"
+var String aviso_festo107 = "OFF"
+var String en_uso_urdaburu108 = "OFF"
+var String aviso_urdaburu108 = "OFF"
+var Timer t_limpieza_nafarroa103_off = null
+var Timer t_limpieza_nafarroa103_warn = null
+var Timer t_limpieza_nafarroabehera104_off = null
+var Timer t_limpieza_nafarroabehera104_warn = null
+var Timer t_limpieza_lapurdi105_off = null
+var Timer t_limpieza_lapurdi105_warn = null
+var Timer t_limpieza_zuberoa106_off = null
+var Timer t_limpieza_zuberoa106_warn = null
+var Timer t_limpieza_festo107_off = null
+var Timer t_limpieza_festo107_warn = null
+var Timer t_limpieza_urdaburu108_off = null
+var Timer t_limpieza_urdaburu108_warn = null
+var String aula_mensaje_bienvenida = "Energía habilitada durante diez minutos"
+var String aula_mensaje_off = "Apagamos el aula por falta de movimiento"
+var String aula_mensaje_aviso = "En un minuto se apagará el aula por falta de movimiento"
+
+//rule "Limpieza en nafarroa103"
+//when
+//    Item gr_nafarroa103_presencia changed or
+//    Item gr_nafarroa103_puertas changed
+//then
+//    var hora = now.getHourOfDay
+//    if (hora >= (limpieza_hora_inicio.state as Number) && hora < (limpieza_hora_fin.state as Number) && nafarroa103_reserva_estado.state == 0) {
+//        if (gr_nafarroa103_presencia.state == OPEN || gr_nafarroa103_puertas.changedSince(now.minusMinutes(2))) {
+//            if (t_limpieza_nafarroa103_off == null && en_uso_nafarroa103 == "OFF") {
+//                logInfo("Limpieza Nafarroa103","El timer es null, asi que vamos a encender los interruptores")
+//                sendCommand(gr_nafarroa103_interruptores, ON)
+//                en_uso_nafarroa103 == "ON"
+//                squeezeboxSpeak("nafarroa103", aula_mensaje_bienvenida, 100, false)
+//            } else {
+//                logInfo("Limpieza Nafarroa103","Movimiento detectado pero el timer no es null, lo cancelamos hasta que aparezca un CLOSED")
+//                t_limpieza_nafarroa103_off.cancel
+//                t_limpieza_nafarroa103_off = null
+//                if (t_limpieza_nafarroa103_warn != null) {
+//                    t_limpieza_nafarroa103_warn.cancel
+//                    t_limpieza_nafarroa103_warn = null            
+//                }
+//                if (aviso_nafarroa103 == "ON") {
+//                    squeezeboxSpeak("nafarroa103", "Apagado postpuesto hasta dentro de 10 minutos", 100, false)
+//                    aviso_nafarroa103 = "OFF"
+//                }
+//            }
+//        }
+//    
+//        if (gr_nafarroa103_presencia.state == CLOSED) {
+//            if (t_limpieza_nafarroa103_off != null) {
+//                logInfo("Limpieza Nafarroa103","Habia un timer creado, lo cancelamos")
+//                t_limpieza_nafarroa103_off.cancel
+//                t_limpieza_nafarroa103_off = null            
+//            }
+//            if (t_limpieza_nafarroa103_warn != null) {
+//                t_limpieza_nafarroa103_warn.cancel
+//                t_limpieza_nafarroa103_warn = null            
+//            }
+//            logInfo("Limpieza Nafarroa103","Creamos el timer por falta de movimiento")
+//            t_limpieza_nafarroa103_warn = createTimer(now.plusMinutes((limpieza_tiempo_on.state as DecimalType).intValue-1)) [|
+//                logInfo("Limpieza Nafarroa103", aula_mensaje_aviso)
+//                squeezeboxSpeak("nafarroa103", aula_mensaje_aviso, 100, false)
+//                t_limpieza_nafarroa103_warn.cancel
+//                t_limpieza_nafarroa103_warn = null
+//                aviso_nafarroa103 = "ON"
+//            ]
+//            t_limpieza_nafarroa103_off = createTimer(now.plusMinutes((limpieza_tiempo_on.state as DecimalType).intValue)) [|
+//                logInfo("Limpieza Nafarroa103","Ha pasado el tiempo fijado, asi que vamos a apagar las luces y a poner el timer a null otra vez")
+//                if (nafarroa103_reserva_estado.state == 0) { 
+//                    squeezeboxSpeak("nafarroa103", aula_mensaje_off, 100, false)
+//                    sendCommand(gr_nafarroa103_interruptores, OFF)
+//                }
+//                t_limpieza_nafarroa103_off.cancel
+//                t_limpieza_nafarroa103_off = null
+//                en_uso_nafarroa103 = "OFF"
+//                aviso_nafarroa103 = "OFF"
+//            ]
+//        }
+//    }
+//end
+
+
+rule "Limpieza en nafarroa_behera104"
+when
+    Item gr_nafarroa_behera104_presencia changed or
+    Item gr_nafarroa_behera104_puertas changed
+then
+    var hora = now.getHourOfDay
+    if (hora >= (limpieza_hora_inicio.state as Number) && hora < (limpieza_hora_fin.state as Number) && nafarroa_behera104_interruptor_general_nocalefaccion.state == OFF) {
+        if (gr_nafarroa_behera104_presencia.state == OPEN || gr_nafarroa_behera104_puertas.changedSince(now.minusMinutes(2))) {
+            if (t_limpieza_nafarroabehera104_off == null) {
+                logInfo("Limpieza Nafarroa behera104","El timer es null, asi que vamos a encender los interruptores")
+                sendCommand(gr_nafarroa_behera104_interruptores, ON)
+            } else {
+                logInfo("Limpieza Nafarroa behera104","Movimiento detectado pero el timer no es null, lo cancelamos hasta que aparezca un CLOSED")
+                t_limpieza_nafarroabehera104_off.cancel
+                t_limpieza_nafarroabehera104_off = null
+            }
+        }
+
+        if (gr_nafarroa_behera104_presencia.state == CLOSED) {
+            logInfo("Limpieza Nafarroa behera104","Ya no hay movimiento, vamos a ver que hacemos")
+            if (t_limpieza_nafarroabehera104_off != null) {
+                logInfo("Limpieza Nafarroa behera104","Habia un timer creado, lo cancelamos")
+                t_limpieza_nafarroabehera104_off.cancel
+                t_limpieza_nafarroabehera104_off = null
+            }
+            logInfo("Limpieza Nafarroa behera104","Creamos el timer")
+            t_limpieza_nafarroabehera104_off = createTimer(now.plusMinutes((limpieza_tiempo_on.state as DecimalType).intValue)) [|
+                logInfo("Limpieza Nafarroa behera104","Ha pasado el tiempo fijado, asi que vamos a apagar las luces y a poner el timer a null otra vez")
+                if (nafarroa_behera104_interruptor_general_nocalefaccion.state == OFF) {
+                    sendCommand(gr_nafarroa_behera104_interruptores, OFF)
+                }
+                t_limpieza_nafarroabehera104_off.cancel
+                t_limpieza_nafarroabehera104_off = null
+            ]
+        }
+    }
+end
+
+
+rule "Limpieza en lapurdi105"
+when
+    Item gr_lapurdi105_presencia changed or
+    Item gr_lapurdi105_puertas changed
+then
+    var hora = now.getHourOfDay
+    if (hora >= (limpieza_hora_inicio.state as Number) && hora < (limpieza_hora_fin.state as Number) && lapurdi105_interruptor_general_nocalefaccion.state == OFF) {
+        if (gr_lapurdi105_presencia.state == OPEN || gr_lapurdi105_puertas.changedSince(now.minusMinutes(2))) {
+            if (t_limpieza_lapurdi105_off == null) {
+                logInfo("Limpieza Lapurdi105","El timer es null, asi que vamos a encender los interruptores")
+                sendCommand(gr_lapurdi105_interruptores, ON)
+            } else {
+                logInfo("Limpieza Lapurdi105","Movimiento detectado pero el timer no es null, lo cancelamos hasta que aparezca un CLOSED")
+                t_limpieza_lapurdi105_off.cancel
+                t_limpieza_lapurdi105_off = null
+            }
+        }
+
+        if (gr_lapurdi105_presencia.state == CLOSED) {
+            logInfo("Limpieza Lapurdi105","Ya no hay movimiento, vamos a ver que hacemos")
+            if (t_limpieza_lapurdi105_off != null) {
+                logInfo("Limpieza Lapurdi105","Habia un timer creado, lo cancelamos")
+                t_limpieza_lapurdi105_off.cancel
+                t_limpieza_lapurdi105_off = null
+            }
+            logInfo("Limpieza Lapurdi105","Creamos el timer")
+            t_limpieza_lapurdi105_off = createTimer(now.plusMinutes((limpieza_tiempo_on.state as DecimalType).intValue)) [|
+                logInfo("Limpieza Lapurdi105","Ha pasado el tiempo fijado, asi que vamos a apagar las luces y a poner el timer a null otra vez")
+                if (lapurdi105_interruptor_general_nocalefaccion.state == OFF) {
+                    sendCommand(gr_lapurdi105_interruptores, OFF)
+                }
+                t_limpieza_lapurdi105_off.cancel
+                t_limpieza_lapurdi105_off = null
+            ]
+        }
+    }
+end
+
+
+rule "Limpieza en zuberoa106"
+when
+    Item gr_zuberoa106_presencia changed or
+    Item gr_zuberoa106_puertas changed
+then
+    var hora = now.getHourOfDay
+    if (hora >= (limpieza_hora_inicio.state as Number) && hora < (limpieza_hora_fin.state as Number) && zuberoa106_interruptor_general_nocalefaccion.state == OFF) {
+        if (gr_zuberoa106_presencia.state == OPEN || gr_zuberoa106_puertas.changedSince(now.minusMinutes(2))) {
+            if (t_limpieza_zuberoa106_off == null) {
+                logInfo("Limpieza Zuberoa106","El timer es null, asi que vamos a encender los interruptores")
+                sendCommand(gr_zuberoa106_interruptores, ON)
+            } else {
+                logInfo("Limpieza Zuberoa106","Movimiento detectado pero el timer no es null, lo cancelamos hasta que aparezca un CLOSED")
+                t_limpieza_zuberoa106_off.cancel
+                t_limpieza_zuberoa106_off = null
+            }
+        }
+
+        if (gr_zuberoa106_presencia.state == CLOSED) {
+            logInfo("Limpieza Zuberoa106","Ya no hay movimiento, vamos a ver que hacemos")
+            if (t_limpieza_zuberoa106_off != null) {
+                logInfo("Limpieza Zuberoa106","Habia un timer creado, lo cancelamos")
+                t_limpieza_zuberoa106_off.cancel
+                t_limpieza_zuberoa106_off = null
+            }
+            logInfo("Limpieza Zuberoa106","Creamos el timer")
+            t_limpieza_zuberoa106_off = createTimer(now.plusMinutes((limpieza_tiempo_on.state as DecimalType).intValue)) [|
+                logInfo("Limpieza Zuberoa106","Ha pasado el tiempo fijado, asi que vamos a apagar las luces y a poner el timer a null otra vez")
+                if (zuberoa106_interruptor_general_nocalefaccion.state == OFF) {
+                    sendCommand(gr_zuberoa106_interruptores, OFF)
+                }
+                t_limpieza_zuberoa106_off.cancel
+                t_limpieza_zuberoa106_off = null
+            ]
+        }
+    }
+end
+
+
+rule "Limpieza en smc_festo107"
+when
+    Item gr_smc_festo107_presencia changed or
+    Item gr_smc_festo107_puertas changed
+then
+    var hora = now.getHourOfDay
+    if (hora >= (limpieza_hora_inicio.state as Number) && hora < (limpieza_hora_fin.state as Number) && smc_festo107_interruptor_general_nocalefaccion.state == OFF) {
+        if (gr_smc_festo107_presencia.state == OPEN || gr_smc_festo107_puertas.changedSince(now.minusMinutes(2))) {
+            if (t_limpieza_festo107_off == null) {
+                logInfo("Limpieza Festo107","El timer es null, asi que vamos a encender los interruptores")
+                sendCommand(gr_smc_festo107_interruptores, ON)
+            } else {
+                logInfo("Limpieza Festo107","Movimiento detectado pero el timer no es null, lo cancelamos hasta que aparezca un CLOSED")
+                t_limpieza_festo107_off.cancel
+                t_limpieza_festo107_off = null
+            }
+        }
+
+        if (gr_smc_festo107_presencia.state == CLOSED) {
+            logInfo("Limpieza Festo107","Ya no hay movimiento, vamos a ver que hacemos")
+            if (t_limpieza_festo107_off != null) {
+                logInfo("Limpieza Festo107","Habia un timer creado, lo cancelamos")
+                t_limpieza_festo107_off.cancel
+                t_limpieza_festo107_off = null
+            }
+            logInfo("Limpieza Festo107","Creamos el timer")
+            t_limpieza_festo107_off = createTimer(now.plusMinutes((limpieza_tiempo_on.state as DecimalType).intValue)) [|
+                logInfo("Limpieza Festo107","Ha pasado el tiempo fijado, asi que vamos a apagar las luces y a poner el timer a null otra vez")
+                if (smc_festo107_interruptor_general_nocalefaccion.state == OFF) {
+                    sendCommand(gr_smc_festo107_interruptores, OFF)
+                }
+                t_limpieza_festo107_off.cancel
+                t_limpieza_festo107_off = null
+            ]
+        }
+    }
+end
+
+
+rule "Limpieza en urdaburu108"
+when
+    Item gr_urdaburu108_presencia changed or
+    Item gr_urdaburu108_puertas changed
+then
+    var hora = now.getHourOfDay
+    if (hora >= (limpieza_hora_inicio.state as Number) && hora < (limpieza_hora_fin.state as Number) && urdaburu108_interruptor_general_nocalefaccion.state == OFF) {
+        if (gr_urdaburu108_presencia.state == OPEN || gr_urdaburu108_puertas.changedSince(now.minusMinutes(2))) {
+            if (t_limpieza_urdaburu108_off == null) {
+                logInfo("Limpieza Urdaburu108","El timer es null, asi que vamos a encender los interruptores")
+                sendCommand(gr_urdaburu108_interruptores, ON)
+            } else {
+                logInfo("Limpieza Urdaburu108","Movimiento detectado pero el timer no es null, lo cancelamos hasta que aparezca un CLOSED")
+                t_limpieza_urdaburu108_off.cancel
+                t_limpieza_urdaburu108_off = null
+            }
+        }
+
+        if (gr_urdaburu108_presencia.state == CLOSED) {
+            logInfo("Limpieza Urdaburu108","Ya no hay movimiento, vamos a ver que hacemos")
+            if (t_limpieza_urdaburu108_off != null) {
+                logInfo("Limpieza Urdaburu108","Habia un timer creado, lo cancelamos")
+                t_limpieza_urdaburu108_off.cancel
+                t_limpieza_urdaburu108_off = null
+            }
+            logInfo("Limpieza Urdaburu108","Creamos el timer")
+            t_limpieza_urdaburu108_off = createTimer(now.plusMinutes((limpieza_tiempo_on.state as DecimalType).intValue)) [|
+                logInfo("Limpieza Urdaburu108","Ha pasado el tiempo fijado, asi que vamos a apagar las luces y a poner el timer a null otra vez")
+                if (urdaburu108_interruptor_general_nocalefaccion.state == OFF) {
+                    sendCommand(gr_urdaburu108_interruptores, OFF)
+                }
+                t_limpieza_urdaburu108_off.cancel
+                t_limpieza_urdaburu108_off = null
+            ]
+        }
+    }
+end

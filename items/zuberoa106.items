@@ -14,6 +14,7 @@ Group:Contact:OR(OPEN,CLOSED)	gr_zuberoa106_presencia	"Zuberoa106 Presencia [%s]
 Group:Contact:OR(OPEN,CLOSED)	gr_zuberoa106_puertas	"Zuberoa106 Puertas [(%d)]"	<door>
 
 Switch  zuberoa106_reserva_activa       "Zuberoa106 reserva activa"		<calendar>
+Number  zuberoa106_reserva_estado
 DateTime zuberoa106_reserva_inicio       "Zuberoa106 reserva inicio [%s]"	<clock>
 DateTime zuberoa106_reserva_fin          "Zuberoa106 reserva fin [%s]"		<clock>
 

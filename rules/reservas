@@ -1,0 +1,78 @@
+import org.openhab.core.library.types.*
+import org.openhab.model.script.actions.Timer
+
+// Estado 0: OFF  -> Sin reserva activa y aula apagada
+// Estado 1: PRE  -> Con reserva activa, pero a la espera de movimiento para encenderse
+// Estado 2: ON   -> Con reserva activa y encendida
+// Estado 3: POST -> Sin reserva activa, a la espera de apagarla
+
+var Timer t_reserva_nafarroa103 = null
+
+rule "Flujo del item reserva_activa nafarroa103"
+when
+    Item nafarroa103_reserva_activa received update
+then
+    if (nafarroa103_reserva_activa.state == ON) {
+        if ((nafarroa103_reserva_estado.state == 0) || (nafarroa103_reserva_estado.state == 3)) {
+            if (t_reserva_nafarroa103 != null) {
+                t_reserva_nafarroa103.cancel
+                t_reserva_nafarroa103 = null
+            }
+            logInfo("Reserva Nafarroa103", "Reserva activa, pasamos al estado PRE")
+            sendCommand(nafarroa103_reserva_estado, "1")
+        }
+    }
+    else if ((nafarroa103_reserva_activa.state == OFF) && (nafarroa103_reserva_estado.state != 0)) {
+        sendCommand(nafarroa103_reserva_estado, "3")
+        logInfo("Reserva Nafarroa103", "Reserva no activa, pasamos al estado POST y creamos el timer")
+        squeezeboxSpeak("nafarroa103", "Fin de la reserva, el aula se apagará en breve", 100, false)
+        t_reserva_nafarroa103 = createTimer(now.plusMinutes(5)) [|
+            sendCommand(gr_nafarroa103_interruptores, OFF)
+            sendCommand(nafarroa103_reserva_estado, "0")
+            logInfo("Reserva Nafarroa103", "Apagamos el aula por falta de movimiento, estado OFF")
+            t_reserva_nafarroa103.cancel
+            t_reserva_nafarroa103 = null
+        ]
+    }
+end
+
+rule "Control encendido en estado PRE en reserva nafarroa103"
+when
+    Item gr_nafarroa103_presencia changed or
+    Item gr_nafarroa103_puertas changed
+then
+    if (nafarroa103_reserva_estado.state == 1) {
+        logInfo("Reserva Nafarroa103", "Encendemos el aula porque se ha detectado movimiento, estado ON")
+        sendCommand(gr_nafarroa103_interruptores, ON)
+        sendCommand(nafarroa103_reserva_estado, "2")
+        val String hora = nafarroa103_reserva_fin.state.format("%1$tl")
+        val String minutos = nafarroa103_reserva_fin.state.format("%1$tM")
+        val String mensaje_bienvenida = "Bienvenido, su reserva finaliza a las " + hora + " y " + minutos
+        squeezeboxSpeak("nafarroa103", mensaje_bienvenida, 100, false)
+    }
+end
+
+rule "Control apagado en estado POST en reserva nafarroa103"
+when
+    Item gr_nafarroa103_presencia changed
+then
+    if (nafarroa103_reserva_estado.state == 3) {
+        if (gr_nafarroa103_presencia.state == OPEN) {
+            if (t_reserva_nafarroa103 != null) {
+                t_reserva_nafarroa103.cancel
+                t_reserva_nafarroa103 = null
+            }
+        }
+        else if (gr_nafarroa103_presencia.state == CLOSED) {
+            if (t_reserva_nafarroa103 == null) {
+                t_reserva_nafarroa103 = createTimer(now.plusMinutes(5)) [|
+                    logInfo("Reserva Nafarroa103", "Apagamos el aula por falta de movimiento, estado OFF")
+                    sendCommand(gr_nafarroa103_interruptores, OFF)
+                    sendCommand(nafarroa103_reserva_estado, "0")
+                    t_reserva_nafarroa103.cancel
+                    t_reserva_nafarroa103 = null
+                ]
+            }            
+        }
+    }
+end
