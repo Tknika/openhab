@@ -244,7 +244,6 @@ sitemap main label="TKNIKA IoT"
 						Text item=nafarroa103_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]" icon="clock"						
 						Text item=nafarroa103_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]" icon="clock"						
 					}					
-					Switch item=nafarroa103_interruptor_general					
 					Switch item=nafarroa103_interruptor_calefaccion					
 					Switch item=nafarroa103_interruptor_general_nocalefaccion					
 				}				
@@ -404,7 +403,6 @@ sitemap main label="TKNIKA IoT"
 						Text item=nafarroa_behera104_reserva_inicio label="Siguiente reseva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
 						Text item=nafarroa_behera104_reserva_inicio label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
 					}					
-					Switch item=nafarroa_behera104_interruptor_general					
 					Switch item=nafarroa_behera104_interruptor_calefaccion					
 					Switch item=nafarroa_behera104_interruptor_general_nocalefaccion					
 				}				
@@ -480,7 +478,6 @@ sitemap main label="TKNIKA IoT"
 						Text item=lapurdi105_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
 						Text item=lapurdi105_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
 					}					
-					Switch item=lapurdi105_interruptor_general					
 					Switch item=lapurdi105_interruptor_calefaccion					
 					Switch item=lapurdi105_interruptor_general_nocalefaccion					
 				}				
@@ -555,7 +552,6 @@ sitemap main label="TKNIKA IoT"
 						Text item=zuberoa106_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
 						Text item=zuberoa106_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
 					}					
-					Switch item=zuberoa106_interruptor_general					
 					Switch item=zuberoa106_interruptor_calefaccion					
 					Switch item=zuberoa106_interruptor_general_nocalefaccion					
 				}				
@@ -631,7 +627,6 @@ sitemap main label="TKNIKA IoT"
 						Text item=smc_festo107_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
 						Text item=smc_festo107_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
 					}					
-					Switch item=smc_festo107_interruptor_general					
 					Switch item=smc_festo107_interruptor_calefaccion					
 					Switch item=smc_festo107_interruptor_general_nocalefaccion					
 				}				
@@ -708,7 +703,6 @@ sitemap main label="TKNIKA IoT"
 						Text item=urdaburu108_reserva_inicio label="Siguiente reserva: inicio [%1$tm/%1$td %1$tH:%1$tM]"						
 						Text item=urdaburu108_reserva_fin label="Siguiente reserva: fin [%1$tm/%1$td %1$tH:%1$tM]"						
 					}					
-					Switch item=urdaburu108_interruptor_general					
 					Switch item=urdaburu108_interruptor_calefaccion					
 					Switch item=urdaburu108_interruptor_general_nocalefaccion					
 				}				
